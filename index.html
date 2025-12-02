@@ -644,52 +644,45 @@
 
         /* Mobile styles */
         @media (max-width: 768px) {
-            .header { padding: 20px 15px; }
-            .header h1 { font-size: 1.5rem; }
-            .header .subtitle { font-size: 1rem; }
-            .header .author { font-size: 0.75rem; }
-            .stats { gap: 10px; }
-            .stat-item { padding: 8px 12px; }
-            .stat-value { font-size: 1.2rem; }
-            .stat-label { font-size: 0.65rem; }
-            .controls { margin: 10px; padding: 12px; }
+            .header { padding: 12px 10px; position: static; }
+            .header h1 { font-size: 1.3rem; margin-bottom: 2px; }
+            .header .subtitle { font-size: 0.85rem; margin-bottom: 4px; }
+            .header .date-range { font-size: 0.75rem; }
+            .header .author { display: none; }
+            .stats { display: none; }
+            .controls { margin: 8px; padding: 10px; }
             .control-group { min-width: 100%; }
             .share-container { flex-direction: column; gap: 8px; }
             .share-btn { width: 100%; justify-content: center; }
-            .date-header { flex-direction: column; gap: 5px; top: 95px; padding: 8px 12px; }
-            .date-header h2 { font-size: 1rem; }
-            .schedule-container { padding: 0 10px 30px; }
-            .events-container { padding: 10px; overflow-x: auto; }
-            .events-table { font-size: 0.75rem; min-width: 550px; }
-            .events-table th, .events-table td { padding: 6px 4px; }
+            .date-header { position: static; flex-direction: row; justify-content: space-between; padding: 8px 12px; }
+            .date-header h2 { font-size: 0.95rem; }
+            .schedule-container { padding: 0 8px 20px; }
+            .events-container { padding: 8px; overflow-x: auto; }
+            .events-table { font-size: 0.75rem; min-width: 500px; }
+            .events-table th, .events-table td { padding: 5px 4px; }
             .col-festival { display: none; }
             .col-place { display: none; }
             .col-accompanists { display: none; }
-            .badge { padding: 3px 6px; font-size: 0.65rem; }
-            .date-nav { gap: 5px; }
-            .date-nav a { padding: 6px 10px; font-size: 0.75rem; }
-            .legend { margin: 0 10px 15px; padding: 12px; }
-            .legend-item { font-size: 0.75rem; }
-            .footer { padding: 20px 15px; }
-            .footer p { font-size: 0.8rem; }
+            .badge { padding: 2px 5px; font-size: 0.6rem; }
+            .date-nav { display: none; }
+            .legend { display: none; }
+            .footer { padding: 15px 10px; }
+            .footer p { font-size: 0.75rem; }
         }
 
         /* Small mobile styles */
         @media (max-width: 480px) {
-            .header { padding: 15px 10px; }
-            .header h1 { font-size: 1.25rem; }
-            .header .subtitle { font-size: 0.85rem; }
-            .header .date-range { font-size: 0.75rem; }
-            .stats { gap: 6px; }
-            .stat-item { padding: 5px 8px; flex: 1; min-width: 65px; }
-            .stat-value { font-size: 0.95rem; }
-            .stat-label { font-size: 0.6rem; }
-            .date-header { top: 80px; }
-            .events-table { font-size: 0.7rem; min-width: 450px; }
+            .header { padding: 10px 8px; }
+            .header h1 { font-size: 1.1rem; }
+            .header .subtitle { font-size: 0.75rem; }
+            .header .date-range { font-size: 0.7rem; }
+            .events-table { font-size: 0.65rem; min-width: 420px; }
+            .events-table th, .events-table td { padding: 4px 3px; }
             .col-venue { display: none; }
-            .controls { margin: 8px; padding: 10px; }
-            .control-group label { font-size: 0.7rem; }
-            .control-group select, .control-group input { padding: 6px 8px; font-size: 0.8rem; }
+            .controls { margin: 5px; padding: 8px; }
+            .control-group label { font-size: 0.65rem; }
+            .control-group select, .control-group input { padding: 5px 6px; font-size: 0.75rem; }
+            .footer p { font-size: 0.7rem; margin-bottom: 5px; }
         }
 
         @media print {
@@ -1770,7 +1763,7 @@
         {date: '2025-12-29', day: 'Monday', time_start: '09:05 AM', time_end: '09:50 AM', time_sort: 545, venue: 'academy', genre: 'lecture', main_artist: 'Vidushi Urmila Satyanarayana', accompanists: 'Setting Muthuswami Dikshitar kriti-s to dance', is_ticketed: false},
         // December 30, 2025 - Tuesday
         {date: '2025-12-30', day: 'Tuesday', time_start: '08:05 AM', time_end: '08:50 AM', time_sort: 485, venue: 'academy', genre: 'lecture', main_artist: 'Dr. TR Aravindhan', accompanists: 'Compositions of Dikshitar in Unpublished Manuscripts', is_ticketed: false},
-        {date: '2025-12-30', day: 'Tuesday', time_start: '09:05 AM', time_end: '09:50 AM', time_sort: 545, venue: 'academy', genre: 'lecture', main_artist: 'Sangita Kalanidhi TM Krishna', accompanists: 'Dikshitar Rudrapriya – One name, multiple identities', is_ticketed: false},
+        {date: '2025-12-30', day: 'Tuesday', time_start: '09:05 AM', time_end: '09:50 AM', time_sort: 545, venue: 'academy', genre: 'lecture', main_artist: 'Sangita Kalanidhi TM Krishna', accompanists: 'Dikshitar Rudrapriya ï¿½ One name, multiple identities', is_ticketed: false},
         // December 31, 2025 - Wednesday
         {date: '2025-12-31', day: 'Wednesday', time_start: '08:00 AM', time_end: '08:20 AM', time_sort: 480, venue: 'academy', genre: 'special', main_artist: 'Winners - Devotional Music Competition', accompanists: 'Devotional Music', is_ticketed: false},
         {date: '2025-12-31', day: 'Wednesday', time_start: '08:20 AM', time_end: '09:05 AM', time_sort: 500, venue: 'academy', genre: 'lecture', main_artist: 'Prof. Dr. CA Sreedhara', accompanists: 'Evolution of flute in Carnatic music - Centenary tribute to TR Mahalingam', is_ticketed: false},
