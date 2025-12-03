@@ -46,6 +46,8 @@
             --stbgs-bg: #EFEBE9;
             --sciartsrus-color: #00695C;
             --sciartsrus-bg: #E0F2F1;
+            --madhuradhwani-color: #FF6F00;
+            --madhuradhwani-bg: #FFF3E0;
 
             /* Genre colors */
             --vocal-color: #6A1B9A;
@@ -467,6 +469,11 @@
             color: var(--sciartsrus-color);
         }
 
+        .badge-madhuradhwani {
+            background: var(--madhuradhwani-bg);
+            color: var(--madhuradhwani-color);
+        }
+
         .badge-vocal { background: rgba(155, 89, 182, 0.15); color: var(--vocal-color); }
         .badge-violin { background: rgba(230, 126, 34, 0.15); color: var(--violin-color); }
         .badge-veena { background: rgba(39, 174, 96, 0.15); color: var(--veena-color); }
@@ -791,11 +798,11 @@
                 <div class="stat-label">Days</div>
             </div>
             <div class="stat-item">
-                <div class="stat-value">14</div>
+                <div class="stat-value">15</div>
                 <div class="stat-label">Sabhas</div>
             </div>
             <div class="stat-item">
-                <div class="stat-value" id="total-concerts">840+</div>
+                <div class="stat-value" id="total-concerts">900+</div>
                 <div class="stat-label">Concerts</div>
             </div>
             <div class="stat-item">
@@ -824,6 +831,7 @@
                     <option value="kalakshetra">Kalakshetra</option>
                     <option value="stbgs">Sri Thyaga Brahma Gana Sabha</option>
                     <option value="sciartsrus">SciArtsRUs</option>
+                    <option value="madhuradhwani">Madhuradhwani</option>
                 </select>
             </div>
             <div class="control-group">
@@ -844,6 +852,7 @@
                     <option value="kalakshetra-hall">Bharata Kalakshetra Auditorium</option>
                     <option value="vani-mahal">Vani Mahal</option>
                     <option value="mfac">Mylapore Fine Arts Club</option>
+                    <option value="arkay">Arkay Convention Center</option>
                 </select>
             </div>
             <div class="control-group">
@@ -977,6 +986,7 @@
             <span class="legend-item"><span class="legend-color" style="background: var(--kalakshetra-color)"></span> Kalakshetra</span>
             <span class="legend-item"><span class="legend-color" style="background: var(--stbgs-color)"></span> Sri Thyaga Brahma GS</span>
             <span class="legend-item"><span class="legend-color" style="background: var(--sciartsrus-color)"></span> SciArtsRUs</span>
+            <span class="legend-item"><span class="legend-color" style="background: var(--madhuradhwani-color)"></span> Madhuradhwani</span>
         </div>
         <div class="legend-row">
             <span class="legend-item"><span class="legend-color" style="background: var(--vocal-color)"></span> Vocal</span>
@@ -2077,7 +2087,100 @@
         {date: '2025-12-28', day: 'Sunday', time_start: '03:30 PM', time_end: '', time_sort: 930, sabha: 'sciartsrus', genre: 'special', main_artist: 'Dinamala Kousika (Crowd)', accompanists: '', is_ticketed: false},
         {date: '2025-12-28', day: 'Sunday', time_start: '04:00 PM', time_end: '', time_sort: 960, sabha: 'sciartsrus', genre: 'vocal', main_artist: 'Students of The Ability Group', accompanists: '', is_ticketed: false},
         {date: '2025-12-28', day: 'Sunday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'sciartsrus', genre: 'special', main_artist: 'Mela Pattambalam (Drama)', accompanists: 'Kalakshetra Foundation', is_ticketed: false},
-        {date: '2025-12-28', day: 'Sunday', time_start: '05:00 PM', time_end: '', time_sort: 1020, sabha: 'sciartsrus', genre: 'special', main_artist: 'Closing Ceremony', accompanists: '', is_ticketed: false}
+        {date: '2025-12-28', day: 'Sunday', time_start: '05:00 PM', time_end: '', time_sort: 1020, sabha: 'sciartsrus', genre: 'special', main_artist: 'Closing Ceremony', accompanists: '', is_ticketed: false},
+
+        // Madhuradhwani Music Festival - Dec 1-31, 2025
+        // Venue: Arkay Convention Center, Mylapore
+        // Dec 1
+        {date: '2025-12-01', day: 'Monday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Swarathmika Srikanth', accompanists: '', is_ticketed: false},
+        {date: '2025-12-01', day: 'Monday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Ashwath Narayanan', accompanists: '', is_ticketed: false},
+        // Dec 2
+        {date: '2025-12-02', day: 'Tuesday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Srirangan V Venkatanagarajan', accompanists: '', is_ticketed: false},
+        {date: '2025-12-02', day: 'Tuesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Gayathri Girish', accompanists: '', is_ticketed: false},
+        // Dec 3
+        {date: '2025-12-03', day: 'Wednesday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Hamzini Vytheeswaran', accompanists: '', is_ticketed: false},
+        {date: '2025-12-03', day: 'Wednesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'S. Mahathi', accompanists: '', is_ticketed: false},
+        // Dec 4
+        {date: '2025-12-04', day: 'Thursday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Lakshmi Priya', accompanists: '', is_ticketed: false},
+        {date: '2025-12-04', day: 'Thursday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Carnatica Brothers', accompanists: '', is_ticketed: false},
+        // Dec 5
+        {date: '2025-12-05', day: 'Friday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Shruthi S Bhat', accompanists: '', is_ticketed: false},
+        {date: '2025-12-05', day: 'Friday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'special', main_artist: 'Sangeetha Bhakthi Samarpanam', accompanists: '', is_ticketed: false},
+        // Dec 6 & 7 - LEC DEM MELA 2025
+        {date: '2025-12-06', day: 'Saturday', time_start: '10:00 AM', time_end: '', time_sort: 600, sabha: 'madhuradhwani', genre: 'lecture', main_artist: 'LEC DEM MELA 2025 - Full Day', accompanists: '', is_ticketed: false},
+        {date: '2025-12-07', day: 'Sunday', time_start: '10:00 AM', time_end: '', time_sort: 600, sabha: 'madhuradhwani', genre: 'lecture', main_artist: 'LEC DEM MELA 2025 - Full Day', accompanists: '', is_ticketed: false},
+        // Dec 8
+        {date: '2025-12-08', day: 'Monday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Jayshri Aravind', accompanists: '', is_ticketed: false},
+        {date: '2025-12-08', day: 'Monday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Amritha Murali', accompanists: '', is_ticketed: false},
+        // Dec 9
+        {date: '2025-12-09', day: 'Tuesday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Sangeetha Swaminathan', accompanists: '', is_ticketed: false},
+        {date: '2025-12-09', day: 'Tuesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'K S Vishnudev', accompanists: '', is_ticketed: false},
+        // Dec 10
+        {date: '2025-12-10', day: 'Wednesday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Jayalakshmi Shekar', accompanists: '', is_ticketed: false},
+        {date: '2025-12-10', day: 'Wednesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'G Baby Sreeram', accompanists: '', is_ticketed: false},
+        // Dec 11
+        {date: '2025-12-11', day: 'Thursday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'B U Ganesh Prasad', accompanists: '', is_ticketed: false},
+        {date: '2025-12-11', day: 'Thursday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'M Chandrashekaran', accompanists: '', is_ticketed: false},
+        // Dec 12
+        {date: '2025-12-12', day: 'Friday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Archana and Aarathi', accompanists: '', is_ticketed: false},
+        {date: '2025-12-12', day: 'Friday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'T V Gopalakrishnan', accompanists: '', is_ticketed: false},
+        // Dec 13
+        {date: '2025-12-13', day: 'Saturday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Brindha Manickavasakan', accompanists: '', is_ticketed: false},
+        {date: '2025-12-13', day: 'Saturday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'upanyasam', main_artist: 'Dushyanth Sridhar', accompanists: '', is_ticketed: false},
+        // Dec 14
+        {date: '2025-12-14', day: 'Sunday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'S V Sahana', accompanists: '', is_ticketed: false},
+        {date: '2025-12-14', day: 'Sunday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Vidya Kalyanaraman', accompanists: '', is_ticketed: false},
+        // Dec 15
+        {date: '2025-12-15', day: 'Monday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'KiranNivi', accompanists: '', is_ticketed: false},
+        {date: '2025-12-15', day: 'Monday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Prince Rama Varma', accompanists: '', is_ticketed: false},
+        // Dec 16
+        {date: '2025-12-16', day: 'Tuesday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Sunil Gargyan', accompanists: '', is_ticketed: false},
+        {date: '2025-12-16', day: 'Tuesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Charumathi Raghuram', accompanists: '', is_ticketed: false},
+        // Dec 17
+        {date: '2025-12-17', day: 'Wednesday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Geetha Raja', accompanists: '', is_ticketed: false},
+        {date: '2025-12-17', day: 'Wednesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Nagai Muralidharan', accompanists: '', is_ticketed: false},
+        // Dec 18
+        {date: '2025-12-18', day: 'Thursday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Archana and Samanvi', accompanists: '', is_ticketed: false},
+        {date: '2025-12-18', day: 'Thursday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Viji & Sriram Krishnan', accompanists: '', is_ticketed: false},
+        // Dec 19
+        {date: '2025-12-19', day: 'Friday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'veena', main_artist: 'Suma Sudhindra', accompanists: '', is_ticketed: false},
+        {date: '2025-12-19', day: 'Friday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Dr S Sundar', accompanists: '', is_ticketed: false},
+        // Dec 20
+        {date: '2025-12-20', day: 'Saturday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'R Surya Prakash', accompanists: '', is_ticketed: false},
+        {date: '2025-12-20', day: 'Saturday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'O S Arun', accompanists: '', is_ticketed: false},
+        // Dec 21
+        {date: '2025-12-21', day: 'Sunday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Ananya Ashok', accompanists: '', is_ticketed: false},
+        {date: '2025-12-21', day: 'Sunday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'chitraveena', main_artist: 'Chitravina Ravikiran', accompanists: '', is_ticketed: false},
+        // Dec 22
+        {date: '2025-12-22', day: 'Monday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'J B Keerthana', accompanists: '', is_ticketed: false},
+        {date: '2025-12-22', day: 'Monday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'T N S Krishna', accompanists: '', is_ticketed: false},
+        // Dec 23
+        {date: '2025-12-23', day: 'Tuesday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Balu Masti', accompanists: '', is_ticketed: false},
+        {date: '2025-12-23', day: 'Tuesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Sriram Parasuram', accompanists: '', is_ticketed: false},
+        // Dec 24
+        {date: '2025-12-24', day: 'Wednesday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'violin', main_artist: 'Ashok Subramaniam', accompanists: '', is_ticketed: false},
+        {date: '2025-12-24', day: 'Wednesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'D Raghavachari', accompanists: '', is_ticketed: false},
+        // Dec 25
+        {date: '2025-12-25', day: 'Thursday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Kiranavali', accompanists: '', is_ticketed: false},
+        {date: '2025-12-25', day: 'Thursday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'lecture', main_artist: 'Dr Chitra Madhavan', accompanists: '', is_ticketed: false},
+        // Dec 26
+        {date: '2025-12-26', day: 'Friday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Delhi Sundar Rajan', accompanists: '', is_ticketed: false},
+        {date: '2025-12-26', day: 'Friday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Ravi Rajagopal', accompanists: '', is_ticketed: false},
+        // Dec 27
+        {date: '2025-12-27', day: 'Saturday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Anahita and Apoorva', accompanists: '', is_ticketed: false},
+        {date: '2025-12-27', day: 'Saturday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'special', main_artist: 'Peccu Kutcheri', accompanists: '', is_ticketed: false},
+        // Dec 28
+        {date: '2025-12-28', day: 'Sunday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Kruthi Vittal', accompanists: '', is_ticketed: false},
+        {date: '2025-12-28', day: 'Sunday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Jayachandran', accompanists: '', is_ticketed: false},
+        // Dec 29
+        {date: '2025-12-29', day: 'Monday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Yoga Vandana', accompanists: '', is_ticketed: false},
+        {date: '2025-12-29', day: 'Monday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'lecture', main_artist: 'Talk on Flute Mali', accompanists: '', is_ticketed: false},
+        // Dec 30
+        {date: '2025-12-30', day: 'Tuesday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Srivathsan', accompanists: '', is_ticketed: false},
+        {date: '2025-12-30', day: 'Tuesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Sriram Parasuram', accompanists: '', is_ticketed: false},
+        // Dec 31
+        {date: '2025-12-31', day: 'Wednesday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Kalyanapuram Aravind', accompanists: '', is_ticketed: false},
+        {date: '2025-12-31', day: 'Wednesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Madhusudhanan Kaliselvan', accompanists: '', is_ticketed: false}
                                         ];
 
         // Group events by date
@@ -2131,6 +2234,7 @@
             if (venue === 'kalakshetra') return 'badge-kalakshetra';
             if (venue === 'stbgs') return 'badge-stbgs';
             if (venue === 'sciartsrus') return 'badge-sciartsrus';
+            if (venue === 'madhuradhwani') return 'badge-madhuradhwani';
             return 'badge-academy'; }
 
         // Get venue display name
@@ -2146,6 +2250,7 @@
             if (venue === 'kalakshetra') return 'Kalakshetra';
             if (venue === 'stbgs') return 'Sri Thyaga Brahma GS';
             if (venue === 'sciartsrus') return 'SciArtsRUs';
+            if (venue === 'madhuradhwani') return 'Madhuradhwani';
             return venue; }
 
         function getVenueLocName(venueLoc) {
@@ -2163,7 +2268,8 @@
                 'ss-hall': 'SS Hall',
                 'kalakshetra-hall': 'Bharata Kalakshetra Auditorium',
                 'vani-mahal': 'Vani Mahal',
-                'mfac': 'Mylapore Fine Arts Club'
+                'mfac': 'Mylapore Fine Arts Club',
+                'arkay': 'Arkay Convention Center'
             };
             return venueNames[venueLoc] || venueLoc;
         }
@@ -2183,7 +2289,8 @@
                 'ss-hall': 'Royapettah',
                 'kalakshetra-hall': 'Thiruvanmiyur',
                 'vani-mahal': 'T. Nagar',
-                'mfac': 'Mylapore'
+                'mfac': 'Mylapore',
+                'arkay': 'Mylapore'
             };
             return places[venueLoc] || '';
         }
@@ -2203,7 +2310,8 @@
                 'bgs': '19th Dance Festival',
                 'kalakshetra': '72nd Annual Art Festival',
                 'stbgs': '46th Isai, Iyal, Nataka Vizha',
-                'sciartsrus': 'Margazhi Matram 2025'
+                'sciartsrus': 'Margazhi Matram 2025',
+                'madhuradhwani': 'Madhuradhwani Music Festival'
             };
             return festivals[sabha] || '';
         }
@@ -2326,7 +2434,8 @@
             'bgs': 'bgs-hall',
             'kalakshetra': 'kalakshetra-hall',
             'stbgs': 'vani-mahal',
-            'sciartsrus': 'mfac'
+            'sciartsrus': 'mfac',
+            'madhuradhwani': 'arkay'
         };
 
         // Add venue_loc property to all events based on sabha (handles both sabha: and venue: fields)
