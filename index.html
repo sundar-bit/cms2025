@@ -48,6 +48,8 @@
             --sciartsrus-bg: #E0F2F1;
             --madhuradhwani-color: #FF6F00;
             --madhuradhwani-bg: #FFF3E0;
+            --hamsadhwani-color: #1565C0;
+            --hamsadhwani-bg: #E3F2FD;
 
             /* Genre colors */
             --vocal-color: #6A1B9A;
@@ -474,6 +476,11 @@
             color: var(--madhuradhwani-color);
         }
 
+        .badge-hamsadhwani {
+            background: var(--hamsadhwani-bg);
+            color: var(--hamsadhwani-color);
+        }
+
         .badge-vocal { background: rgba(155, 89, 182, 0.15); color: var(--vocal-color); }
         .badge-violin { background: rgba(230, 126, 34, 0.15); color: var(--violin-color); }
         .badge-veena { background: rgba(39, 174, 96, 0.15); color: var(--veena-color); }
@@ -798,11 +805,11 @@
                 <div class="stat-label">Days</div>
             </div>
             <div class="stat-item">
-                <div class="stat-value">15</div>
+                <div class="stat-value">16</div>
                 <div class="stat-label">Sabhas</div>
             </div>
             <div class="stat-item">
-                <div class="stat-value" id="total-concerts">900+</div>
+                <div class="stat-value" id="total-concerts">910+</div>
                 <div class="stat-label">Concerts</div>
             </div>
             <div class="stat-item">
@@ -832,6 +839,7 @@
                     <option value="stbgs">Sri Thyaga Brahma Gana Sabha</option>
                     <option value="sciartsrus">SciArtsRUs</option>
                     <option value="madhuradhwani">Madhuradhwani</option>
+                    <option value="hamsadhwani">Hamsadhwani</option>
                 </select>
             </div>
             <div class="control-group">
@@ -853,6 +861,7 @@
                     <option value="vani-mahal">Vani Mahal</option>
                     <option value="mfac">Mylapore Fine Arts Club</option>
                     <option value="arkay">Arkay Convention Center</option>
+                    <option value="hamsadhwani-hall">Hamsadhwani Venue</option>
                 </select>
             </div>
             <div class="control-group">
@@ -987,6 +996,7 @@
             <span class="legend-item"><span class="legend-color" style="background: var(--stbgs-color)"></span> Sri Thyaga Brahma GS</span>
             <span class="legend-item"><span class="legend-color" style="background: var(--sciartsrus-color)"></span> SciArtsRUs</span>
             <span class="legend-item"><span class="legend-color" style="background: var(--madhuradhwani-color)"></span> Madhuradhwani</span>
+            <span class="legend-item"><span class="legend-color" style="background: var(--hamsadhwani-color)"></span> Hamsadhwani</span>
         </div>
         <div class="legend-row">
             <span class="legend-item"><span class="legend-color" style="background: var(--vocal-color)"></span> Vocal</span>
@@ -2180,7 +2190,26 @@
         {date: '2025-12-30', day: 'Tuesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Sriram Parasuram', accompanists: '', is_ticketed: false},
         // Dec 31
         {date: '2025-12-31', day: 'Wednesday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Kalyanapuram Aravind', accompanists: '', is_ticketed: false},
-        {date: '2025-12-31', day: 'Wednesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Madhusudhanan Kaliselvan', accompanists: '', is_ticketed: false}
+        {date: '2025-12-31', day: 'Wednesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Madhusudhanan Kaliselvan', accompanists: '', is_ticketed: false},
+
+        // Hamsadhwani - Margazhi Maha Utsavam & 30th NRI Festival
+        // Founder: R. Ramachandran - 26th Year
+        // Dec 18 - Inauguration
+        {date: '2025-12-18', day: 'Thursday', time_start: '06:15 PM', time_end: '', time_sort: 1095, sabha: 'hamsadhwani', genre: 'special', main_artist: 'Inauguration Ceremony', accompanists: '', is_ticketed: false},
+        {date: '2025-12-18', day: 'Thursday', time_start: '07:00 PM', time_end: '', time_sort: 1140, sabha: 'hamsadhwani', genre: 'dance', main_artist: 'Thematic Dance Presentation', accompanists: 'Guru S.P.Sailaja & disciples of Saila Sudha Academy', is_ticketed: false},
+        // Dec 24
+        {date: '2025-12-24', day: 'Wednesday', time_start: '06:45 PM', time_end: '', time_sort: 1125, sabha: 'hamsadhwani', genre: 'special', main_artist: 'Nirmala Rajasekhar & Ronu Mazumdar', accompanists: 'Veena & Flute Jugalbandhi', is_ticketed: false},
+        // Dec 25
+        {date: '2025-12-25', day: 'Thursday', time_start: '06:45 PM', time_end: '', time_sort: 1125, sabha: 'hamsadhwani', genre: 'bhakti', main_artist: 'Bhakti Yatra - Nada Gurukulam', accompanists: 'Staff & Students of Sri Sathya Sai University - Bhagwan Sri Sathya Sai Baba Centenary', is_ticketed: false},
+        // Dec 26
+        {date: '2025-12-26', day: 'Friday', time_start: '06:45 PM', time_end: '', time_sort: 1125, sabha: 'hamsadhwani', genre: 'special', main_artist: 'Temple of Music - SWARA YOGA Youth Ensemble', accompanists: 'Created by Violin Maestro Ganesh Rajagopalan', is_ticketed: false},
+        // Dec 30
+        {date: '2025-12-30', day: 'Tuesday', time_start: '05:15 PM', time_end: '', time_sort: 1035, sabha: 'hamsadhwani', genre: 'special', main_artist: 'Youth Cultural Ambassador Awards - 2nd Edition', accompanists: 'International Consortium of Performing Arts - Awards to young NRI Artistes & Concerts', is_ticketed: false},
+        // Jan 1, 2026
+        {date: '2026-01-01', day: 'Thursday', time_start: '06:00 PM', time_end: '', time_sort: 1080, sabha: 'hamsadhwani', genre: 'special', main_artist: 'R. Ramachandran Birthday Remembrance', accompanists: 'RRC Award of Excellence to V-EXCEL Educational Trust', is_ticketed: false},
+        {date: '2026-01-01', day: 'Thursday', time_start: '07:00 PM', time_end: '', time_sort: 1140, sabha: 'hamsadhwani', genre: 'dance', main_artist: 'Bharatanjali Dance Drama', accompanists: 'Guru Anitha Guha', is_ticketed: false},
+        // Jan 2, 2026
+        {date: '2026-01-02', day: 'Friday', time_start: '06:00 PM', time_end: '', time_sort: 1080, sabha: 'hamsadhwani', genre: 'special', main_artist: 'MAARGAZHI MATRAM Concerts', accompanists: 'Concerts by Differently Abled Artistes', is_ticketed: false}
                                         ];
 
         // Group events by date
@@ -2235,6 +2264,7 @@
             if (venue === 'stbgs') return 'badge-stbgs';
             if (venue === 'sciartsrus') return 'badge-sciartsrus';
             if (venue === 'madhuradhwani') return 'badge-madhuradhwani';
+            if (venue === 'hamsadhwani') return 'badge-hamsadhwani';
             return 'badge-academy'; }
 
         // Get venue display name
@@ -2251,6 +2281,7 @@
             if (venue === 'stbgs') return 'Sri Thyaga Brahma GS';
             if (venue === 'sciartsrus') return 'SciArtsRUs';
             if (venue === 'madhuradhwani') return 'Madhuradhwani';
+            if (venue === 'hamsadhwani') return 'Hamsadhwani';
             return venue; }
 
         function getVenueLocName(venueLoc) {
@@ -2269,7 +2300,8 @@
                 'kalakshetra-hall': 'Bharata Kalakshetra Auditorium',
                 'vani-mahal': 'Vani Mahal',
                 'mfac': 'Mylapore Fine Arts Club',
-                'arkay': 'Arkay Convention Center'
+                'arkay': 'Arkay Convention Center',
+                'hamsadhwani-hall': 'Hamsadhwani Venue'
             };
             return venueNames[venueLoc] || venueLoc;
         }
@@ -2290,7 +2322,8 @@
                 'kalakshetra-hall': 'Thiruvanmiyur',
                 'vani-mahal': 'T. Nagar',
                 'mfac': 'Mylapore',
-                'arkay': 'Mylapore'
+                'arkay': 'Mylapore',
+                'hamsadhwani-hall': 'Chennai'
             };
             return places[venueLoc] || '';
         }
@@ -2311,7 +2344,8 @@
                 'kalakshetra': '72nd Annual Art Festival',
                 'stbgs': '46th Isai, Iyal, Nataka Vizha',
                 'sciartsrus': 'Margazhi Matram 2025',
-                'madhuradhwani': 'Madhuradhwani Music Festival'
+                'madhuradhwani': 'Madhuradhwani Music Festival',
+                'hamsadhwani': 'Margazhi Maha Utsavam & NRI Festival'
             };
             return festivals[sabha] || '';
         }
@@ -2435,7 +2469,8 @@
             'kalakshetra': 'kalakshetra-hall',
             'stbgs': 'vani-mahal',
             'sciartsrus': 'mfac',
-            'madhuradhwani': 'arkay'
+            'madhuradhwani': 'arkay',
+            'hamsadhwani': 'hamsadhwani-hall'
         };
 
         // Add venue_loc property to all events based on sabha (handles both sabha: and venue: fields)
