@@ -44,6 +44,8 @@
             --kalakshetra-bg: #FFEBEE;
             --stbgs-color: #5D4037;
             --stbgs-bg: #EFEBE9;
+            --sciartsrus-color: #00695C;
+            --sciartsrus-bg: #E0F2F1;
 
             /* Genre colors */
             --vocal-color: #6A1B9A;
@@ -460,6 +462,11 @@
             color: var(--stbgs-color);
         }
 
+        .badge-sciartsrus {
+            background: var(--sciartsrus-bg);
+            color: var(--sciartsrus-color);
+        }
+
         .badge-vocal { background: rgba(155, 89, 182, 0.15); color: var(--vocal-color); }
         .badge-violin { background: rgba(230, 126, 34, 0.15); color: var(--violin-color); }
         .badge-veena { background: rgba(39, 174, 96, 0.15); color: var(--veena-color); }
@@ -784,11 +791,11 @@
                 <div class="stat-label">Days</div>
             </div>
             <div class="stat-item">
-                <div class="stat-value">13</div>
+                <div class="stat-value">14</div>
                 <div class="stat-label">Sabhas</div>
             </div>
             <div class="stat-item">
-                <div class="stat-value" id="total-concerts">810+</div>
+                <div class="stat-value" id="total-concerts">840+</div>
                 <div class="stat-label">Concerts</div>
             </div>
             <div class="stat-item">
@@ -816,6 +823,7 @@
                     <option value="bgs">Brahma Gana Sabha</option>
                     <option value="kalakshetra">Kalakshetra</option>
                     <option value="stbgs">Sri Thyaga Brahma Gana Sabha</option>
+                    <option value="sciartsrus">SciArtsRUs</option>
                 </select>
             </div>
             <div class="control-group">
@@ -835,6 +843,7 @@
                     <option value="ss-hall">Sastra Satsangh Venue</option>
                     <option value="kalakshetra-hall">Bharata Kalakshetra Auditorium</option>
                     <option value="vani-mahal">Vani Mahal</option>
+                    <option value="mfac">Mylapore Fine Arts Club</option>
                 </select>
             </div>
             <div class="control-group">
@@ -967,6 +976,7 @@
             <span class="legend-item"><span class="legend-color" style="background: var(--bgs-color)"></span> BGS</span>
             <span class="legend-item"><span class="legend-color" style="background: var(--kalakshetra-color)"></span> Kalakshetra</span>
             <span class="legend-item"><span class="legend-color" style="background: var(--stbgs-color)"></span> Sri Thyaga Brahma GS</span>
+            <span class="legend-item"><span class="legend-color" style="background: var(--sciartsrus-color)"></span> SciArtsRUs</span>
         </div>
         <div class="legend-row">
             <span class="legend-item"><span class="legend-color" style="background: var(--vocal-color)"></span> Vocal</span>
@@ -984,7 +994,7 @@
 
     <footer class="footer">
         <p><strong>Compiled by Dr. Sundararaman Chintamani</strong></p>
-        <p>Last updated: December 2, 2025</p>
+        <p>Last updated: December 3, 2025</p>
         <p class="disclaimer">For accurate timings, please verify with respective Sabhas.</p>
         <p class="contact">For corrections, omissions, or to share your gratitude - reach out at <strong>+91-9840923764</strong></p>
     </footer>
@@ -2027,7 +2037,47 @@
         {date: '2026-01-12', day: 'Monday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'dance', main_artist: 'Dr. Shobana - Bharathanatyam', accompanists: '', is_ticketed: false},
         {date: '2026-01-13', day: 'Tuesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'Aruna Sairam', accompanists: 'Vani Kala Sudhakara', is_ticketed: false},
         {date: '2026-01-14', day: 'Wednesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'special', main_artist: 'VANI MAHAL VANDANA VIZHA NIGAR', accompanists: '', is_ticketed: false},
-        {date: '2026-01-15', day: 'Thursday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'S. Sowmya', accompanists: 'Vani Kala Sudhakara', is_ticketed: false}
+        {date: '2026-01-15', day: 'Thursday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'S. Sowmya', accompanists: 'Vani Kala Sudhakara', is_ticketed: false},
+
+        // SciArtsRUs - Margazhi Matram 2025 - 6th Edition
+        // Dec 7 - Inauguration Day
+        {date: '2025-12-07', day: 'Sunday', time_start: '10:30 AM', time_end: '', time_sort: 630, sabha: 'sciartsrus', genre: 'special', main_artist: 'Inauguration & Awards Ceremony', accompanists: 'Chief Guest: Chinnasami Chetty', is_ticketed: false},
+        {date: '2025-12-07', day: 'Sunday', time_start: '04:00 PM', time_end: '', time_sort: 960, sabha: 'sciartsrus', genre: 'special', main_artist: 'This Adikki Foot in The Aids contest', accompanists: '', is_ticketed: false},
+        {date: '2025-12-07', day: 'Sunday', time_start: '05:00 PM', time_end: '', time_sort: 1020, sabha: 'sciartsrus', genre: 'special', main_artist: 'Broadway-Vine World Choir', accompanists: 'Inclusive presentation by Aman Gadi', is_ticketed: false},
+        {date: '2025-12-07', day: 'Sunday', time_start: '06:00 PM', time_end: '', time_sort: 1080, sabha: 'sciartsrus', genre: 'special', main_artist: 'Vaasna Ragam - Sounds of Silence', accompanists: 'Clarke School for the Deaf and team', is_ticketed: false},
+        {date: '2025-12-07', day: 'Sunday', time_start: '07:00 PM', time_end: '', time_sort: 1140, sabha: 'sciartsrus', genre: 'special', main_artist: 'Into the Light', accompanists: 'Special presentation by Kalindar ArkkiSaksham and team', is_ticketed: false},
+        {date: '2025-12-07', day: 'Sunday', time_start: '08:00 PM', time_end: '', time_sort: 1200, sabha: 'sciartsrus', genre: 'special', main_artist: 'Mani Usha Production', accompanists: 'Tabla musical percussion by Ponnamma Jayapal', is_ticketed: false},
+
+        // Dec 24 - Wednesday
+        {date: '2025-12-24', day: 'Wednesday', time_start: '03:30 PM', time_end: '', time_sort: 930, sabha: 'sciartsrus', genre: 'vocal', main_artist: 'Students of SriArtsRUs', accompanists: '', is_ticketed: false},
+        {date: '2025-12-24', day: 'Wednesday', time_start: '04:00 PM', time_end: '', time_sort: 960, sabha: 'sciartsrus', genre: 'vocal', main_artist: 'Students of Jayaram', accompanists: '', is_ticketed: false},
+        {date: '2025-12-24', day: 'Wednesday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'sciartsrus', genre: 'special', main_artist: 'Special Presentation', accompanists: 'Samudaya Foundation', is_ticketed: false},
+        {date: '2025-12-24', day: 'Wednesday', time_start: '05:00 PM', time_end: '', time_sort: 1020, sabha: 'sciartsrus', genre: 'vocal', main_artist: 'Pranavi Vaidyanathan', accompanists: '', is_ticketed: false},
+        {date: '2025-12-24', day: 'Wednesday', time_start: '06:00 PM', time_end: '', time_sort: 1080, sabha: 'sciartsrus', genre: 'vocal', main_artist: 'Hemalatha Thyagarajan', accompanists: '', is_ticketed: false},
+
+        // Dec 25 - Thursday
+        {date: '2025-12-25', day: 'Thursday', time_start: '03:30 PM', time_end: '', time_sort: 930, sabha: 'sciartsrus', genre: 'vocal', main_artist: 'Students of SriArtsRUs', accompanists: '', is_ticketed: false},
+        {date: '2025-12-25', day: 'Thursday', time_start: '04:00 PM', time_end: '', time_sort: 960, sabha: 'sciartsrus', genre: 'vocal', main_artist: 'Dr. Harikumar', accompanists: '', is_ticketed: false},
+        {date: '2025-12-25', day: 'Thursday', time_start: '05:00 PM', time_end: '', time_sort: 1020, sabha: 'sciartsrus', genre: 'vocal', main_artist: 'Jayashree Rajagopal', accompanists: '', is_ticketed: false},
+        {date: '2025-12-25', day: 'Thursday', time_start: '06:00 PM', time_end: '', time_sort: 1080, sabha: 'sciartsrus', genre: 'vocal', main_artist: 'Sikkil Gurucharan', accompanists: '', is_ticketed: false},
+
+        // Dec 26 - Friday
+        {date: '2025-12-26', day: 'Friday', time_start: '03:30 PM', time_end: '', time_sort: 930, sabha: 'sciartsrus', genre: 'special', main_artist: 'Students of The Ability Group', accompanists: '', is_ticketed: false},
+        {date: '2025-12-26', day: 'Friday', time_start: '04:00 PM', time_end: '', time_sort: 960, sabha: 'sciartsrus', genre: 'vocal', main_artist: 'Aishwarya Vidhya Raghunath', accompanists: '', is_ticketed: false},
+        {date: '2025-12-26', day: 'Friday', time_start: '05:00 PM', time_end: '', time_sort: 1020, sabha: 'sciartsrus', genre: 'vocal', main_artist: 'Kamalakiran Vinjamuri', accompanists: '', is_ticketed: false},
+        {date: '2025-12-26', day: 'Friday', time_start: '06:00 PM', time_end: '', time_sort: 1080, sabha: 'sciartsrus', genre: 'special', main_artist: 'Dance Drama by Kalakshetra Foundation', accompanists: '', is_ticketed: false},
+
+        // Dec 27 - Saturday
+        {date: '2025-12-27', day: 'Saturday', time_start: '03:30 PM', time_end: '', time_sort: 930, sabha: 'sciartsrus', genre: 'vocal', main_artist: 'Hemalatha Padmanabhan Thiruvangoor', accompanists: '', is_ticketed: false},
+        {date: '2025-12-27', day: 'Saturday', time_start: '04:00 PM', time_end: '', time_sort: 960, sabha: 'sciartsrus', genre: 'vocal', main_artist: 'Vishaka Hari Programme', accompanists: '', is_ticketed: false},
+        {date: '2025-12-27', day: 'Saturday', time_start: '05:00 PM', time_end: '', time_sort: 1020, sabha: 'sciartsrus', genre: 'vocal', main_artist: 'Sriranjani Anandakumar & Nandhitha Raman', accompanists: '', is_ticketed: false},
+        {date: '2025-12-27', day: 'Saturday', time_start: '06:00 PM', time_end: '', time_sort: 1080, sabha: 'sciartsrus', genre: 'vocal', main_artist: 'O.S. Arun', accompanists: '', is_ticketed: false},
+
+        // Dec 28 - Sunday - Closing Ceremony
+        {date: '2025-12-28', day: 'Sunday', time_start: '03:30 PM', time_end: '', time_sort: 930, sabha: 'sciartsrus', genre: 'special', main_artist: 'Dinamala Kousika (Crowd)', accompanists: '', is_ticketed: false},
+        {date: '2025-12-28', day: 'Sunday', time_start: '04:00 PM', time_end: '', time_sort: 960, sabha: 'sciartsrus', genre: 'vocal', main_artist: 'Students of The Ability Group', accompanists: '', is_ticketed: false},
+        {date: '2025-12-28', day: 'Sunday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'sciartsrus', genre: 'special', main_artist: 'Mela Pattambalam (Drama)', accompanists: 'Kalakshetra Foundation', is_ticketed: false},
+        {date: '2025-12-28', day: 'Sunday', time_start: '05:00 PM', time_end: '', time_sort: 1020, sabha: 'sciartsrus', genre: 'special', main_artist: 'Closing Ceremony', accompanists: '', is_ticketed: false}
                                         ];
 
         // Group events by date
@@ -2080,6 +2130,7 @@
             if (venue === 'bgs') return 'badge-bgs';
             if (venue === 'kalakshetra') return 'badge-kalakshetra';
             if (venue === 'stbgs') return 'badge-stbgs';
+            if (venue === 'sciartsrus') return 'badge-sciartsrus';
             return 'badge-academy'; }
 
         // Get venue display name
@@ -2094,6 +2145,7 @@
             if (venue === 'bgs') return 'Brahma Gana Sabha';
             if (venue === 'kalakshetra') return 'Kalakshetra';
             if (venue === 'stbgs') return 'Sri Thyaga Brahma GS';
+            if (venue === 'sciartsrus') return 'SciArtsRUs';
             return venue; }
 
         function getVenueLocName(venueLoc) {
@@ -2110,7 +2162,8 @@
                 'ghaf-hall': 'Sri Sankara Vidhyashramam Mat.Hr.School',
                 'ss-hall': 'SS Hall',
                 'kalakshetra-hall': 'Bharata Kalakshetra Auditorium',
-                'vani-mahal': 'Vani Mahal'
+                'vani-mahal': 'Vani Mahal',
+                'mfac': 'Mylapore Fine Arts Club'
             };
             return venueNames[venueLoc] || venueLoc;
         }
@@ -2129,7 +2182,8 @@
                 'ghaf-hall': 'Thiruvanmiyur',
                 'ss-hall': 'Royapettah',
                 'kalakshetra-hall': 'Thiruvanmiyur',
-                'vani-mahal': 'T. Nagar'
+                'vani-mahal': 'T. Nagar',
+                'mfac': 'Mylapore'
             };
             return places[venueLoc] || '';
         }
@@ -2148,7 +2202,8 @@
                 'ghaf': 'Global Heritage Music & Arts Fest 2025',
                 'bgs': '19th Dance Festival',
                 'kalakshetra': '72nd Annual Art Festival',
-                'stbgs': '46th Isai, Iyal, Nataka Vizha'
+                'stbgs': '46th Isai, Iyal, Nataka Vizha',
+                'sciartsrus': 'Margazhi Matram 2025'
             };
             return festivals[sabha] || '';
         }
@@ -2270,7 +2325,8 @@
             'ghaf': 'ghaf-hall',
             'bgs': 'bgs-hall',
             'kalakshetra': 'kalakshetra-hall',
-            'stbgs': 'vani-mahal'
+            'stbgs': 'vani-mahal',
+            'sciartsrus': 'mfac'
         };
 
         // Add venue_loc property to all events based on sabha (handles both sabha: and venue: fields)
