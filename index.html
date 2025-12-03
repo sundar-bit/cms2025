@@ -50,6 +50,8 @@
             --madhuradhwani-bg: #FFF3E0;
             --hamsadhwani-color: #1565C0;
             --hamsadhwani-bg: #E3F2FD;
+            --nadasudha-color: #7B1FA2;
+            --nadasudha-bg: #F3E5F5;
 
             /* Genre colors */
             --vocal-color: #6A1B9A;
@@ -481,6 +483,11 @@
             color: var(--hamsadhwani-color);
         }
 
+        .badge-nadasudha {
+            background: var(--nadasudha-bg);
+            color: var(--nadasudha-color);
+        }
+
         .badge-vocal { background: rgba(155, 89, 182, 0.15); color: var(--vocal-color); }
         .badge-violin { background: rgba(230, 126, 34, 0.15); color: var(--violin-color); }
         .badge-veena { background: rgba(39, 174, 96, 0.15); color: var(--veena-color); }
@@ -805,11 +812,11 @@
                 <div class="stat-label">Days</div>
             </div>
             <div class="stat-item">
-                <div class="stat-value">16</div>
+                <div class="stat-value">17</div>
                 <div class="stat-label">Sabhas</div>
             </div>
             <div class="stat-item">
-                <div class="stat-value" id="total-concerts">910+</div>
+                <div class="stat-value" id="total-concerts">970+</div>
                 <div class="stat-label">Concerts</div>
             </div>
             <div class="stat-item">
@@ -840,6 +847,7 @@
                     <option value="sciartsrus">SciArtsRUs</option>
                     <option value="madhuradhwani">Madhuradhwani</option>
                     <option value="hamsadhwani">Hamsadhwani</option>
+                    <option value="nadasudha">Nada Sudha</option>
                 </select>
             </div>
             <div class="control-group">
@@ -862,6 +870,7 @@
                     <option value="mfac">Mylapore Fine Arts Club</option>
                     <option value="arkay">Arkay Convention Center</option>
                     <option value="hamsadhwani-hall">Hamsadhwani Venue</option>
+                    <option value="sgsa-hall">SGS Ashram Hall</option>
                 </select>
             </div>
             <div class="control-group">
@@ -997,6 +1006,7 @@
             <span class="legend-item"><span class="legend-color" style="background: var(--sciartsrus-color)"></span> SciArtsRUs</span>
             <span class="legend-item"><span class="legend-color" style="background: var(--madhuradhwani-color)"></span> Madhuradhwani</span>
             <span class="legend-item"><span class="legend-color" style="background: var(--hamsadhwani-color)"></span> Hamsadhwani</span>
+            <span class="legend-item"><span class="legend-color" style="background: var(--nadasudha-color)"></span> Nada Sudha</span>
         </div>
         <div class="legend-row">
             <span class="legend-item"><span class="legend-color" style="background: var(--vocal-color)"></span> Vocal</span>
@@ -2209,7 +2219,90 @@
         {date: '2026-01-01', day: 'Thursday', time_start: '06:00 PM', time_end: '', time_sort: 1080, sabha: 'hamsadhwani', genre: 'special', main_artist: 'R. Ramachandran Birthday Remembrance', accompanists: 'RRC Award of Excellence to V-EXCEL Educational Trust', is_ticketed: false},
         {date: '2026-01-01', day: 'Thursday', time_start: '07:00 PM', time_end: '', time_sort: 1140, sabha: 'hamsadhwani', genre: 'dance', main_artist: 'Bharatanjali Dance Drama', accompanists: 'Guru Anitha Guha', is_ticketed: false},
         // Jan 2, 2026
-        {date: '2026-01-02', day: 'Friday', time_start: '06:00 PM', time_end: '', time_sort: 1080, sabha: 'hamsadhwani', genre: 'special', main_artist: 'MAARGAZHI MATRAM Concerts', accompanists: 'Concerts by Differently Abled Artistes', is_ticketed: false}
+        {date: '2026-01-02', day: 'Friday', time_start: '06:00 PM', time_end: '', time_sort: 1080, sabha: 'hamsadhwani', genre: 'special', main_artist: 'MAARGAZHI MATRAM Concerts', accompanists: 'Concerts by Differently Abled Artistes', is_ticketed: false},
+
+        // Nada Sudha - 27th Annual Music Festival (Dec 24, 2025 - Jan 13, 2026)
+        // & Dance Festival (Jan 14-18 & Jan 24-26, 2026)
+        // Venue: Sri Ganapathi Sachchidananda Ashram Hall, Velachery
+        // Dec 24 - Inauguration Day
+        {date: '2025-12-24', day: 'Wednesday', time_start: '03:30 PM', time_end: '', time_sort: 930, sabha: 'nadasudha', genre: 'special', main_artist: 'Margazhi Isai', accompanists: '', is_ticketed: false},
+        {date: '2025-12-24', day: 'Wednesday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'nadasudha', genre: 'special', main_artist: 'Inauguration Ceremony', accompanists: 'Chief Guest: Dr. Kambadur Muralidaran, C.T. Malini Geetha', is_ticketed: false},
+        {date: '2025-12-24', day: 'Wednesday', time_start: '05:30 PM', time_end: '', time_sort: 1050, sabha: 'nadasudha', genre: 'special', main_artist: 'Nada Vallabha Title Awards', accompanists: 'Padma Bhoshan Dr. Nalli Kuppuswami Chetty', is_ticketed: false},
+        // Dec 26
+        {date: '2025-12-26', day: 'Friday', time_start: '02:45 PM', time_end: '', time_sort: 885, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Smitha Vadhya & Padma Srinivasan', accompanists: '', is_ticketed: false},
+        {date: '2025-12-26', day: 'Friday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Kamala Deepthi', accompanists: '', is_ticketed: false},
+        {date: '2025-12-26', day: 'Friday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Palghat Ramprasad', accompanists: '', is_ticketed: false},
+        // Dec 27
+        {date: '2025-12-27', day: 'Saturday', time_start: '02:45 PM', time_end: '', time_sort: 885, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Madhura Sriram', accompanists: '', is_ticketed: false},
+        {date: '2025-12-27', day: 'Saturday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Vaishnavi Anand', accompanists: '', is_ticketed: false},
+        {date: '2025-12-27', day: 'Saturday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'nadasudha', genre: 'vocal', main_artist: 'D. Padmavathi & Srividhya Prasanna', accompanists: '', is_ticketed: false},
+        // Dec 28
+        {date: '2025-12-28', day: 'Sunday', time_start: '02:45 PM', time_end: '', time_sort: 885, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Vaishrav Ramu', accompanists: '', is_ticketed: false},
+        {date: '2025-12-28', day: 'Sunday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Agitayer', accompanists: '', is_ticketed: false},
+        {date: '2025-12-28', day: 'Sunday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Amritha Murali', accompanists: '', is_ticketed: false},
+        // Dec 29
+        {date: '2025-12-29', day: 'Monday', time_start: '02:45 PM', time_end: '', time_sort: 885, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Anirudh Raja', accompanists: '', is_ticketed: false},
+        {date: '2025-12-29', day: 'Monday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Aravind Sagar', accompanists: '', is_ticketed: false},
+        {date: '2025-12-29', day: 'Monday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Amritha Murgan', accompanists: '', is_ticketed: false},
+        // Dec 30
+        {date: '2025-12-30', day: 'Tuesday', time_start: '02:45 PM', time_end: '', time_sort: 885, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Vignesh - Guitar', accompanists: '', is_ticketed: false},
+        {date: '2025-12-30', day: 'Tuesday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Gayathri Mani', accompanists: '', is_ticketed: false},
+        // Dec 31
+        {date: '2025-12-31', day: 'Wednesday', time_start: '02:45 PM', time_end: '', time_sort: 885, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Ashrea Krishna', accompanists: '', is_ticketed: false},
+        {date: '2025-12-31', day: 'Wednesday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Vinaya Suresh', accompanists: '', is_ticketed: false},
+        {date: '2025-12-31', day: 'Wednesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Bhavani Sundar', accompanists: '', is_ticketed: false},
+        // Jan 1, 2026
+        {date: '2026-01-01', day: 'Thursday', time_start: '02:45 PM', time_end: '', time_sort: 885, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Bhavana Chandrakumar', accompanists: '', is_ticketed: false},
+        {date: '2026-01-01', day: 'Thursday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Dr. Shobana', accompanists: '', is_ticketed: false},
+        {date: '2026-01-01', day: 'Thursday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'nadasudha', genre: 'vocal', main_artist: 'J.B. Sruthi Sagar', accompanists: '', is_ticketed: false},
+        // Jan 2, 2026
+        {date: '2026-01-02', day: 'Friday', time_start: '02:45 PM', time_end: '', time_sort: 885, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Abhinaya Ananthanarayan', accompanists: '', is_ticketed: false},
+        {date: '2026-01-02', day: 'Friday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Ablash Giriprasad', accompanists: '', is_ticketed: false},
+        {date: '2026-01-02', day: 'Friday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Ramakrishna Murthy', accompanists: '', is_ticketed: false},
+        // Jan 3, 2026
+        {date: '2026-01-03', day: 'Saturday', time_start: '02:45 PM', time_end: '', time_sort: 885, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Preethi & Mahathi', accompanists: '', is_ticketed: false},
+        {date: '2026-01-03', day: 'Saturday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Vivek Moddiwala', accompanists: '', is_ticketed: false},
+        {date: '2026-01-03', day: 'Saturday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Amritha Venkatesh', accompanists: '', is_ticketed: false},
+        // Jan 4, 2026
+        {date: '2026-01-04', day: 'Sunday', time_start: '02:45 PM', time_end: '', time_sort: 885, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Padmajothi Prathyumnan', accompanists: '', is_ticketed: false},
+        {date: '2026-01-04', day: 'Sunday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Dr. Sanjay Subrahmanyan', accompanists: '', is_ticketed: false},
+        {date: '2026-01-04', day: 'Sunday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Lalitha & Nandini - Violin Duet', accompanists: '', is_ticketed: false},
+        // Jan 5, 2026
+        {date: '2026-01-05', day: 'Monday', time_start: '02:45 PM', time_end: '', time_sort: 885, sabha: 'nadasudha', genre: 'vocal', main_artist: 'S. Krithika', accompanists: '', is_ticketed: false},
+        {date: '2026-01-05', day: 'Monday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Rajashri Shankar', accompanists: '', is_ticketed: false},
+        {date: '2026-01-05', day: 'Monday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Kalyanapuram Aravind', accompanists: '', is_ticketed: false},
+        // Jan 6, 2026
+        {date: '2026-01-06', day: 'Tuesday', time_start: '02:45 PM', time_end: '', time_sort: 885, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Mathangi Kalaiselvan', accompanists: '', is_ticketed: false},
+        {date: '2026-01-06', day: 'Tuesday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'nadasudha', genre: 'veena', main_artist: 'Veena Venkataraman - Veena', accompanists: '', is_ticketed: false},
+        {date: '2026-01-06', day: 'Tuesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'nadasudha', genre: 'vocal', main_artist: 'K N Sasikiran & P Ganesh', accompanists: '', is_ticketed: false},
+        // Jan 7, 2026
+        {date: '2026-01-07', day: 'Wednesday', time_start: '02:45 PM', time_end: '', time_sort: 885, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Guha Sisters', accompanists: '', is_ticketed: false},
+        {date: '2026-01-07', day: 'Wednesday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Shruthi Shankar Kumar', accompanists: '', is_ticketed: false},
+        {date: '2026-01-07', day: 'Wednesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Sandeep Narayan', accompanists: '', is_ticketed: false},
+        // Jan 8, 2026
+        {date: '2026-01-08', day: 'Thursday', time_start: '02:45 PM', time_end: '', time_sort: 885, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Sanjana Krishnan', accompanists: '', is_ticketed: false},
+        {date: '2026-01-08', day: 'Thursday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Madurai N Sivagami', accompanists: '', is_ticketed: false},
+        {date: '2026-01-08', day: 'Thursday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Nada Vallabha - Gayatri Venkatraghavan', accompanists: 'Akkari Sisters S.Subhalakshmi & S.Sornalata', is_ticketed: false},
+        // Jan 9, 2026
+        {date: '2026-01-09', day: 'Friday', time_start: '02:45 PM', time_end: '', time_sort: 885, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Sahana Sathish', accompanists: '', is_ticketed: false},
+        // Jan 10, 2026
+        {date: '2026-01-10', day: 'Saturday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Tavitra Standhari', accompanists: '', is_ticketed: false},
+        {date: '2026-01-10', day: 'Saturday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Sneha Mahesh - Smt. Priya Murle', accompanists: '', is_ticketed: false},
+        // Jan 11, 2026
+        {date: '2026-01-11', day: 'Sunday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Jayasree Rajan', accompanists: '', is_ticketed: false},
+        {date: '2026-01-11', day: 'Sunday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Aravindhan Venugopaul', accompanists: '', is_ticketed: false},
+        // Jan 12, 2026
+        {date: '2026-01-12', day: 'Monday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Students of Rala Utkavi', accompanists: '', is_ticketed: false},
+        {date: '2026-01-12', day: 'Monday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'nadasudha', genre: 'vocal', main_artist: 'H H Nadhiya Sri Sathya Nithyananda', accompanists: '', is_ticketed: false},
+        // Jan 13, 2026
+        {date: '2026-01-13', day: 'Tuesday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Kum Anagahini Kamali', accompanists: '', is_ticketed: false},
+        {date: '2026-01-13', day: 'Tuesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'nadasudha', genre: 'vocal', main_artist: 'Bala Ganesha - Premeeka Nethran', accompanists: '', is_ticketed: false},
+        // Dance Festival - Jan 14-18, 2026
+        {date: '2026-01-14', day: 'Wednesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'nadasudha', genre: 'dance', main_artist: 'Guru Smt. Latha Silsharma', accompanists: '', is_ticketed: false},
+        {date: '2026-01-15', day: 'Thursday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'nadasudha', genre: 'dance', main_artist: 'Dance Drama by Smt. Priya Murle', accompanists: 'Students of Shri Shanmukhananda Academy', is_ticketed: false},
+        {date: '2026-01-16', day: 'Friday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'nadasudha', genre: 'dance', main_artist: 'Bharatanatyam Salangai Puja', accompanists: 'Students', is_ticketed: false},
+        {date: '2026-01-17', day: 'Saturday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'nadasudha', genre: 'dance', main_artist: 'Sanjeeth Bharath & Tejosi', accompanists: 'Deva Maithrey', is_ticketed: false},
+        {date: '2026-01-18', day: 'Sunday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'nadasudha', genre: 'dance', main_artist: 'Celestial Nymphs Rama Menaka & Others', accompanists: 'Students of Theater Academy of Native', is_ticketed: false}
                                         ];
 
         // Group events by date
@@ -2265,6 +2358,7 @@
             if (venue === 'sciartsrus') return 'badge-sciartsrus';
             if (venue === 'madhuradhwani') return 'badge-madhuradhwani';
             if (venue === 'hamsadhwani') return 'badge-hamsadhwani';
+            if (venue === 'nadasudha') return 'badge-nadasudha';
             return 'badge-academy'; }
 
         // Get venue display name
@@ -2282,6 +2376,7 @@
             if (venue === 'sciartsrus') return 'SciArtsRUs';
             if (venue === 'madhuradhwani') return 'Madhuradhwani';
             if (venue === 'hamsadhwani') return 'Hamsadhwani';
+            if (venue === 'nadasudha') return 'Nada Sudha';
             return venue; }
 
         function getVenueLocName(venueLoc) {
@@ -2301,7 +2396,8 @@
                 'vani-mahal': 'Vani Mahal',
                 'mfac': 'Mylapore Fine Arts Club',
                 'arkay': 'Arkay Convention Center',
-                'hamsadhwani-hall': 'Hamsadhwani Venue'
+                'hamsadhwani-hall': 'Hamsadhwani Venue',
+                'sgsa-hall': 'SGS Ashram Hall'
             };
             return venueNames[venueLoc] || venueLoc;
         }
@@ -2323,7 +2419,8 @@
                 'vani-mahal': 'T. Nagar',
                 'mfac': 'Mylapore',
                 'arkay': 'Mylapore',
-                'hamsadhwani-hall': 'Chennai'
+                'hamsadhwani-hall': 'Chennai',
+                'sgsa-hall': 'Velachery'
             };
             return places[venueLoc] || '';
         }
@@ -2345,7 +2442,8 @@
                 'stbgs': '46th Isai, Iyal, Nataka Vizha',
                 'sciartsrus': 'Margazhi Matram 2025',
                 'madhuradhwani': 'Madhuradhwani Music Festival',
-                'hamsadhwani': 'Margazhi Maha Utsavam & NRI Festival'
+                'hamsadhwani': 'Margazhi Maha Utsavam & NRI Festival',
+                'nadasudha': '27th Annual Music & Dance Festival'
             };
             return festivals[sabha] || '';
         }
@@ -2470,7 +2568,8 @@
             'stbgs': 'vani-mahal',
             'sciartsrus': 'mfac',
             'madhuradhwani': 'arkay',
-            'hamsadhwani': 'hamsadhwani-hall'
+            'hamsadhwani': 'hamsadhwani-hall',
+            'nadasudha': 'sgsa-hall'
         };
 
         // Add venue_loc property to all events based on sabha (handles both sabha: and venue: fields)
