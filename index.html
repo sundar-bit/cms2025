@@ -40,6 +40,10 @@
             --ghaf-bg: #F3E5F5;
             --bgs-color: #FF8F00;
             --bgs-bg: #FFF8E1;
+            --kalakshetra-color: #C62828;
+            --kalakshetra-bg: #FFEBEE;
+            --stbgs-color: #5D4037;
+            --stbgs-bg: #EFEBE9;
 
             /* Genre colors */
             --vocal-color: #6A1B9A;
@@ -53,6 +57,7 @@
             --harikatha-color: #D84315;
             --special-color: #F9A825;
             --bhakti-color: #00838F;
+            --dance-color: #AD1457;
         }
 
         * {
@@ -75,13 +80,23 @@
         .header {
             background: linear-gradient(135deg, var(--maroon) 0%, var(--deep-maroon) 100%);
             color: var(--cream);
-            padding: 30px 20px;
-            text-align: center;
+            padding: 15px 20px;
             position: sticky;
             top: 0;
             z-index: 100;
             box-shadow: 0 4px 20px rgba(92, 0, 21, 0.4);
             border-bottom: 3px solid var(--gold);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .header-left {
+            text-align: left;
+            flex: 1;
+            min-width: 250px;
         }
 
         .header::before {
@@ -97,8 +112,8 @@
 
         .header h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.4rem;
-            margin-bottom: 5px;
+            font-size: 1.8rem;
+            margin-bottom: 2px;
             color: var(--bright-gold);
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
             position: relative;
@@ -106,23 +121,24 @@
 
         .header .subtitle {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: var(--cream);
-            margin-bottom: 8px;
+            margin-bottom: 2px;
             letter-spacing: 1px;
             position: relative;
         }
 
         .header .date-range {
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             color: var(--gold);
             position: relative;
+            margin-bottom: 0;
         }
 
         .header .author {
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             color: rgba(255, 248, 231, 0.85);
-            margin-top: 8px;
+            margin-top: 2px;
             font-style: italic;
             position: relative;
         }
@@ -135,9 +151,8 @@
 
         .stats {
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 15px;
+            justify-content: flex-end;
+            gap: 12px;
             flex-wrap: wrap;
             position: relative;
         }
@@ -145,16 +160,17 @@
         .stat-item {
             text-align: center;
             background: rgba(212, 175, 55, 0.15);
-            padding: 10px 20px;
-            border-radius: 8px;
+            padding: 6px 12px;
+            border-radius: 6px;
             border: 1px solid rgba(212, 175, 55, 0.3);
         }
 
         .stat-value {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.6rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: var(--bright-gold);
+            line-height: 1;
         }
 
         .stat-label {
@@ -357,7 +373,8 @@
             width: 110px;
         }
 
-        .col-sabha { width: 65px; }
+        .col-sabha { width: 65px; padding-left: 0 !important; }
+        .col-sabha .badge-small { padding-left: 0; margin-left: 0; }
         .col-festival { width: 140px; }
         .col-venue { width: 120px; }
         .col-place { width: 90px; }
@@ -433,6 +450,16 @@
             color: var(--ss-color);
         }
 
+        .badge-kalakshetra {
+            background: var(--kalakshetra-bg);
+            color: var(--kalakshetra-color);
+        }
+
+        .badge-stbgs {
+            background: var(--stbgs-bg);
+            color: var(--stbgs-color);
+        }
+
         .badge-vocal { background: rgba(155, 89, 182, 0.15); color: var(--vocal-color); }
         .badge-violin { background: rgba(230, 126, 34, 0.15); color: var(--violin-color); }
         .badge-veena { background: rgba(39, 174, 96, 0.15); color: var(--veena-color); }
@@ -444,6 +471,7 @@
         .badge-harikatha { background: rgba(211, 84, 0, 0.15); color: var(--harikatha-color); }
         .badge-special { background: rgba(243, 156, 18, 0.15); color: var(--special-color); }
         .badge-bhakti { background: rgba(26, 188, 156, 0.15); color: var(--bhakti-color); }
+        .badge-dance { background: rgba(173, 20, 87, 0.15); color: var(--dance-color); }
 
         .badge-ticketed {
             background: #FFE5E5;
@@ -644,12 +672,16 @@
 
         /* Mobile styles */
         @media (max-width: 768px) {
-            .header { padding: 12px 10px; position: static; }
-            .header h1 { font-size: 1.3rem; margin-bottom: 2px; }
-            .header .subtitle { font-size: 0.85rem; margin-bottom: 4px; }
-            .header .date-range { font-size: 0.75rem; }
+            .header { padding: 10px; position: static; flex-direction: row; }
+            .header-left { min-width: 180px; }
+            .header h1 { font-size: 1.1rem; margin-bottom: 2px; }
+            .header .subtitle { font-size: 0.75rem; margin-bottom: 2px; }
+            .header .date-range { font-size: 0.65rem; }
             .header .author { display: none; }
-            .stats { display: none; }
+            .stats { gap: 6px; }
+            .stat-item { padding: 4px 8px; }
+            .stat-value { font-size: 1rem; }
+            .stat-label { font-size: 0.6rem; }
             .controls { margin: 8px; padding: 10px; }
             .control-group { min-width: 100%; }
             .share-container { flex-direction: column; gap: 8px; }
@@ -672,10 +704,15 @@
 
         /* Small mobile styles */
         @media (max-width: 480px) {
-            .header { padding: 10px 8px; }
-            .header h1 { font-size: 1.1rem; }
-            .header .subtitle { font-size: 0.75rem; }
-            .header .date-range { font-size: 0.7rem; }
+            .header { padding: 8px; flex-direction: column; align-items: flex-start; }
+            .header-left { min-width: 100%; text-align: center; }
+            .header h1 { font-size: 1rem; }
+            .header .subtitle { font-size: 0.7rem; }
+            .header .date-range { font-size: 0.65rem; }
+            .stats { width: 100%; justify-content: center; margin-top: 8px; }
+            .stat-item { padding: 3px 6px; }
+            .stat-value { font-size: 0.9rem; }
+            .stat-label { font-size: 0.55rem; }
             .events-table { font-size: 0.65rem; min-width: 420px; }
             .events-table th, .events-table td { padding: 4px 3px; }
             .col-venue { display: none; }
@@ -735,21 +772,23 @@
 </head>
 <body>
     <header class="header">
-        <h1>Chennai Music Season 2025-26</h1>
-        <p class="subtitle">Margazhi Utsavam - A Rasika's Ready Reckoner</p>
-        <p class="author">by Dr. Sundararaman Chintamani</p>
-        <p class="date-range">November 20, 2025 - January 18, 2026</p>
+        <div class="header-left">
+            <h1>Chennai Music Season 2025-26</h1>
+            <p class="subtitle">Margazhi Utsavam - A Rasika's Ready Reckoner</p>
+            <p class="author">by Dr. Sundararaman Chintamani</p>
+            <p class="date-range">November 20, 2025 - January 18, 2026</p>
+        </div>
         <div class="stats">
             <div class="stat-item">
                 <div class="stat-value">60</div>
                 <div class="stat-label">Days</div>
             </div>
             <div class="stat-item">
-                <div class="stat-value">10</div>
+                <div class="stat-value">13</div>
                 <div class="stat-label">Sabhas</div>
             </div>
             <div class="stat-item">
-                <div class="stat-value" id="total-concerts">755+</div>
+                <div class="stat-value" id="total-concerts">810+</div>
                 <div class="stat-label">Concerts</div>
             </div>
             <div class="stat-item">
@@ -773,8 +812,10 @@
                     <option value="bvb">Bharatiya Vidya Bhavan</option>
                     <option value="charsur">Charsur Arts</option>
                     <option value="ss">Sastra Satsangh</option>
-                    <option value="ghaf">Global Heritage Arts Fest</option>
+                    <option value="ghaf">Carnatica & SPSS</option>
                     <option value="bgs">Brahma Gana Sabha</option>
+                    <option value="kalakshetra">Kalakshetra</option>
+                    <option value="stbgs">Sri Thyaga Brahma Gana Sabha</option>
                 </select>
             </div>
             <div class="control-group">
@@ -790,8 +831,10 @@
                     <option value="ni-hall">Naada Inbam Hall</option>
                     <option value="charsur-studio">Charsur Digital Studio</option>
                     <option value="bgs-hall">Brahma Gana Sabha Hall</option>
-                    <option value="ghaf-hall">GHAF Venue</option>
+                    <option value="ghaf-hall">Carnatica & SPSS Venue</option>
                     <option value="ss-hall">Sastra Satsangh Venue</option>
+                    <option value="kalakshetra-hall">Bharata Kalakshetra Auditorium</option>
+                    <option value="vani-mahal">Vani Mahal</option>
                 </select>
             </div>
             <div class="control-group">
@@ -809,6 +852,7 @@
                     <option value="harikatha">Harikatha</option>
                     <option value="special">Special</option>
                     <option value="bhakti">Bhakti Sangeet</option>
+                    <option value="dance">Dance/Dance Drama</option>
                 </select>
             </div>
             <div class="control-group">
@@ -919,8 +963,10 @@
             <span class="legend-item"><span class="legend-color" style="background: var(--bvb-color)"></span> Bharatiya Vidya Bhavan</span>
             <span class="legend-item"><span class="legend-color" style="background: var(--charsur-color)"></span> Charsur Arts</span>
             <span class="legend-item"><span class="legend-color" style="background: var(--ss-color)"></span> Sastra Satsangh</span>
-            <span class="legend-item"><span class="legend-color" style="background: var(--ghaf-color)"></span> GHAF</span>
+            <span class="legend-item"><span class="legend-color" style="background: var(--ghaf-color)"></span> Carnatica & SPSS</span>
             <span class="legend-item"><span class="legend-color" style="background: var(--bgs-color)"></span> BGS</span>
+            <span class="legend-item"><span class="legend-color" style="background: var(--kalakshetra-color)"></span> Kalakshetra</span>
+            <span class="legend-item"><span class="legend-color" style="background: var(--stbgs-color)"></span> Sri Thyaga Brahma GS</span>
         </div>
         <div class="legend-row">
             <span class="legend-item"><span class="legend-color" style="background: var(--vocal-color)"></span> Vocal</span>
@@ -932,6 +978,7 @@
             <span class="legend-item"><span class="legend-color" style="background: var(--lecture-color)"></span> Lecture</span>
             <span class="legend-item"><span class="legend-color" style="background: var(--harikatha-color)"></span> Harikatha</span>
             <span class="legend-item"><span class="legend-color" style="background: var(--special-color)"></span> Special</span>
+            <span class="legend-item"><span class="legend-color" style="background: var(--dance-color)"></span> Dance</span>
         </div>
     </div>
 
@@ -964,7 +1011,8 @@
             {date: "2025-12-16", day: "Tuesday", time_start: "09:00 AM", time_end: "11:30 AM", time_sort: 540, sabha: "academy", genre: "nagaswaram", main_artist: "Thirumeignanam T.P.N. Ramanathan, Pandamangalam P.G. Yuvaraj", accompanists: "Thanjavur T.R. Govindarajan (Thavil), Udumalpet V. Manigandan (Thavil)", is_ticketed: true},
             {date: "2025-12-16", day: "Tuesday", time_start: "11:45 AM", time_end: "01:15 PM", time_sort: 705, sabha: "academy", genre: "vocal", main_artist: "Abhishek Ravishankar", accompanists: "Bhargav Tumkur (Violin), Sriram Srinivasan (Mridangam)", is_ticketed: true},
             {date: "2025-12-16", day: "Tuesday", time_start: "01:30 PM", time_end: "03:30 PM", time_sort: 810, sabha: "academy", genre: "vocal", main_artist: "S. Adithyanarayanan", accompanists: "V.S. Gokul (Violin), L. Sudarsan Srinivas (Mridangam), Sunaad Anoor (Kanjira)", is_ticketed: true},
-            {date: "2025-12-16", day: "Tuesday", time_start: "03:00 PM", time_end: "", time_sort: 900, sabha: "spss", genre: "nagaswaram", main_artist: "Mangala Isai", accompanists: "", is_ticketed: false},
+            {date: "2025-12-16", day: "Tuesday", time_start: "01:15 PM", time_end: "", time_sort: 795, sabha: "spss", genre: "nagaswaram", main_artist: "Mangala Isai", accompanists: "", is_ticketed: false},
+            {date: "2025-12-16", day: "Tuesday", time_start: "02:45 PM", time_end: "", time_sort: 885, sabha: "spss", genre: "nagaswaram", main_artist: "Mangala Isai", accompanists: "Sri Pathyasarvesswaram Sri G. Kalidass, Sri G. Vinodhkumar (Nadaswaram), Sri G. Sileenbarasan (Thavil)", is_ticketed: false},
             {date: "2025-12-16", day: "Tuesday", time_start: "04:00 PM", time_end: "06:30 PM", time_sort: 960, sabha: "academy", genre: "flute", main_artist: "J.B. Sruthi Sagar", accompanists: "B. Ananthakrishnan (Violin), K.V. Prasad (Mridangam), Trichy Dr. K. Murali (Ghatam)", is_ticketed: true},
             {date: "2025-12-16", day: "Tuesday", time_start: "05:00 PM", time_end: "", time_sort: 1020, sabha: "spss", genre: "special", main_artist: "Inauguration", accompanists: "", is_ticketed: false},
             {date: "2025-12-16", day: "Tuesday", time_start: "06:45 PM", time_end: "09:15 PM", time_sort: 1065, sabha: "academy", genre: "vocal", main_artist: "Kalyanapuram S. Aravind", accompanists: "Akkarai S. Sornalatha (Violin), R. Akshay Ram (Mridangam), Srinidhi R. Koundinya (Ghatam)", is_ticketed: true},
@@ -1365,7 +1413,8 @@
             {date: '2025-12-12', day: 'Friday', time_start: '07:00 PM', time_end: '', time_sort: 1140, venue: 'kgs', genre: 'special', main_artist: 'A Lakshmanaswamy (Bharatanatyam)', accompanists: '', is_ticketed: true},
             // Krishna Gana Sabha - December 13, 2025
             {date: '2025-12-13', day: 'Saturday', time_start: '11:00 AM', time_end: '', time_sort: 660, venue: 'kgs', genre: 'vocal', main_artist: 'E R Anirudh', accompanists: 'Haritha Narayanan (Violin), Burra Sriram (Mridangam)', is_ticketed: false},
-            {date: '2025-12-13', day: 'Saturday', time_start: '01:00 PM', time_end: '', time_sort: 780, venue: 'kgs', genre: 'special', main_artist: 'Shreya Devnath & Vishaal R Sapuram (Violin & Chitra Vina Duet)', accompanists: 'Praveen Sparsh (Mridangam), K R Sivaramakrishna (Kanjira)', is_ticketed: false},
+            {date: '2025-12-13', day: 'Saturday', time_start: '10:30 AM', time_end: '', time_sort: 630, venue: 'kgs', genre: 'special', main_artist: 'Shreya Devnath & Vishaal R Sapuram (Violin & Chitra Vina Duet)', accompanists: 'Praveen Sparsh (Mridangam), K R Sivaramakrishna (Kanjira)', is_ticketed: false},
+            {date: '2025-12-13', day: 'Saturday', time_start: '01:00 PM', time_end: '', time_sort: 780, venue: 'kgs', genre: 'vocal', main_artist: 'D Ravinayak', accompanists: 'B Ananthakrishnan (Violin), B Sivaraman (Mridangam), Trichy Krishnaswamy (Ghatam)', is_ticketed: false},
             {date: '2025-12-13', day: 'Saturday', time_start: '04:00 PM', time_end: '', time_sort: 960, venue: 'kgs', genre: 'vocal', main_artist: 'G Ravikaran', accompanists: 'B Ananthakrishnan (Violin), B Sivaraman (Mridangam), Trichy Krishnaswamy (Ghatam)', is_ticketed: true},
             {date: '2025-12-13', day: 'Saturday', time_start: '07:00 PM', time_end: '', time_sort: 1140, venue: 'kgs', genre: 'special', main_artist: 'Meenakshi Srinivasan (Bharatanatyam)', accompanists: '', is_ticketed: true},
             // Krishna Gana Sabha - December 14, 2025
@@ -1772,41 +1821,44 @@
         {date: '2026-01-01', day: 'Thursday', time_start: '08:00 AM', time_end: '08:20 AM', time_sort: 480, venue: 'academy', genre: 'special', main_artist: 'Runners up - Devotional Music Competition', accompanists: 'Devotional Music', is_ticketed: false},
         {date: '2026-01-01', day: 'Thursday', time_start: '08:25 AM', time_end: '09:25 AM', time_sort: 505, venue: 'academy', genre: 'special', main_artist: 'Open House', accompanists: '', is_ticketed: false},
 
-        // Global Heritage Arts Fest 2025 (Dec 13-22)
+        // Carnatica & SPSS - Global Heritage Music & Arts Fest 2025 (Dec 13-22)
         // December 13, 2025 - Saturday
-        {date: '2025-12-13', day: 'Saturday', time_start: '4:30 PM', time_end: '', time_sort: 990, venue: 'ghaf', genre: 'chitraveena', main_artist: 'N. Ravikiran', accompanists: 'VSP Gayatri Sivani (Violin)', is_ticketed: true},
-        {date: '2025-12-13', day: 'Saturday', time_start: '6:30 PM', time_end: '', time_sort: 1110, venue: 'ghaf', genre: 'special', main_artist: 'Inauguration', accompanists: '', is_ticketed: true},
-        {date: '2025-12-13', day: 'Saturday', time_start: '7:00 PM', time_end: '', time_sort: 1140, venue: 'ghaf', genre: 'vocal', main_artist: 'Palghat Ramprasad', accompanists: 'Vittal Rangan (Violin), Neyveli R. Narayanan (Mridangam), V. Suresh (Ghatam)', is_ticketed: true},
+        {date: '2025-12-13', day: 'Saturday', time_start: '3:15 PM', time_end: '', time_sort: 915, venue: 'ghaf', genre: 'special', main_artist: 'Students of The Tamilnadu Dr J Jayalalithaa Music and Fine Arts University', accompanists: '', is_ticketed: false},
+        {date: '2025-12-13', day: 'Saturday', time_start: '4:00 PM', time_end: '', time_sort: 960, venue: 'ghaf', genre: 'special', main_artist: 'Inaugural Function', accompanists: '', is_ticketed: false},
+        {date: '2025-12-13', day: 'Saturday', time_start: '4:30 PM', time_end: '', time_sort: 990, venue: 'ghaf', genre: 'chitraveena', main_artist: 'N. Ravikiran', accompanists: '', is_ticketed: true},
+        {date: '2025-12-13', day: 'Saturday', time_start: '7:00 PM', time_end: '', time_sort: 1140, venue: 'ghaf', genre: 'bhakti', main_artist: 'Sangeetha Bhakthi Samarpanam', accompanists: '', is_ticketed: false},
         // December 14, 2025 - Sunday
         {date: '2025-12-14', day: 'Sunday', time_start: '10:30 AM', time_end: '', time_sort: 630, venue: 'ghaf', genre: 'special', main_artist: 'Maadhu Balaji - Crazy Premier League', accompanists: 'Comedy Play by Crazy Mohan', is_ticketed: true},
+        {date: '2025-12-14', day: 'Sunday', time_start: '3:00 PM', time_end: '', time_sort: 900, venue: 'ghaf', genre: 'special', main_artist: 'Desika Daya - Students of U Ve Dushyanth Sridhar present "Mana Nimmathi Tharum Gopalan" Part 1', accompanists: '', is_ticketed: false},
         {date: '2025-12-14', day: 'Sunday', time_start: '4:30 PM', time_end: '', time_sort: 990, venue: 'ghaf', genre: 'vocal', main_artist: 'Ramakrishnan Murthy', accompanists: '', is_ticketed: true},
-        {date: '2025-12-14', day: 'Sunday', time_start: '7:00 PM', time_end: '', time_sort: 1140, venue: 'ghaf', genre: 'violin', main_artist: 'R.K. Shriramkumar', accompanists: '', is_ticketed: true},
+        {date: '2025-12-14', day: 'Sunday', time_start: '6:45 PM', time_end: '', time_sort: 1125, venue: 'ghaf', genre: 'violin', main_artist: 'R.K. Shriramkumar', accompanists: 'Kalaimamani Thiruvarur Bakthavathsalam (Mridangam)', is_ticketed: true},
         // December 15, 2025 - Monday
         {date: '2025-12-15', day: 'Monday', time_start: '4:30 PM', time_end: '', time_sort: 990, venue: 'ghaf', genre: 'vocal', main_artist: 'U.Ve. Dushyant Sridhar with Anahita & Apoorva Ravindran', accompanists: 'Vocal Duet', is_ticketed: true},
-        {date: '2025-12-15', day: 'Monday', time_start: '7:00 PM', time_end: '', time_sort: 1140, venue: 'ghaf', genre: 'vocal', main_artist: 'Kunnakudi M. Balamuralikrishnan', accompanists: '', is_ticketed: true},
+        {date: '2025-12-15', day: 'Monday', time_start: '6:45 PM', time_end: '', time_sort: 1125, venue: 'ghaf', genre: 'vocal', main_artist: 'Kunnakudi M. Balamuralikrishnan', accompanists: '', is_ticketed: true},
         // December 16, 2025 - Tuesday
         {date: '2025-12-16', day: 'Tuesday', time_start: '4:30 PM', time_end: '', time_sort: 990, venue: 'ghaf', genre: 'vocal', main_artist: 'Ashok Ramani', accompanists: '', is_ticketed: true},
-        {date: '2025-12-16', day: 'Tuesday', time_start: '7:00 PM', time_end: '', time_sort: 1140, venue: 'ghaf', genre: 'vocal', main_artist: 'N. Vijay Siva', accompanists: 'Swaminathan S (Vocal Support), Madan Mohan (Violin), S. Kalaichelvan (Mridangam), S. Krishna (Ghatam)', is_ticketed: true},
+        {date: '2025-12-16', day: 'Tuesday', time_start: '6:45 PM', time_end: '', time_sort: 1125, venue: 'ghaf', genre: 'vocal', main_artist: 'N. Vijay Siva', accompanists: 'Swaminathan S (Vocal Support), Madan Mohan (Violin), S. Kalaichelvan (Mridangam), S. Krishna (Ghatam)', is_ticketed: true},
         // December 17, 2025 - Wednesday
         {date: '2025-12-17', day: 'Wednesday', time_start: '4:30 PM', time_end: '', time_sort: 990, venue: 'ghaf', genre: 'special', main_artist: 'Subhshree Thanikachalam - Thatvamariya Cinema', accompanists: 'Thiraisayin Thaththuvangal', is_ticketed: true},
-        {date: '2025-12-17', day: 'Wednesday', time_start: '7:00 PM', time_end: '', time_sort: 1140, venue: 'ghaf', genre: 'vocal', main_artist: 'K. Bharat Sundar', accompanists: 'L. Ramakrishnan (Violin), Sunaada Krishna (Mridangam), K.V. Gopalakrishnan (Khanjira), Chandrasekhara Sharma (Ghatam)', is_ticketed: true},
+        {date: '2025-12-17', day: 'Wednesday', time_start: '6:45 PM', time_end: '', time_sort: 1125, venue: 'ghaf', genre: 'vocal', main_artist: 'K. Bharat Sundar', accompanists: 'L. Ramakrishnan (Violin), Sunaada Krishna (Mridangam), K.V. Gopalakrishnan (Khanjira), Chandrasekhara Sharma (Ghatam)', is_ticketed: true},
         // December 18, 2025 - Thursday
         {date: '2025-12-18', day: 'Thursday', time_start: '4:30 PM', time_end: '', time_sort: 990, venue: 'ghaf', genre: 'violin', main_artist: 'Nagai R. Muralidharan', accompanists: 'Dr. Badrinarayanan (Violin Support), Thiruvarur Vaidyanathan (Mridangam), Vaikom Gopalakrishnan (Ghatam)', is_ticketed: true},
-        {date: '2025-12-18', day: 'Thursday', time_start: '7:00 PM', time_end: '', time_sort: 1140, venue: 'ghaf', genre: 'vocal', main_artist: 'Abhishek Raghuram', accompanists: '', is_ticketed: true},
+        {date: '2025-12-18', day: 'Thursday', time_start: '6:45 PM', time_end: '', time_sort: 1125, venue: 'ghaf', genre: 'vocal', main_artist: 'Abhishek Raghuram', accompanists: '', is_ticketed: true},
         // December 19, 2025 - Friday
         {date: '2025-12-19', day: 'Friday', time_start: '4:30 PM', time_end: '', time_sort: 990, venue: 'ghaf', genre: 'flute', main_artist: 'J.A. Jayant - Flute Ensemble', accompanists: 'B. Ananthakrishnan (Violin), K. Murugaboopathi (Mridangam), Govindaprasad (Mohrsing), Sriram Natarajan (Kanjira)', is_ticketed: true},
-        {date: '2025-12-19', day: 'Friday', time_start: '7:00 PM', time_end: '', time_sort: 1140, venue: 'ghaf', genre: 'vocal', main_artist: 'Ashwath Narayanan', accompanists: 'VVS Murari (Violin), Kishore Ramesh (Mridangam), N. Guruprasad (Ghatam)', is_ticketed: true},
+        {date: '2025-12-19', day: 'Friday', time_start: '6:45 PM', time_end: '', time_sort: 1125, venue: 'ghaf', genre: 'vocal', main_artist: 'Ashwath Narayanan', accompanists: 'VVS Murari (Violin), Kishore Ramesh (Mridangam), N. Guruprasad (Ghatam)', is_ticketed: true},
         // December 20, 2025 - Saturday
         {date: '2025-12-20', day: 'Saturday', time_start: '10:30 AM', time_end: '', time_sort: 630, venue: 'ghaf', genre: 'special', main_artist: 'Y.Gee Mahendra - Lights On', accompanists: 'Drama with PANJUMON & YG Madhuvanthii', is_ticketed: true},
         {date: '2025-12-20', day: 'Saturday', time_start: '4:30 PM', time_end: '', time_sort: 990, venue: 'ghaf', genre: 'violin', main_artist: 'Charumathi Raghuraman', accompanists: 'Sai Giridhar (Mridangam), S. Krishna (Ghatam)', is_ticketed: true},
-        {date: '2025-12-20', day: 'Saturday', time_start: '7:00 PM', time_end: '', time_sort: 1140, venue: 'ghaf', genre: 'veena', main_artist: 'Ramana Balachandhran', accompanists: '', is_ticketed: true},
+        {date: '2025-12-20', day: 'Saturday', time_start: '6:45 PM', time_end: '', time_sort: 1125, venue: 'ghaf', genre: 'veena', main_artist: 'Ramana Balachandhran', accompanists: '', is_ticketed: true},
         // December 21, 2025 - Sunday
         {date: '2025-12-21', day: 'Sunday', time_start: '10:30 AM', time_end: '', time_sort: 630, venue: 'ghaf', genre: 'special', main_artist: 'Dummies Drama - Kapidwaja', accompanists: 'Drama', is_ticketed: true},
+        {date: '2025-12-21', day: 'Sunday', time_start: '3:00 PM', time_end: '', time_sort: 900, venue: 'ghaf', genre: 'special', main_artist: 'Desika Daya - Students of U Ve Dushyanth Sridhar present "Mana Nimmathi Tharum Gopalan" Part 2', accompanists: '', is_ticketed: false},
         {date: '2025-12-21', day: 'Sunday', time_start: '4:30 PM', time_end: '', time_sort: 990, venue: 'ghaf', genre: 'vocal', main_artist: 'Prince Rama Varma', accompanists: '', is_ticketed: true},
-        {date: '2025-12-21', day: 'Sunday', time_start: '7:00 PM', time_end: '', time_sort: 1140, venue: 'ghaf', genre: 'special', main_artist: 'Anil Srinivasan & Sikkil C. Gurucharan', accompanists: 'Piano-Vocal with Madhan Karky', is_ticketed: true},
+        {date: '2025-12-21', day: 'Sunday', time_start: '6:45 PM', time_end: '', time_sort: 1125, venue: 'ghaf', genre: 'special', main_artist: 'Anil Srinivasan & Sikkil C. Gurucharan', accompanists: 'Piano-Vocal with Madhan Karky', is_ticketed: true},
         // December 22, 2025 - Monday
         {date: '2025-12-22', day: 'Monday', time_start: '4:30 PM', time_end: '', time_sort: 990, venue: 'ghaf', genre: 'veena', main_artist: 'Nirmala Rajasekhar - All Woman Ensemble', accompanists: 'Usha Rajagopal (Violin), Jayamangala Krishnamani (Mridangam), Samyuktha Sriram (Ghatam)', is_ticketed: true},
-        {date: '2025-12-22', day: 'Monday', time_start: '7:00 PM', time_end: '', time_sort: 1140, venue: 'ghaf', genre: 'veena', main_artist: 'Rajhesh Vaidhya', accompanists: '', is_ticketed: true},
+        {date: '2025-12-22', day: 'Monday', time_start: '6:45 PM', time_end: '', time_sort: 1125, venue: 'ghaf', genre: 'veena', main_artist: 'Rajhesh Vaidhya', accompanists: '', is_ticketed: true},
 
         // Brahma Gana Sabha - December Art Festival 2025 (Dec 11 - Jan 8)
         // December 11, 2025 - Thursday
@@ -1920,7 +1972,62 @@
         {date: '2026-01-05', day: 'Monday', time_start: '6:15 PM', time_end: '', time_sort: 1095, venue: 'bgs', genre: 'special', main_artist: 'Dance Ballet - Shivanubhava', accompanists: 'Sri Mudhralaya Repertory, Dir: Dr Lakshmi Ramaswamy', is_ticketed: false},
         {date: '2026-01-06', day: 'Tuesday', time_start: '6:15 PM', time_end: '', time_sort: 1095, venue: 'bgs', genre: 'special', main_artist: 'Dance Ballet - Arthanareeswarar', accompanists: 'Kuchipudi Arts Academy', is_ticketed: false},
         {date: '2026-01-07', day: 'Wednesday', time_start: '6:15 PM', time_end: '', time_sort: 1095, venue: 'bgs', genre: 'special', main_artist: 'Dance Ballet - Oozh: The Divine Destiny', accompanists: 'Lalgudi GJR Krishnan & Vijayalakshmi, Choreography: Padmini Krishnamurthy', is_ticketed: false},
-        {date: '2026-01-08', day: 'Thursday', time_start: '6:15 PM', time_end: '', time_sort: 1095, venue: 'bgs', genre: 'special', main_artist: 'Dance Ballet - Siva Nava Bhakthi', accompanists: 'Sridevi Nrithyalaya', is_ticketed: false}
+        {date: '2026-01-08', day: 'Thursday', time_start: '6:15 PM', time_end: '', time_sort: 1095, venue: 'bgs', genre: 'special', main_artist: 'Dance Ballet - Siva Nava Bhakthi', accompanists: 'Sridevi Nrithyalaya', is_ticketed: false},
+
+        // Kalakshetra - 72nd Annual Art Festival (Dec 19-28)
+        {date: '2025-12-19', day: 'Friday', time_start: '05:30 PM', time_end: '06:00 PM', time_sort: 1050, sabha: 'kalakshetra', genre: 'special', main_artist: 'Inauguration Ceremony', accompanists: '', is_ticketed: true},
+        {date: '2025-12-19', day: 'Friday', time_start: '06:00 PM', time_end: '', time_sort: 1080, sabha: 'kalakshetra', genre: 'dance', main_artist: 'Sita Swayamvaram - Dance Drama', accompanists: 'Kalakshetra Foundation', is_ticketed: true},
+        {date: '2025-12-20', day: 'Saturday', time_start: '06:00 PM', time_end: '', time_sort: 1080, sabha: 'kalakshetra', genre: 'dance', main_artist: 'Rama Vanagamanam - Dance Drama', accompanists: 'Kalakshetra Foundation', is_ticketed: true},
+        {date: '2025-12-21', day: 'Sunday', time_start: '06:00 PM', time_end: '', time_sort: 1080, sabha: 'kalakshetra', genre: 'dance', main_artist: 'Paduka Pattabhishekam - Dance Drama', accompanists: 'Kalakshetra Foundation', is_ticketed: true},
+        {date: '2025-12-22', day: 'Monday', time_start: '06:00 PM', time_end: '', time_sort: 1080, sabha: 'kalakshetra', genre: 'vocal', main_artist: 'Pt. Ulhas Kashalkar - Hindustani Vocal', accompanists: '', is_ticketed: true},
+        {date: '2025-12-23', day: 'Tuesday', time_start: '06:00 PM', time_end: '', time_sort: 1080, sabha: 'kalakshetra', genre: 'dance', main_artist: 'Smt. Pallavi Krishnan - Mohiniattam', accompanists: '', is_ticketed: true},
+        {date: '2025-12-23', day: 'Tuesday', time_start: '08:00 PM', time_end: '', time_sort: 1200, sabha: 'kalakshetra', genre: 'dance', main_artist: 'Abha', accompanists: 'Shri Parshwanath Upadhye and team', is_ticketed: true},
+        {date: '2025-12-24', day: 'Wednesday', time_start: '06:00 PM', time_end: '', time_sort: 1080, sabha: 'kalakshetra', genre: 'dance', main_artist: 'Putran: The Rising Son', accompanists: 'SIFAS Productions Ltd', is_ticketed: true},
+        {date: '2025-12-25', day: 'Thursday', time_start: '06:00 PM', time_end: '', time_sort: 1080, sabha: 'kalakshetra', genre: 'violin', main_artist: 'Ganesh Kumaresh - Violin Duet Concert', accompanists: '', is_ticketed: true},
+        {date: '2025-12-26', day: 'Friday', time_start: '06:00 PM', time_end: '', time_sort: 1080, sabha: 'kalakshetra', genre: 'dance', main_artist: 'Sabari Moksham - Dance Drama', accompanists: 'Kalakshetra Foundation', is_ticketed: true},
+        {date: '2025-12-27', day: 'Saturday', time_start: '06:00 PM', time_end: '', time_sort: 1080, sabha: 'kalakshetra', genre: 'dance', main_artist: 'Choodamani Pradhanam - Dance Drama', accompanists: 'Kalakshetra Foundation', is_ticketed: true},
+        {date: '2025-12-28', day: 'Sunday', time_start: '06:00 PM', time_end: '', time_sort: 1080, sabha: 'kalakshetra', genre: 'special', main_artist: 'Closing Ceremony', accompanists: '', is_ticketed: true},
+        {date: '2025-12-28', day: 'Sunday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'kalakshetra', genre: 'dance', main_artist: 'Maha Pattabhishekam - Dance Drama', accompanists: 'Kalakshetra Foundation', is_ticketed: true},
+
+        // Sri Thyaga Brahma Gana Sabha - 46th Isai, Iyal, Nataka Vizha (Dec 9 - Jan 15)
+        {date: '2025-12-09', day: 'Tuesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'Sriram Thyagarajan Sadasivam', accompanists: 'Vani Kala Nipuna Vittal Rangan (Violin), Vani Kala Nipuna N.Ch.Pardhasaradhi (Mridangam), G.Chandramouli (Ghatam)', is_ticketed: false},
+        {date: '2025-12-10', day: 'Wednesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'violin', main_artist: 'Dr Nellai Jayabhanu', accompanists: 'Vani Kala Sudhakara Dr.Trichy Sankaran (Mridangam), G.Chandrasekar (Ganjira/Morsing)', is_ticketed: false},
+        {date: '2025-12-11', day: 'Thursday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'Abhishek Raghuram', accompanists: 'Vani Kala Nipuna Mysore M Nagaraj (Violin), G.Gowrishankar (Mridangam)', is_ticketed: false},
+        {date: '2025-12-12', day: 'Friday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'Sanjay Subrahmanyan', accompanists: 'Vani Kala Sudhakara', is_ticketed: false},
+        {date: '2025-12-13', day: 'Saturday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'Ranjani & Gayathri', accompanists: 'Vani Kala Sudhakara', is_ticketed: false},
+        {date: '2025-12-14', day: 'Sunday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'violin', main_artist: 'Lalgudi G.J.R.Krishnan & Lalgudi Vijayalakshmi - Violin Duet', accompanists: 'S.Sundareswar (Mridangam), Srimushnam V.Raja Rao (Kanjira)', is_ticketed: false},
+        {date: '2025-12-15', day: 'Monday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'Sikkil C. Gurucharan', accompanists: 'Vani Kala Sudhakara', is_ticketed: false},
+        {date: '2025-12-16', day: 'Tuesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'S. Saketharaman', accompanists: 'Vani Kala Nipuna', is_ticketed: false},
+        {date: '2025-12-17', day: 'Wednesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'Vani Kala Sudhakara Concert', accompanists: '', is_ticketed: false},
+        {date: '2025-12-18', day: 'Thursday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'special', main_artist: 'Sangeetha Bhakthi Samarpanam - Vani Geeta', accompanists: 'Vani Kala Sudhakara S.Sowmya', is_ticketed: false},
+        {date: '2025-12-19', day: 'Friday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'Tiruchur Brothers Srikrishna Mohan & Ramkumar', accompanists: 'Vani Kala Nipuna', is_ticketed: false},
+        {date: '2025-12-20', day: 'Saturday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'S. Mahathi', accompanists: 'Vani Kala Nipuna', is_ticketed: false},
+        {date: '2025-12-21', day: 'Sunday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'special', main_artist: 'Strings Attached Concert - Dr Jayanthi Kumaresh & K. Kumaresh', accompanists: '', is_ticketed: false},
+        {date: '2025-12-22', day: 'Monday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'Vani Kala Kalanidhi M Balamuralikrishna Memorial Concert', accompanists: 'Vani Kala Nipuna', is_ticketed: false},
+        {date: '2025-12-23', day: 'Tuesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'Jayram Vaidyanathan & U Vigneshkumar', accompanists: 'Thirupunithura V.K.Satheeshkumar (Violin), Ponneri Nandakumar (Mridangam)', is_ticketed: false},
+        {date: '2025-12-24', day: 'Wednesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'K. Bharat Sundar', accompanists: 'Vani Kala Nipuna, Kumari Naveen Narasimhan (Nattuvangam), Dr. S. Karthick (Ghatam)', is_ticketed: false},
+        {date: '2025-12-25', day: 'Thursday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'Malladi Brothers Sreerama Prasad & Ravikumar', accompanists: 'Vani Kala Sudhakara', is_ticketed: false},
+        {date: '2025-12-26', day: 'Friday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'Sandeep Narayan', accompanists: 'Vani Kala Nipuna, Ujjayni Muthukumar (Violin), Patri Satishkumar (Mridangam)', is_ticketed: false},
+        {date: '2025-12-27', day: 'Saturday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'Gayathri Venkataraghavan', accompanists: 'Vani Kala Nipuna', is_ticketed: false},
+        {date: '2025-12-28', day: 'Sunday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'Sisters S. Sudhaasree & S. Sahana - Vocal Duet', accompanists: 'Vani Kala Nipuna', is_ticketed: false},
+        {date: '2025-12-29', day: 'Monday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'Saashwathi Prabhu', accompanists: 'Vani Kala Nipuna', is_ticketed: false},
+        {date: '2025-12-30', day: 'Tuesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'Manimaran Harry', accompanists: '', is_ticketed: false},
+        {date: '2025-12-31', day: 'Wednesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'Bombay Jayashri', accompanists: 'Vani Kala Nipuna', is_ticketed: false},
+        {date: '2026-01-01', day: 'Thursday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'Charumathi Ramachandran', accompanists: 'Vani Kala Sudhakara', is_ticketed: false},
+        {date: '2026-01-02', day: 'Friday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'Nisha Rajagopal', accompanists: 'Vani Kala Nipuna', is_ticketed: false},
+        {date: '2026-01-03', day: 'Saturday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'special', main_artist: 'O.S.Thyagarajan Endowment Concert', accompanists: '', is_ticketed: false},
+        {date: '2026-01-04', day: 'Sunday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'Ramakrishnan Murthy', accompanists: 'Vani Kala Visarada', is_ticketed: false},
+        {date: '2026-01-05', day: 'Monday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'veena', main_artist: 'Jayanthi Kumaresh - Veena Concert', accompanists: 'Vani Kala Nipuna', is_ticketed: false},
+        {date: '2026-01-06', day: 'Tuesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'T.M. Krishna', accompanists: 'Vani Kala Sudhakara', is_ticketed: false},
+        {date: '2026-01-07', day: 'Wednesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'special', main_artist: 'Strings of Violin - BALA KALA VITHAKA', accompanists: '', is_ticketed: false},
+        {date: '2026-01-08', day: 'Thursday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'Amritha Murali', accompanists: 'Vani Kala Sudhakara', is_ticketed: false},
+        {date: '2026-01-09', day: 'Friday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'P. Unnikrishnan', accompanists: 'Vani Kala Nipuna', is_ticketed: false},
+        {date: '2026-01-10', day: 'Saturday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'Sankaranarayanan - Tiruppugazh Concert', accompanists: 'Vani Kala Sudhakara', is_ticketed: false},
+        {date: '2026-01-11', day: 'Sunday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'special', main_artist: 'VANI KALA PALLAVI Program', accompanists: '', is_ticketed: false},
+        {date: '2026-01-12', day: 'Monday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'dance', main_artist: 'Dr. Shobana - Bharathanatyam', accompanists: '', is_ticketed: false},
+        {date: '2026-01-13', day: 'Tuesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'Aruna Sairam', accompanists: 'Vani Kala Sudhakara', is_ticketed: false},
+        {date: '2026-01-14', day: 'Wednesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'special', main_artist: 'VANI MAHAL VANDANA VIZHA NIGAR', accompanists: '', is_ticketed: false},
+        {date: '2026-01-15', day: 'Thursday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'S. Sowmya', accompanists: 'Vani Kala Sudhakara', is_ticketed: false}
                                         ];
 
         // Group events by date
@@ -1971,18 +2078,22 @@
             if (venue === 'ss') return 'badge-ss';
             if (venue === 'ghaf') return 'badge-ghaf';
             if (venue === 'bgs') return 'badge-bgs';
+            if (venue === 'kalakshetra') return 'badge-kalakshetra';
+            if (venue === 'stbgs') return 'badge-stbgs';
             return 'badge-academy'; }
 
         // Get venue display name
-        function getVenueName(venue) { if (venue === 'academy') return 'Academy'; if (venue === 'spss') return 'SPSS';
-            if (venue === 'bk') return 'BK';
-            if (venue === 'ni') return 'NI';
-            if (venue === 'kgs') return 'KGS';
-            if (venue === 'bvb') return 'BVB';
-            if (venue === 'charsur') return 'Charsur';
-            if (venue === 'ss') return 'SS';
-            if (venue === 'ghaf') return 'GHAF';
-            if (venue === 'bgs') return 'BGS';
+        function getVenueName(venue) { if (venue === 'academy') return 'Music Academy'; if (venue === 'spss') return 'SPSS';
+            if (venue === 'bk') return 'Bharat Kalachar';
+            if (venue === 'ni') return 'Naada Inbam';
+            if (venue === 'kgs') return 'Krishna Gana Sabha';
+            if (venue === 'bvb') return 'Bharatiya Vidya Bhavan';
+            if (venue === 'charsur') return 'Charsur Arts';
+            if (venue === 'ss') return 'Sastra Satsangh';
+            if (venue === 'ghaf') return 'Carnatica';
+            if (venue === 'bgs') return 'Brahma Gana Sabha';
+            if (venue === 'kalakshetra') return 'Kalakshetra';
+            if (venue === 'stbgs') return 'Sri Thyaga Brahma GS';
             return venue; }
 
         function getVenueLocName(venueLoc) {
@@ -1996,8 +2107,10 @@
                 'ni-hall': 'NI Hall',
                 'charsur-studio': 'Charsur Studio',
                 'bgs-hall': 'BGS Hall',
-                'ghaf-hall': 'GHAF Hall',
-                'ss-hall': 'SS Hall'
+                'ghaf-hall': 'Sri Sankara Vidhyashramam Mat.Hr.School',
+                'ss-hall': 'SS Hall',
+                'kalakshetra-hall': 'Bharata Kalakshetra Auditorium',
+                'vani-mahal': 'Vani Mahal'
             };
             return venueNames[venueLoc] || venueLoc;
         }
@@ -2013,8 +2126,10 @@
                 'ni-hall': 'Nanganallur',
                 'charsur-studio': 'Adyar',
                 'bgs-hall': 'Mylapore',
-                'ghaf-hall': 'T. Nagar',
-                'ss-hall': 'Royapettah'
+                'ghaf-hall': 'Thiruvanmiyur',
+                'ss-hall': 'Royapettah',
+                'kalakshetra-hall': 'Thiruvanmiyur',
+                'vani-mahal': 'T. Nagar'
             };
             return places[venueLoc] || '';
         }
@@ -2030,8 +2145,10 @@
                 'bvb': '74th Year Art Festival',
                 'charsur': 'Charsur Digital Concert',
                 'ss': 'Sastra Satsangh 2025',
-                'ghaf': 'Global Heritage Arts Fest',
-                'bgs': '19th Dance Festival'
+                'ghaf': 'Global Heritage Music & Arts Fest 2025',
+                'bgs': '19th Dance Festival',
+                'kalakshetra': '72nd Annual Art Festival',
+                'stbgs': '46th Isai, Iyal, Nataka Vizha'
             };
             return festivals[sabha] || '';
         }
@@ -2049,7 +2166,8 @@
                 upanyasam: 'Upanyasam',
                 harikatha: 'Harikatha',
                 special: 'Special',
-                bhakti: 'Bhakti Sangeet'
+                bhakti: 'Bhakti Sangeet',
+                dance: 'Dance/Dance Drama'
             };
             return names[genre] || genre;
         }
@@ -2150,7 +2268,9 @@
             'charsur': 'charsur-studio',
             'ss': 'ss-hall',
             'ghaf': 'ghaf-hall',
-            'bgs': 'bgs-hall'
+            'bgs': 'bgs-hall',
+            'kalakshetra': 'kalakshetra-hall',
+            'stbgs': 'vani-mahal'
         };
 
         // Add venue_loc property to all events based on sabha (handles both sabha: and venue: fields)
