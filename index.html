@@ -2610,11 +2610,13 @@
             
             filters.forEach(f => {
                 const el = document.getElementById(f.id);
-                const label = el.parentElement.querySelector('label');
+                const label = document.querySelector('label[for="' + f.id + '"]');
                 const isActive = el.value !== f.defaultVal;
                 
                 el.classList.toggle('filter-active', isActive);
-                if (label) label.classList.toggle('filter-active-label', isActive);
+                if (label) {
+                    label.classList.toggle('filter-active-label', isActive);
+                }
             });
         }
 
