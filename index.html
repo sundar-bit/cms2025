@@ -52,6 +52,8 @@
             --hamsadhwani-bg: #E3F2FD;
             --nadasudha-color: #7B1FA2;
             --nadasudha-bg: #F3E5F5;
+            --tamilisai-color: #C2185B;
+            --tamilisai-bg: #FCE4EC;
 
             /* Genre colors */
             --vocal-color: #6A1B9A;
@@ -867,6 +869,7 @@
                     <option value="madhuradhwani">Madhuradhwani</option>
                     <option value="hamsadhwani">Hamsadhwani</option>
                     <option value="nadasudha">Nada Sudha</option>
+                    <option value="tamilisai">Tamil Isai Sangam</option>
                 </select>
             </div>
             <div class="control-group">
@@ -890,6 +893,7 @@
                     <option value="arkay">Arkay Convention Center</option>
                     <option value="hamsadhwani-hall">Hamsadhwani Venue</option>
                     <option value="sgsa-hall">SGS Ashram Hall</option>
+                    <option value="ram">Rajah Annamalai Mandram</option>
                 </select>
             </div>
             <div class="control-group">
@@ -1468,7 +1472,7 @@
             // Naada Inbam - January 9, 2026
             {date: '2026-01-09', day: 'Friday', time_start: '06:15 PM', time_end: '', time_sort: 1095, venue: 'ni', genre: 'special', main_artist: 'Guruvamsham - Remembrance Day of Sangita Kalanidhi Sri Palghat Raghu & Dikshitar 250 tribute - R. K. Shriramkumar', accompanists: 'Amritha Murali, Bharathi Ramasubban, Madan Mohan (Violin), S. Kavichelvan (Mridangam), Sunil Kumar (Ghatam)', is_ticketed: false},
             // Krishna Gana Sabha - December 12, 2025
-            {date: '2025-12-12', day: 'Friday', time_start: '05:00 PM', time_end: '06:30 PM', time_sort: 1020, venue: 'kgs', genre: 'special', main_artist: 'INAUGURATION - Sangeetha Choodamani on Vidwan KV Prasad, Nrithya Choodamani on Vidwan G Narendra', accompanists: 'Chitravina Ravikiran felicitates KV Prasad, Prof Sudharani Raghupathy felicitates G Narendra', is_ticketed: false},
+            {date: '2025-12-12', day: 'Friday', time_start: '05:00 PM', time_end: '06:30 PM', time_sort: 1020, venue: 'kgs', genre: 'special', main_artist: 'Inauguration - Sangeetha Choodamani on Vidwan KV Prasad, Nrithya Choodamani on Vidwan G Narendra', accompanists: 'Chitravina Ravikiran felicitates KV Prasad, Prof Sudharani Raghupathy felicitates G Narendra', is_ticketed: false},
             {date: '2025-12-12', day: 'Friday', time_start: '07:00 PM', time_end: '', time_sort: 1140, venue: 'kgs', genre: 'special', main_artist: 'A Lakshmanaswamy (Bharatanatyam)', accompanists: '', is_ticketed: true},
             // Krishna Gana Sabha - December 13, 2025
             {date: '2025-12-13', day: 'Saturday', time_start: '11:00 AM', time_end: '', time_sort: 660, venue: 'kgs', genre: 'vocal', main_artist: 'E R Anirudh', accompanists: 'Haritha Narayanan (Violin), Burra Sriram (Mridangam)', is_ticketed: false},
@@ -1601,7 +1605,7 @@
             {date: '2026-01-03', day: 'Saturday', time_start: '07:00 PM', time_end: '', time_sort: 1140, venue: 'kgs', genre: 'special', main_artist: 'Jaikishore Mosalikanti presents Triyambam (Kuchipudi by Shivamohanam)', accompanists: '', is_ticketed: true},
             // Bharatiya Vidya Bhavan - November 20, 2025
             {date: '2025-11-20', day: 'Thursday', time_start: '04:30 PM', time_end: '', time_sort: 990, venue: 'bvb', genre: 'nagaswaram', main_artist: 'Seshampatti Sri T. Sivalingam', accompanists: '', is_ticketed: false},
-            {date: '2025-11-20', day: 'Thursday', time_start: '06:00 PM', time_end: '', time_sort: 1080, venue: 'bvb', genre: 'special', main_artist: 'INAUGURATION', accompanists: '', is_ticketed: false},
+            {date: '2025-11-20', day: 'Thursday', time_start: '06:00 PM', time_end: '', time_sort: 1080, venue: 'bvb', genre: 'special', main_artist: 'Inauguration', accompanists: '', is_ticketed: false},
             {date: '2025-11-20', day: 'Thursday', time_start: '07:05 PM', time_end: '', time_sort: 1145, venue: 'bvb', genre: 'violin', main_artist: 'Kum. A. Kanyakumari', accompanists: '', is_ticketed: false},
             // Bharatiya Vidya Bhavan - November 21, 2025
             {date: '2025-11-21', day: 'Friday', time_start: '04:30 PM', time_end: '', time_sort: 990, venue: 'bvb', genre: 'special', main_artist: 'Smt. Shreya Devnath, Sri M. Karthikeyan, Sri Praveen Sparsh, Sri R. Jeeva - A Carnatic Quartet', accompanists: '', is_ticketed: false},
@@ -2078,14 +2082,14 @@
         {date: '2026-01-04', day: 'Sunday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'Ramakrishnan Murthy', accompanists: 'Vani Kala Visarada', is_ticketed: false},
         {date: '2026-01-05', day: 'Monday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'veena', main_artist: 'Jayanthi Kumaresh - Veena Concert', accompanists: 'Vani Kala Nipuna', is_ticketed: false},
         {date: '2026-01-06', day: 'Tuesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'T.M. Krishna', accompanists: 'Vani Kala Sudhakara', is_ticketed: false},
-        {date: '2026-01-07', day: 'Wednesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'special', main_artist: 'Strings of Violin - BALA KALA VITHAKA', accompanists: '', is_ticketed: false},
+        {date: '2026-01-07', day: 'Wednesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'special', main_artist: 'Strings of Violin - Bala Kala Vithaka', accompanists: '', is_ticketed: false},
         {date: '2026-01-08', day: 'Thursday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'Amritha Murali', accompanists: 'Vani Kala Sudhakara', is_ticketed: false},
         {date: '2026-01-09', day: 'Friday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'P. Unnikrishnan', accompanists: 'Vani Kala Nipuna', is_ticketed: false},
         {date: '2026-01-10', day: 'Saturday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'Sankaranarayanan - Tiruppugazh Concert', accompanists: 'Vani Kala Sudhakara', is_ticketed: false},
-        {date: '2026-01-11', day: 'Sunday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'special', main_artist: 'VANI KALA PALLAVI Program', accompanists: '', is_ticketed: false},
+        {date: '2026-01-11', day: 'Sunday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'special', main_artist: 'Vani Kala Pallavi Program', accompanists: '', is_ticketed: false},
         {date: '2026-01-12', day: 'Monday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'dance', main_artist: 'Dr. Shobana - Bharathanatyam', accompanists: '', is_ticketed: false},
         {date: '2026-01-13', day: 'Tuesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'Aruna Sairam', accompanists: 'Vani Kala Sudhakara', is_ticketed: false},
-        {date: '2026-01-14', day: 'Wednesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'special', main_artist: 'VANI MAHAL VANDANA VIZHA NIGAR', accompanists: '', is_ticketed: false},
+        {date: '2026-01-14', day: 'Wednesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'special', main_artist: 'Vani Mahal Vandana Vizha Nigar', accompanists: '', is_ticketed: false},
         {date: '2026-01-15', day: 'Thursday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', genre: 'vocal', main_artist: 'S. Sowmya', accompanists: 'Vani Kala Sudhakara', is_ticketed: false},
 
         // SciArtsRUs - Margazhi Matram 2025 - 6th Edition
@@ -2231,14 +2235,14 @@
         // Dec 25
         {date: '2025-12-25', day: 'Thursday', time_start: '06:45 PM', time_end: '', time_sort: 1125, sabha: 'hamsadhwani', genre: 'bhakti', main_artist: 'Bhakti Yatra - Nada Gurukulam', accompanists: 'Staff & Students of Sri Sathya Sai University - Bhagwan Sri Sathya Sai Baba Centenary', is_ticketed: false},
         // Dec 26
-        {date: '2025-12-26', day: 'Friday', time_start: '06:45 PM', time_end: '', time_sort: 1125, sabha: 'hamsadhwani', genre: 'special', main_artist: 'Temple of Music - SWARA YOGA Youth Ensemble', accompanists: 'Created by Violin Maestro Ganesh Rajagopalan', is_ticketed: false},
+        {date: '2025-12-26', day: 'Friday', time_start: '06:45 PM', time_end: '', time_sort: 1125, sabha: 'hamsadhwani', genre: 'special', main_artist: 'Temple of Music - Swara Yoga Youth Ensemble', accompanists: 'Created by Violin Maestro Ganesh Rajagopalan', is_ticketed: false},
         // Dec 30
         {date: '2025-12-30', day: 'Tuesday', time_start: '05:15 PM', time_end: '', time_sort: 1035, sabha: 'hamsadhwani', genre: 'special', main_artist: 'Youth Cultural Ambassador Awards - 2nd Edition', accompanists: 'International Consortium of Performing Arts - Awards to young NRI Artistes & Concerts', is_ticketed: false},
         // Jan 1, 2026
         {date: '2026-01-01', day: 'Thursday', time_start: '06:00 PM', time_end: '', time_sort: 1080, sabha: 'hamsadhwani', genre: 'special', main_artist: 'R. Ramachandran Birthday Remembrance', accompanists: 'RRC Award of Excellence to V-EXCEL Educational Trust', is_ticketed: false},
         {date: '2026-01-01', day: 'Thursday', time_start: '07:00 PM', time_end: '', time_sort: 1140, sabha: 'hamsadhwani', genre: 'dance', main_artist: 'Bharatanjali Dance Drama', accompanists: 'Guru Anitha Guha', is_ticketed: false},
         // Jan 2, 2026
-        {date: '2026-01-02', day: 'Friday', time_start: '06:00 PM', time_end: '', time_sort: 1080, sabha: 'hamsadhwani', genre: 'special', main_artist: 'MAARGAZHI MATRAM Concerts', accompanists: 'Concerts by Differently Abled Artistes', is_ticketed: false},
+        {date: '2026-01-02', day: 'Friday', time_start: '06:00 PM', time_end: '', time_sort: 1080, sabha: 'hamsadhwani', genre: 'special', main_artist: 'Maargazhi Matram Concerts', accompanists: 'Concerts by Differently Abled Artistes', is_ticketed: false},
 
         // Nada Sudha - 27th Annual Music Festival (Dec 24, 2025 - Jan 13, 2026)
         // & Dance Festival (Jan 14-18 & Jan 24-26, 2026)
@@ -2321,7 +2325,71 @@
         {date: '2026-01-15', day: 'Thursday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'nadasudha', genre: 'dance', main_artist: 'Dance Drama by Smt. Priya Murle', accompanists: 'Students of Shri Shanmukhananda Academy', is_ticketed: false},
         {date: '2026-01-16', day: 'Friday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'nadasudha', genre: 'dance', main_artist: 'Bharatanatyam Salangai Puja', accompanists: 'Students', is_ticketed: false},
         {date: '2026-01-17', day: 'Saturday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'nadasudha', genre: 'dance', main_artist: 'Sanjeeth Bharath & Tejosi', accompanists: 'Deva Maithrey', is_ticketed: false},
-        {date: '2026-01-18', day: 'Sunday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'nadasudha', genre: 'dance', main_artist: 'Celestial Nymphs Rama Menaka & Others', accompanists: 'Students of Theater Academy of Native', is_ticketed: false}
+        {date: '2026-01-18', day: 'Sunday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'nadasudha', genre: 'dance', main_artist: 'Celestial Nymphs Rama Menaka & Others', accompanists: 'Students of Theater Academy of Native', is_ticketed: false},
+        // Tamil Isai Sangam - 83rd Tamil Isai Vizha 2025-2026
+        // Dec 21, 2025 - Sunday (Inauguration)
+        {date: '2025-12-21', day: 'Sunday', time_start: '04:15 PM', time_end: '', time_sort: 975, sabha: 'tamilisai', venue_loc: 'ram', genre: 'nagaswaram', main_artist: 'Old Westernmost A.N. Somasundaram, Kalakshetra Poornarkumar', accompanists: '', is_ticketed: false},
+        {date: '2025-12-21', day: 'Sunday', time_start: '06:05 PM', time_end: '', time_sort: 1085, sabha: 'tamilisai', venue_loc: 'ram', genre: 'special', main_artist: 'Inauguration - Hon. Justice Anand Venkatesh', accompanists: 'Isai Peraringnar Award to Tmt. Chitra Visweswaran', is_ticketed: false},
+        {date: '2025-12-21', day: 'Sunday', time_start: '07:30 PM', time_end: '', time_sort: 1170, sabha: 'tamilisai', venue_loc: 'ram', genre: 'vocal', main_artist: 'Seerkazhi Dr. Seerkazhi G. Siva Chidambaram', accompanists: 'Dr. Devi Balasubramaniam (Violin), Valanglalam K. Thyagarajan (Mridangam)', is_ticketed: false},
+
+        // Dec 22, 2025 - Monday
+        {date: '2025-12-22', day: 'Monday', time_start: '08:30 AM', time_end: '', time_sort: 510, sabha: 'tamilisai', venue_loc: 'ram', genre: 'special', main_artist: 'S. Muthukumaran Odhuvat, S. Tharan Odhuvat', accompanists: 'Thirumurai Isai', is_ticketed: false},
+        {date: '2025-12-22', day: 'Monday', time_start: '09:15 AM', time_end: '', time_sort: 555, sabha: 'tamilisai', venue_loc: 'ram', genre: 'vocal', main_artist: 'Sikal Balasupramanian, P. Chandran', accompanists: '', is_ticketed: false},
+        {date: '2025-12-22', day: 'Monday', time_start: '11:00 AM', time_end: '', time_sort: 660, sabha: 'tamilisai', venue_loc: 'ram', genre: 'special', main_artist: 'Tamil Isai Sangam Tamil Isai Kaloori Students - Idhudhaai', accompanists: 'Isai Natya Nadagam', is_ticketed: false},
+        {date: '2025-12-22', day: 'Monday', time_start: '02:00 PM', time_end: '', time_sort: 840, sabha: 'tamilisai', venue_loc: 'ram', genre: 'special', main_artist: 'Pondichery P. Sambartha Gurukal, G. Sureshkumar, K. Mathiheswaran', accompanists: 'Thiruppunal Isai', is_ticketed: false},
+        {date: '2025-12-22', day: 'Monday', time_start: '03:15 PM', time_end: '', time_sort: 915, sabha: 'tamilisai', venue_loc: 'ram', genre: 'special', main_artist: 'Pann Isaiperaingar Smt. S. Arguntha Odhuvat', accompanists: 'Thirumurai Isai', is_ticketed: false},
+        {date: '2025-12-22', day: 'Monday', time_start: '04:45 PM', time_end: '', time_sort: 1005, sabha: 'tamilisai', venue_loc: 'ram', genre: 'flute', main_artist: 'R. Athikumar', accompanists: 'Dr. Thirunavukka S. DinesKumar, Dr. K.R. Sivaramakrishnan', is_ticketed: false},
+        {date: '2025-12-22', day: 'Monday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'tamilisai', venue_loc: 'ram', genre: 'special', main_artist: 'S. Murali, Shanth Ravindan', accompanists: 'Mandolin', is_ticketed: false},
+
+        // Dec 23, 2025 - Tuesday
+        {date: '2025-12-23', day: 'Tuesday', time_start: '08:30 AM', time_end: '', time_sort: 510, sabha: 'tamilisai', venue_loc: 'ram', genre: 'special', main_artist: 'Vadagapattu Arun Karthick Odhuvat', accompanists: 'Thirumurai Isai', is_ticketed: false},
+        {date: '2025-12-23', day: 'Tuesday', time_start: '09:15 AM', time_end: '', time_sort: 555, sabha: 'tamilisai', venue_loc: 'ram', genre: 'vocal', main_artist: 'Sikal Balasupramanian, P. Chandran', accompanists: '', is_ticketed: false},
+        {date: '2025-12-23', day: 'Tuesday', time_start: '02:00 PM', time_end: '', time_sort: 840, sabha: 'tamilisai', venue_loc: 'ram', genre: 'special', main_artist: 'Pann Thiruppugazh - Kamalamoorthy Odhuvat', accompanists: '', is_ticketed: false},
+        {date: '2025-12-23', day: 'Tuesday', time_start: '03:15 PM', time_end: '', time_sort: 915, sabha: 'tamilisai', venue_loc: 'ram', genre: 'vocal', main_artist: 'C.K. Vijay Ragavan', accompanists: '', is_ticketed: false},
+        {date: '2025-12-23', day: 'Tuesday', time_start: '04:45 PM', time_end: '', time_sort: 1005, sabha: 'tamilisai', venue_loc: 'ram', genre: 'special', main_artist: 'S. Mukund Subramanian, Varadaraj Sundara Desigar', accompanists: '', is_ticketed: false},
+        {date: '2025-12-23', day: 'Tuesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'tamilisai', venue_loc: 'ram', genre: 'special', main_artist: 'Maganasam T.M. Sivakumar', accompanists: 'Mandolin', is_ticketed: false},
+
+        // Dec 24, 2025 - Wednesday
+        {date: '2025-12-24', day: 'Wednesday', time_start: '08:30 AM', time_end: '', time_sort: 510, sabha: 'tamilisai', venue_loc: 'ram', genre: 'special', main_artist: 'Kreeti Krishnamurthy, Sikal Balasubramanian', accompanists: 'Thirumurai Isai', is_ticketed: false},
+        {date: '2025-12-24', day: 'Wednesday', time_start: '02:00 PM', time_end: '', time_sort: 840, sabha: 'tamilisai', venue_loc: 'ram', genre: 'violin', main_artist: 'Jaiganesh Narayan, Manihanuka V. Ananda Sivan', accompanists: '', is_ticketed: false},
+        {date: '2025-12-24', day: 'Wednesday', time_start: '03:15 PM', time_end: '', time_sort: 915, sabha: 'tamilisai', venue_loc: 'ram', genre: 'special', main_artist: 'Pann Isaiperaingar Kudandai V. Lakshmanan', accompanists: 'Thirumurai Isai', is_ticketed: false},
+        {date: '2025-12-24', day: 'Wednesday', time_start: '04:45 PM', time_end: '', time_sort: 1005, sabha: 'tamilisai', venue_loc: 'ram', genre: 'vocal', main_artist: 'V.V. Kumar', accompanists: '', is_ticketed: false},
+        {date: '2025-12-24', day: 'Wednesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'tamilisai', venue_loc: 'ram', genre: 'special', main_artist: 'Students', accompanists: 'Thirumurai Isai', is_ticketed: false},
+
+        // Dec 25, 2025 - Thursday
+        {date: '2025-12-25', day: 'Thursday', time_start: '08:30 AM', time_end: '', time_sort: 510, sabha: 'tamilisai', venue_loc: 'ram', genre: 'special', main_artist: 'Palani Vagheeswaran Arunmozhi Odhuvat', accompanists: 'Thirumurai Isai', is_ticketed: false},
+        {date: '2025-12-25', day: 'Thursday', time_start: '02:00 PM', time_end: '', time_sort: 840, sabha: 'tamilisai', venue_loc: 'ram', genre: 'vocal', main_artist: 'Padmasiree Brothers K.R. Thyagarajan & A.K.R. Srinivasan', accompanists: '', is_ticketed: false},
+        {date: '2025-12-25', day: 'Thursday', time_start: '03:15 PM', time_end: '', time_sort: 915, sabha: 'tamilisai', venue_loc: 'ram', genre: 'special', main_artist: 'Pann Isaiperaingar Karur Kumar Samanthan Odhuvat', accompanists: 'Thirumurai Isai', is_ticketed: false},
+        {date: '2025-12-25', day: 'Thursday', time_start: '04:45 PM', time_end: '', time_sort: 1005, sabha: 'tamilisai', venue_loc: 'ram', genre: 'vocal', main_artist: 'S.K. Haripriyasad', accompanists: '', is_ticketed: false},
+        {date: '2025-12-25', day: 'Thursday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'tamilisai', venue_loc: 'ram', genre: 'special', main_artist: 'Kottayil Nagamuruthi', accompanists: 'Sikal Swaraval', is_ticketed: false},
+
+        // Dec 26, 2025 - Friday
+        {date: '2025-12-26', day: 'Friday', time_start: '04:45 PM', time_end: '', time_sort: 1005, sabha: 'tamilisai', venue_loc: 'ram', genre: 'vocal', main_artist: 'Pann Isaiperaingar Sanjay Subramanian', accompanists: '', is_ticketed: false},
+        {date: '2025-12-26', day: 'Friday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'tamilisai', venue_loc: 'ram', genre: 'veena', main_artist: 'Charumathi Raghuraman', accompanists: '', is_ticketed: false},
+
+        // Dec 27, 2025 - Saturday
+        {date: '2025-12-27', day: 'Saturday', time_start: '04:45 PM', time_end: '', time_sort: 1005, sabha: 'tamilisai', venue_loc: 'ram', genre: 'vocal', main_artist: 'Pranav Aravind Kowshik, J. Ratnavalli', accompanists: '', is_ticketed: false},
+        {date: '2025-12-27', day: 'Saturday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'tamilisai', venue_loc: 'ram', genre: 'vocal', main_artist: 'Isaiperaingar Dr. S. Sowmya', accompanists: '', is_ticketed: false},
+
+        // Dec 28, 2025 - Sunday
+        {date: '2025-12-28', day: 'Sunday', time_start: '04:45 PM', time_end: '', time_sort: 1005, sabha: 'tamilisai', venue_loc: 'ram', genre: 'special', main_artist: 'S.M.S. Martin', accompanists: 'Key Board', is_ticketed: false},
+        {date: '2025-12-28', day: 'Sunday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'tamilisai', venue_loc: 'ram', genre: 'special', main_artist: 'Harsha sodan, Harbhan Babu', accompanists: 'Rhythm Pad', is_ticketed: false},
+
+        // Dec 29, 2025 - Monday
+        {date: '2025-12-29', day: 'Monday', time_start: '04:45 PM', time_end: '', time_sort: 1005, sabha: 'tamilisai', venue_loc: 'ram', genre: 'special', main_artist: 'Hari Latha Lady Meyavme Achi Tamil Isai Kallori Students', accompanists: 'Madurai', is_ticketed: false},
+        {date: '2025-12-29', day: 'Monday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'tamilisai', venue_loc: 'ram', genre: 'vocal', main_artist: 'Isaiperaingar Dr. T.K.S. Kalaivanan', accompanists: '', is_ticketed: false},
+
+        // Dec 30, 2025 - Tuesday
+        {date: '2025-12-30', day: 'Tuesday', time_start: '04:45 PM', time_end: '', time_sort: 1005, sabha: 'tamilisai', venue_loc: 'ram', genre: 'vocal', main_artist: 'Lavanya Sundaramaman', accompanists: '', is_ticketed: false},
+        {date: '2025-12-30', day: 'Tuesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'tamilisai', venue_loc: 'ram', genre: 'vocal', main_artist: 'Isaiperaingar Sanjay Subramanian', accompanists: '', is_ticketed: false},
+
+        // Dec 31, 2025 - Wednesday
+        {date: '2025-12-31', day: 'Wednesday', time_start: '04:45 PM', time_end: '', time_sort: 1005, sabha: 'tamilisai', venue_loc: 'ram', genre: 'vocal', main_artist: 'Sahana Sridevi, Swathi Athmalakshmi', accompanists: '', is_ticketed: false},
+        {date: '2025-12-31', day: 'Wednesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'tamilisai', venue_loc: 'ram', genre: 'dance', main_artist: 'Kathakaalashetra Theenvaiyal', accompanists: 'Dance Drama', is_ticketed: false},
+
+        // Jan 1, 2026 - Thursday
+        {date: '2026-01-01', day: 'Thursday', time_start: '04:45 PM', time_end: '', time_sort: 1005, sabha: 'tamilisai', venue_loc: 'ram', genre: 'special', main_artist: 'Thirukkudal Selvar T.S.M. Mia Muththukarppan', accompanists: 'Thiruppugazhi', is_ticketed: false},
+        {date: '2026-01-01', day: 'Thursday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'tamilisai', venue_loc: 'ram', genre: 'vocal', main_artist: 'Dr. Jayanthi Siddhan', accompanists: '', is_ticketed: false}
                                         ];
 
         // Group events by date
@@ -2416,7 +2484,8 @@
                 'mfac': 'Mylapore Fine Arts Club',
                 'arkay': 'Arkay Convention Center',
                 'hamsadhwani-hall': 'Hamsadhwani Venue',
-                'sgsa-hall': 'SGS Ashram Hall'
+                'sgsa-hall': 'SGS Ashram Hall',
+            'ram': 'Rajah Annamalai Mandram'
             };
             return venueNames[venueLoc] || venueLoc;
         }
