@@ -228,6 +228,20 @@
             background: white;
         }
 
+        
+        .control-group select.filter-active,
+        .control-group input.filter-active {
+            background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+            border: 2px solid #FF6F00;
+            box-shadow: 0 0 10px rgba(255, 111, 0, 0.4);
+        }
+
+        .control-group label.filter-active-label {
+            color: #FF6F00;
+            font-weight: 700;
+        }
+
+
         .control-group select:focus,
         .control-group input:focus {
             outline: none;
@@ -2583,7 +2597,28 @@
             }
         });
 
-        // Filter events
+        
+        // Update filter highlighting
+        function updateFilterHighlights() {
+            const filters = [
+                { id: 'sabha-filter', defaultVal: 'all' },
+                { id: 'venue-filter', defaultVal: 'all' },
+                { id: 'genre-filter', defaultVal: 'all' },
+                { id: 'time-filter', defaultVal: 'all' },
+                { id: 'search-box', defaultVal: '' }
+            ];
+            
+            filters.forEach(f => {
+                const el = document.getElementById(f.id);
+                const label = el.parentElement.querySelector('label');
+                const isActive = el.value !== f.defaultVal;
+                
+                el.classList.toggle('filter-active', isActive);
+                if (label) label.classList.toggle('filter-active-label', isActive);
+            });
+        }
+
+// Filter events
         function filterEvents() {
             const sabhaFilter = document.getElementById('sabha-filter').value;
             const venueFilter = document.getElementById('venue-filter').value;
@@ -2629,6 +2664,7 @@
 
             // Update URL with filter params
             updateURL();
+            updateFilterHighlights();
         }
 
         // Update URL with current filters
@@ -2733,6 +2769,7 @@
 
             // Initial render
             filterEvents();
+            updateFilterHighlights();
 
             // Add event listeners
             document.getElementById('sabha-filter').addEventListener('change', filterEvents);
