@@ -2561,7 +2561,9 @@
         }
 
         // Get festival name for each sabha
-        function getFestivalName(sabha) {
+        function getFestivalName(sabha, genre) {
+            // Music Academy Dance Festival (Jan 3-9, 2026)
+            if (sabha === 'academy' && genre === 'dance') return '19th Dance Festival';
             const festivals = {
                 'academy': '99th Annual Conference',
                 'spss': '69th Margazhi Mela',
@@ -2666,7 +2668,7 @@
                                 <tr>
                                     <td class="col-time">${timeDisplay}</td>
                                     <td class="col-sabha"><span class="badge badge-small ${getVenueBadgeClass(event.sabha || event.venue)}">${getVenueName(event.sabha || event.venue)}</span></td>
-                                    <td class="col-festival">${getFestivalName(event.sabha || event.venue)}</td>
+                                    <td class="col-festival">${getFestivalName(event.sabha || event.venue, event.genre)}</td>
                                     <td class="col-venue">${getVenueLocName(event.venue_loc)}</td>
                                     <td class="col-place">${getPlaceName(event.venue_loc)}</td>
                                     <td class="col-genre"><span class="badge badge-small ${getGenreBadgeClass(event.genre)}">${getGenreName(event.genre)}</span></td>
