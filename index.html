@@ -4214,7 +4214,15 @@
             {"date":"2026-01-23","day":"Friday","time_start":"07:30 PM","time_end":"","time_sort":1170,"sabha":"bgsbgst","venue_loc":"tag","genre":"dance","main_artist":"Shruthi Shoby","accompanists":"","is_ticketed":false},
             {"date":"2026-01-25","day":"Sunday","time_start":"05:00 PM","time_end":"","time_sort":1020,"sabha":"bgsbgst","venue_loc":"tag","genre":"dance","main_artist":"N. Krithika & Madhumita Raman","accompanists":"","is_ticketed":false},
             {"date":"2026-01-25","day":"Sunday","time_start":"05:00 PM","time_end":"","time_sort":1020,"sabha":"bgsbgst","venue_loc":"tag","genre":"dance","main_artist":"Amrutha Soundarya T M","accompanists":"","is_ticketed":false},
-            {"date":"2026-01-25","day":"Sunday","time_start":"07:30 PM","time_end":"","time_sort":1170,"sabha":"bgsbgst","venue_loc":"tag","genre":"dance","main_artist":"Dr Himaja Athul Kapur","accompanists":"","is_ticketed":false}
+            {"date":"2026-01-25","day":"Sunday","time_start":"07:30 PM","time_end":"","time_sort":1170,"sabha":"bgsbgst","venue_loc":"tag","genre":"dance","main_artist":"Dr Himaja Athul Kapur","accompanists":"","is_ticketed":false},
+
+            // Chennaiyil Sangeeth Utsav Season 4 (Jan 13-18, 2026)
+            {date: '2026-01-13', day: 'Tuesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'csu', venue_loc: 'rk-convention', genre: 'veena', main_artist: 'Rajhesh Vaidhya', accompanists: '', is_ticketed: false},
+            {date: '2026-01-14', day: 'Wednesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'csu', venue_loc: 'rk-convention', genre: 'vocal', main_artist: 'TM Krishna', accompanists: '', is_ticketed: false},
+            {date: '2026-01-15', day: 'Thursday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'csu', venue_loc: 'rk-convention', genre: 'vocal', main_artist: 'Bharat Sundar & Thiruvarur Dr. Bakthavathsalam', accompanists: '', is_ticketed: false},
+            {date: '2026-01-16', day: 'Friday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'csu', venue_loc: 'rk-convention', genre: 'flute', main_artist: 'Mysore Dr. Manjunath, Bombay Ronu Majumdar & Thiruvarur Dr. Bakthavathsalam', accompanists: '', is_ticketed: false},
+            {date: '2026-01-17', day: 'Saturday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'csu', venue_loc: 'rk-convention', genre: 'vocal', main_artist: 'Sandeep Narayan', accompanists: '', is_ticketed: false},
+            {date: '2026-01-18', day: 'Sunday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'csu', venue_loc: 'rk-convention', genre: 'dance', main_artist: 'Kavitha Ramu', accompanists: '', is_ticketed: false}
         ,
             {"date":"2025-12-13","day":"Saturday","time_start":"03:15 PM","time_end":"","time_sort":915,"sabha":"carnatica-spss","venue_loc":"ghaf-hall","genre":"vocal","main_artist":"Students of The Tamilnadu Dr J Jayalalithaa Music and Fine Arts University","accompanists":"","is_ticketed":false},
             {"date":"2025-12-13","day":"Saturday","time_start":"04:00 PM","time_end":"","time_sort":960,"sabha":"carnatica-spss","venue_loc":"ghaf-hall","genre":"special","main_artist":"Inaugural Function","accompanists":"","is_ticketed":false},
@@ -4350,6 +4358,7 @@
             if (venue === 'sundarammutual') return 'Sundaram Mutual';
             if (venue === 'kalavaahini') return 'Kalavaahini Trust';
             if (venue === 'mudhra') return 'Mudhra';
+            if (venue === 'csu') return 'Star Vijay & GK';
             return venue;
         }
 
@@ -4394,7 +4403,8 @@
             'sss-hall': 'Srinivasa Sastri Hall',
             'vidya-bharathi': 'Vidya Bharathi',
             'vani-mahal-mini': 'Vani Mahal - Mini Hall',
-            'online': 'Online Webstream'
+            'online': 'Online Webstream',
+            'rk-convention': 'AMRK Banquet Hall (RK Convention Centre)'
             };
             return venueNames[venueLoc] || venueLoc;
         }
@@ -4441,7 +4451,8 @@
             'sss-hall': 'Mylapore',
             'vidya-bharathi': 'Mylapore',
             'vani-mahal-mini': 'T. Nagar',
-            'online': 'NA'
+            'online': 'NA',
+            'rk-convention': 'Neelankarai'
             };
             return places[venueLoc] || '';
         }
@@ -4487,7 +4498,8 @@
                 'sundarammutual': 'Ananda Margazhi',
                 'asthika': 'Thyagaraja Aradhana 2025',
                 'kalavaahini': 'Dance for Dance 2025',
-                'mudhra': '31st Fine Arts Festival'
+                'mudhra': '31st Fine Arts Festival',
+                'csu': 'Chennaiyil Sangeeth Utsav Season 4'
             };
             return festivals[sabha] || '';
         }
@@ -4616,7 +4628,8 @@
             'sciartsrus': 'mfac-auditorium',
             'madhuradhwani': 'arkay',
             'hamsadhwani': 'hamsadhwani-hall',
-            'nadasudha': 'sgsa-hall'
+            'nadasudha': 'sgsa-hall',
+            'csu': 'rk-convention'
         };
 
         // Add venue_loc property to all events based on sabha (handles both sabha: and venue: fields)
@@ -4762,7 +4775,8 @@
                 'sundarammutual': 'Sundaram Mutual',
                 'asthika': 'Asthika Samajam',
                 'kalavaahini': 'Kalavaahini Trust',
-                'mudhra': 'Mudhra'
+                'mudhra': 'Mudhra',
+                'csu': 'Star Vijay & GK'
             };
             return names[code] || code;
         }
