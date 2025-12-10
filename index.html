@@ -5113,7 +5113,7 @@
             'rk-convention': 'AMRK Banquet Hall (RK Convention Centre)',
             'kauvery-hospital': 'Kauvery Hospital',
             'stbgs-scsm': 'Sri Chandrasekarendra Saraswathi Mahaswami Auditorium',
-            'cp-ramaswamy-alwarpet': '52, CP Ramaswamy Road, Alwarpet',
+            'cp-ramaswamy-alwarpet': 'Garden Amphitheatre, 52 CP Ramaswamy Road',
             'tattvaloka-hall': 'Tattvaloka Hall',
             'anusham': 'Anusham Fine Arts'
             };
@@ -5152,13 +5152,9 @@
                 'sgsa-hall': 'Baby Nagar, Velachery',
             'tag': 'Mylapore',
             'ram': 'Nungambakkam',
-            'tag': 'Mylapore',
             'bvb-mini': 'Mylapore',
             'desiga': 'Mylapore',
                 'medai': 'Alwarpet',
-                'medai': 'Alwarpet',
-            'arkay': 'Mylapore',
-            'ram': 'Esplanade Road',
             'sss-hall': 'Mylapore',
             'kgs-nalli': 'T. Nagar',
             'kgs-kamakoti': 'T. Nagar',
@@ -5171,7 +5167,27 @@
             'stbgs-scsm': 'T. Nagar',
             'cp-ramaswamy-alwarpet': 'Alwarpet',
             'tattvaloka-hall': 'Teynampet',
-            'anusham': 'T. Nagar'
+            'anusham': 'T. Nagar',
+            // Sabha codes (for events using venue: instead of venue_loc:)
+            'academy': 'Alwarpet',
+            'spss': 'Mylapore',
+            'bk': 'T. Nagar',
+            'ni': 'Mylapore',
+            'kgs': 'T. Nagar',
+            'bvb': 'Mylapore',
+            'charsur': 'Adyar',
+            'ss': 'Royapettah',
+            'ghaf': 'Thiruvanmiyur',
+            'bgs': 'Mylapore',
+            'kalakshetra': 'Thiruvanmiyur',
+            'stbgs': 'T. Nagar',
+            'sciartsrus': 'Mylapore',
+            'madhuradhwani': 'Mylapore',
+            'hamsadhwani': 'Indira Nagar',
+            'nadasudha': 'Baby Nagar, Velachery',
+            'ngs': 'Mylapore',
+            'srothovaham': 'Mylapore',
+            'sastrasatsangh': 'Vadapalani'
             };
             return places[venueLoc] || '';
         }
@@ -5664,7 +5680,7 @@
                 return nameA.localeCompare(nameB);
             });
             // Deduplicate places by display name (multiple venues can be in same area)
-            const placeNames = [...new Set(events.map(e => getPlaceName(e.venue_loc)).filter(p => p))].sort();
+            const placeNames = [...new Set(events.map(e => getPlaceName(e.venue_loc || e.venue)).filter(p => p))].sort();
             // Deduplicate genres by display name (e.g., 'lecture' and 'lecdem' both show as 'Lec-Dem')
             const genreMap = {};
             events.forEach(e => {
@@ -5775,7 +5791,7 @@ function filterEvents() {
                 if (colSabhaFilter && event.sabha !== colSabhaFilter) return false;
                 if (colFestivalFilter && (event.festival || getFestivalName(event.sabha)) !== colFestivalFilter) return false;
                 if (colVenueFilter && getVenueName(event.venue_loc) !== colVenueFilter) return false;
-                if (colPlaceFilter && getPlaceName(event.venue_loc) !== colPlaceFilter) return false;
+                if (colPlaceFilter && getPlaceName(event.venue_loc || event.venue) !== colPlaceFilter) return false;
                 if (colGenreFilter && getGenreDisplayName(event.genre) !== getGenreDisplayName(colGenreFilter)) return false;
                 if (colArtistFilter && event.main_artist !== colArtistFilter) return false;
                 if (colDetailsFilter && e.accompanists && !e.accompanists.includes(colDetailsFilter)) return false;
