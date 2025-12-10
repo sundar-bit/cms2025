@@ -245,7 +245,7 @@
             font-size: 1.2rem;
             padding: 4px 8px;
             transition: transform 0.2s, color 0.2s;
-            color: #888;
+            color: #333;
         }
 
         .bookmark-btn:hover {
@@ -5114,7 +5114,8 @@
             'kauvery-hospital': 'Kauvery Hospital',
             'stbgs-scsm': 'Sri Chandrasekarendra Saraswathi Mahaswami Auditorium',
             'cp-ramaswamy-alwarpet': '52, CP Ramaswamy Road, Alwarpet',
-            'tattvaloka-hall': 'Tattvaloka Hall'
+            'tattvaloka-hall': 'Tattvaloka Hall',
+            'anusham': 'Anusham Fine Arts'
             };
             return venueNames[venueLoc] || venueLoc;
         }
@@ -5127,7 +5128,7 @@
                 'ngs-mini': 'Alwarpet',
                 'bvb-main': 'Mylapore',
                 'kgs-hall': 'T. Nagar',
-                'bk-hall': 'T.Nagar',
+                'bk-hall': 'T. Nagar',
                 'ni-hall': 'Mylapore',
                 'charsur-studio': 'Adyar',
                 'charsur-hall': 'Mylapore',
@@ -5169,7 +5170,8 @@
             'kauvery-hospital': 'Vadapalani',
             'stbgs-scsm': 'T. Nagar',
             'cp-ramaswamy-alwarpet': 'Alwarpet',
-            'tattvaloka-hall': 'Teynampet'
+            'tattvaloka-hall': 'Teynampet',
+            'anusham': 'T. Nagar'
             };
             return places[venueLoc] || '';
         }
@@ -5240,7 +5242,7 @@
                 nadaswaram: 'Nadaswaram',
                 chitraveena: 'Chitraveena',
                 chitravina: 'Chitravina',
-                lecture: 'Lecture Demo',
+                lecture: 'Lec-Dem',
                 lecdem: 'Lec-Dem',
                 upanyasam: 'Upanyasam',
                 harikatha: 'Harikatha',
@@ -5667,7 +5669,15 @@
                 const nameB = getPlaceName(b) || b;
                 return nameA.localeCompare(nameB);
             });
-            const genres = [...new Set(events.map(e => e.genre))].filter(g => g).sort();
+            // Deduplicate genres by display name (e.g., 'lecture' and 'lecdem' both show as 'Lec-Dem')
+            const genreMap = {};
+            events.forEach(e => {
+                if (e.genre) {
+                    const displayName = getGenreDisplayName(e.genre);
+                    if (!genreMap[displayName]) genreMap[displayName] = e.genre;
+                }
+            });
+            const genres = Object.values(genreMap).sort((a, b) => getGenreDisplayName(a).localeCompare(getGenreDisplayName(b)));
             const artists = [...new Set(events.map(e => e.main_artist))].filter(a => a).sort();
 
             fillSelect('filter-time', times, null);
@@ -5770,7 +5780,7 @@ function filterEvents() {
                 if (colFestivalFilter && (event.festival || getFestivalName(event.sabha)) !== colFestivalFilter) return false;
                 if (colVenueFilter && getVenueName(event.venue_loc) !== colVenueFilter) return false;
                 if (colPlaceFilter && getPlaceName(event.venue_loc) !== colPlaceFilter) return false;
-                if (colGenreFilter && event.genre !== colGenreFilter) return false;
+                if (colGenreFilter && getGenreDisplayName(event.genre) !== getGenreDisplayName(colGenreFilter)) return false;
                 if (colArtistFilter && event.main_artist !== colArtistFilter) return false;
                 if (colDetailsFilter && e.accompanists && !e.accompanists.includes(colDetailsFilter)) return false;
                 if (colEntryFilter) {
