@@ -94,6 +94,8 @@
             --sastrasatsangh-bg: #FFF8E1;
             --kgs-color: #1565C0;
             --kgs-bg: #E3F2FD;
+            --sruti-musicforum-color: #6A1B9A;
+            --sruti-musicforum-bg: #F3E5F5;
 
             /* Genre colors */
             --vocal-color: #6A1B9A;
@@ -946,6 +948,11 @@
         .badge-kgs {
             background: var(--kgs-bg);
             color: var(--kgs-color);
+        }
+
+        .badge-sruti-musicforum {
+            background: var(--sruti-musicforum-bg);
+            color: var(--sruti-musicforum-color);
         }
 
         .badge-bvb {
@@ -2900,9 +2907,13 @@
         // Dec 5
         {date: '2025-12-05', day: 'Friday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Shruthi S. Bhat', accompanists: '', is_ticketed: false},
         {date: '2025-12-05', day: 'Friday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'special', main_artist: 'Sangeetha Bhakthi Samarpanam', accompanists: '', is_ticketed: false},
-        // Dec 6 & 7 - LEC DEM MELA 2025
-        {date: '2025-12-06', day: 'Saturday', time_start: '10:00 AM', time_end: '', time_sort: 600, sabha: 'madhuradhwani', genre: 'lecture', main_artist: 'LEC DEM MELA 2025 - Full Day', accompanists: '', is_ticketed: false},
-        {date: '2025-12-07', day: 'Sunday', time_start: '10:00 AM', time_end: '', time_sort: 600, sabha: 'madhuradhwani', genre: 'lecture', main_artist: 'LEC DEM MELA 2025 - Full Day', accompanists: '', is_ticketed: false},
+        // Sruti & The Music Forum - LECDEM MELA 2025 - Theme: Sangeetha Kathamrutham
+        // Dec 6 - Saturday
+        {date: '2025-12-06', day: 'Saturday', time_start: '09:30 AM', time_end: '', time_sort: 570, sabha: 'sruti-musicforum', venue_loc: 'arkay', genre: 'lecdem', main_artist: 'Gayathri Venkataraghavan', accompanists: 'Ramayana', is_ticketed: false, festival: 'LECDEM MELA 2025'},
+        {date: '2025-12-06', day: 'Saturday', time_start: '11:00 AM', time_end: '', time_sort: 660, sabha: 'sruti-musicforum', venue_loc: 'arkay', genre: 'lecdem', main_artist: 'Dr. Sudha Seshayyan', accompanists: 'Ramayana', is_ticketed: false, festival: 'LECDEM MELA 2025'},
+        // Dec 7 - Sunday
+        {date: '2025-12-07', day: 'Sunday', time_start: '09:30 AM', time_end: '', time_sort: 570, sabha: 'sruti-musicforum', venue_loc: 'arkay', genre: 'lecdem', main_artist: 'R. K. Shriramkumar', accompanists: 'Devi Mahatmiyam', is_ticketed: false, festival: 'LECDEM MELA 2025'},
+        {date: '2025-12-07', day: 'Sunday', time_start: '11:00 AM', time_end: '', time_sort: 660, sabha: 'sruti-musicforum', venue_loc: 'arkay', genre: 'lecdem', main_artist: 'Dr. Sunder', accompanists: 'Siva Puranam', is_ticketed: false, festival: 'LECDEM MELA 2025'},
         // Dec 8
         {date: '2025-12-08', day: 'Monday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Jayashree Aravind', accompanists: '', is_ticketed: false},
         {date: '2025-12-08', day: 'Monday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Amritha Murali', accompanists: '', is_ticketed: false},
@@ -5145,7 +5156,8 @@
                 'ngs': 'Isai Natya Nataka Vizha 2025',
                 'srothovaham': 'Srothovaham Music Festival 2025',
                 'sastrasatsangh': 'Margazhi Mela',
-                'kgs': '69th Margazhi Mela'
+                'kgs': '69th Margazhi Mela',
+                'sruti-musicforum': 'LECDEM MELA 2025'
             };
             return festivals[sabha] || '';
         }
@@ -5280,7 +5292,8 @@
             'ngs': 'ngs-main',
             'srothovaham': 'sss-hall',
             'sastrasatsangh': 'sastra-vadapalani',
-            'kgs': 'kgs-nalli'
+            'kgs': 'kgs-nalli',
+            'sruti-musicforum': 'arkay'
         };
 
         // Add venue_loc property to all events based on sabha (handles both sabha: and venue: fields)
@@ -5432,7 +5445,8 @@
                 'ngs': 'NGS',
                 'srothovaham': 'Psiog & UKS E Gurukulam',
                 'sastrasatsangh': 'Sastra Satsangh',
-                'kgs': 'Sri Krishna Gana Sabha'
+                'kgs': 'Sri Krishna Gana Sabha',
+                'sruti-musicforum': 'Sruti & Music Forum'
             };
             return names[code] || code;
         }
