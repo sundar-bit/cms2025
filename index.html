@@ -6502,6 +6502,88 @@ function filterEvents() {
         </div>
     </div>
 
+<!-- DONATION SECTION -->
+<style>
+.donation-section {
+    background: linear-gradient(135deg, var(--maroon) 0%, var(--deep-maroon) 100%);
+    color: var(--cream);
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: 40px;
+    border-top: 4px solid var(--gold);
+}
+.donation-content {
+    max-width: 500px;
+    margin: 0 auto;
+}
+.donation-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    color: var(--bright-gold);
+    margin-bottom: 15px;
+}
+.donation-tamil {
+    font-size: 0.95rem;
+    color: var(--gold);
+    margin-bottom: 15px;
+    font-style: italic;
+}
+.donation-qr-container {
+    background: white;
+    padding: 10px;
+    border-radius: 16px;
+    display: inline-block;
+    margin: 15px 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.donation-qr-container img {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+}
+.donation-upi-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--bright-gold) 100%);
+    color: var(--deep-maroon);
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 15px 0;
+}
+.donation-upi-btn:hover {
+    transform: translateY(-2px);
+}
+.donation-note {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    margin-top: 15px;
+}
+</style>
+
+<div class="donation-section">
+    <div class="donation-content">
+        <h2 class="donation-title">Support This Project</h2>
+        <p class="donation-tamil">"இந்த app உங்களுக்கு பயனுள்ளதாக இருந்தால்..."</p>
+
+        <div class="donation-qr-container">
+            <img src="GooglePay_QR.png" alt="GPay QR Code">
+        </div>
+
+        <div>
+            <a href="upi://pay?pa=simulationsundar@okicici&pn=Sundararaman%20Chintamani&tn=CMS2025%20Support" class="donation-upi-btn">
+                Pay via UPI
+            </a>
+        </div>
+
+        <p class="donation-note">
+            GPay | PhonePe | Paytm | Any UPI App<br>
+            No minimum | Every contribution matters
+        </p>
+    </div>
+</div>
+<!-- END DONATION SECTION -->
+
 </body>
 </html>
 
