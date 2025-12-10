@@ -5663,12 +5663,8 @@
                 const nameB = getVenueLocName(b) || b;
                 return nameA.localeCompare(nameB);
             });
-            const placeCodes = [...new Set(events.map(e => e.venue_loc))];
-            const places = placeCodes.sort((a, b) => {
-                const nameA = getPlaceName(a) || a;
-                const nameB = getPlaceName(b) || b;
-                return nameA.localeCompare(nameB);
-            });
+            // Deduplicate places by display name (multiple venues can be in same area)
+            const placeNames = [...new Set(events.map(e => getPlaceName(e.venue_loc)).filter(p => p))].sort();
             // Deduplicate genres by display name (e.g., 'lecture' and 'lecdem' both show as 'Lec-Dem')
             const genreMap = {};
             events.forEach(e => {
@@ -5684,7 +5680,7 @@
             fillSelect('filter-sabha-col', sabhas, getSabhaDisplayName);
             fillSelect('filter-festival', festivals, null);
             fillSelect('filter-venue', venues, getVenueLocName);
-            fillSelect('filter-place', places, getPlaceName);
+            fillSelect('filter-place', placeNames, null);
             fillSelect('filter-genre-col', genres, getGenreDisplayName);
             fillSelect('filter-artist', artists, null);
             fillSelect('filter-entry', ['Free', 'Ticketed'], null);
