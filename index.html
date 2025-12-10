@@ -19,102 +19,8 @@
             --peacock-blue: #006064;
             --silk-green: #1B5E20;
 
-            /* Sabha colors - elegant muted tones */
-            --academy-color: #800020;
-            --academy-bg: #F5E6E8;
-            --spss-color: #006064;
-            --spss-bg: #E0F2F1;
-            --bk-color: #4A148C;
-            --bk-bg: #EDE7F6;
-            --ni-color: #1B5E20;
-            --ni-bg: #E8F5E9;
-            --kgs-color: #E65100;
-            --kgs-bg: #FFF3E0;
-            --bvb-color: #01579B;
-            --bvb-bg: #E1F5FE;
-            --charsur-color: #B71C1C;
-            --charsur-bg: #FFEBEE;
-            --ss-color: #2E7D32;
-            --ss-bg: #E8F5E9;
-            --ghaf-color: #6A1B9A;
-            --ghaf-bg: #F3E5F5;
-            --bgs-color: #FF8F00;
-            --bgs-bg: #FFF8E1;
-            --kalakshetra-color: #C62828;
-            --kalakshetra-bg: #FFEBEE;
-            --stbgs-color: #5D4037;
-            --stbgs-bg: #EFEBE9;
-            --sciartsrus-color: #00695C;
-            --sciartsrus-bg: #E0F2F1;
-            --madhuradhwani-color: #FF6F00;
-            --madhuradhwani-bg: #FFF3E0;
-            --hamsadhwani-color: #1565C0;
-            --hamsadhwani-bg: #E3F2FD;
-            --nadasudha-color: #7B1FA2;
-            --nadasudha-bg: #F3E5F5;
-            --tamilisai-color: #C2185B;
-            --tamilisai-bg: #FCE4EC;
-            --bgsrrs-color: #4E342E;
-            --bgsrrs-bg: #EFEBE9;
-            --bgsbgst-color: #D84315;
-            --bgsbgst-bg: #FBE9E7;
-            --carnatica-spss-color: #1A237E;
-            --carnatica-spss-bg: #E8EAF6;
-            --madhu-asfa-color: #B71C1C;
-            --madhu-asfa-bg: #FFEBEE;
-            --gfa-global-color: #E65100;
-            --gfa-global-bg: #FFF3E0;
-            --spss-samskriti-color: #4A148C;
-            --spss-samskriti-bg: #F3E5F5;
-            --ifas-color: #BF360C;
-            --ifas-bg: #FBE9E7;
-            --mfac-color: #004D40;
-            --mfac-bg: #E0F2F1;
-            --sterling-rotary-color: #1565C0;
-            --sterling-rotary-bg: #E3F2FD;
-            --cfa-color: #00796B;
-            --cfa-bg: #E0F2F1;
-            --kfa-color: #8B4513;
-            --kfa-bg: #FFF8E1;
-            --hcl-color: #2196F3;
-            --hcl-bg: #E3F2FD;
-            --sundarammutual-color: #1565C0;
-            --sundarammutual-bg: #E3F2FD;
-            --asthika-color: #6A1B9A;
-            --asthika-bg: #F3E5F5;
-            --kalavaahini-color: #C62828;
-            --kalavaahini-bg: #FFEBEE;
-            --mudhra-color: #5D4037;
-            --mudhra-bg: #EFEBE9;
-            --ngs-color: #880E4F;
-            --ngs-bg: #FCE4EC;
-            --srothovaham-color: #E65100;
-            --srothovaham-bg: #FFF3E0;
-            --sastrasatsangh-color: #FF6F00;
-            --sastrasatsangh-bg: #FFF8E1;
-            --kgs-color: #1565C0;
-            --kgs-bg: #E3F2FD;
-            --sruti-musicforum-color: #6A1B9A;
-            --sruti-musicforum-bg: #F3E5F5;
-            --sunaadalahari-color: #00695C;
-            --sunaadalahari-bg: #E0F2F1;
-            --ttvv-color: #D4AF37;
-            --ttvv-bg: #FFF8E1;
-            --iapa-color: #8B4513;
-            --iapa-bg: #FFF8DC;
-            /* Genre colors */
-            --vocal-color: #6A1B9A;
-            --violin-color: #E65100;
-            --veena-color: #2E7D32;
-            --flute-color: #00695C;
-            --nagaswaram-color: #B71C1C;
-            --chitraveena-color: #4A148C;
-            --lecture-color: #546E7A;
-            --upanyasam-color: #0277BD;
-            --harikatha-color: #D84315;
-            --special-color: #F9A825;
-            --bhakti-color: #00838F;
-            --dance-color: #AD1457;
+            /* Badge neutral style */
+            --badge-bg: #F5F0E8;
         }
 
         * {
@@ -256,22 +162,37 @@
         
         /* Bookmark Feature Styles */
 
-        .clear-bookmarks-btn {
-            background: #ff6b6b;
-            color: white;
+        .schedule-buttons {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .schedule-action-btn {
             border: none;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            font-size: 0.9rem;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.75rem;
             cursor: pointer;
-            margin-left: -5px;
             transition: all 0.3s;
         }
 
-        .clear-bookmarks-btn:hover {
+        .save-schedule-btn {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .save-schedule-btn:hover {
+            background: #43A047;
+        }
+
+        .clear-schedule-btn {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        .clear-schedule-btn:hover {
             background: #ee5a5a;
-            transform: scale(1.1);
         }
 
         .name-input-container {
@@ -324,7 +245,7 @@
             font-size: 1.2rem;
             padding: 4px 8px;
             transition: transform 0.2s, color 0.2s;
-            color: #ccc;
+            color: #888;
         }
 
         .bookmark-btn:hover {
@@ -927,198 +848,13 @@
             padding: 4px 10px;
             border-radius: 20px;
             font-size: 0.75rem;
-            font-weight: 600;
         }
 
-        .badge-academy {
-            background: var(--academy-bg);
-            color: var(--academy-color);
+        .badge-sabha,
+        .badge-genre {
+            background: var(--badge-bg);
+            color: #333;
         }
-
-        .badge-spss {
-            background: var(--spss-bg);
-            color: var(--spss-color);
-        }
-
-        .badge-bk {
-            background: var(--bk-bg);
-            color: var(--bk-color);
-        }
-
-        .badge-ni {
-            background: var(--ni-bg);
-            color: var(--ni-color);
-        }
-
-        .badge-kgs {
-            background: var(--kgs-bg);
-            color: var(--kgs-color);
-        }
-
-        .badge-sruti-musicforum {
-            background: var(--sruti-musicforum-bg);
-            color: var(--sruti-musicforum-color);
-        }
-        .badge-sunaadalahari {
-            background: var(--sunaadalahari-bg);
-            color: var(--sunaadalahari-color);
-        }
-        .badge-ttvv {
-            background: var(--ttvv-bg);
-            color: var(--ttvv-color);
-        }
-        .badge-iapa {
-            background: var(--iapa-bg);
-            color: var(--iapa-color);
-        }
-
-        .badge-bvb {
-            background: var(--bvb-bg);
-            color: var(--bvb-color);
-        }
-
-        .badge-charsur {
-            background: var(--charsur-bg);
-            color: var(--charsur-color);
-        }
-
-        .badge-bgs {
-            background: var(--bgs-bg);
-            color: var(--bgs-color);
-        }
-
-        .badge-ghaf {
-            background: var(--ghaf-bg);
-            color: var(--ghaf-color);
-        }
-
-        .badge-ss {
-            background: var(--ss-bg);
-            color: var(--ss-color);
-        }
-
-        .badge-kalakshetra {
-            background: var(--kalakshetra-bg);
-            color: var(--kalakshetra-color);
-        }
-
-        .badge-stbgs {
-            background: var(--stbgs-bg);
-            color: var(--stbgs-color);
-        }
-
-        .badge-sciartsrus {
-            background: var(--sciartsrus-bg);
-            color: var(--sciartsrus-color);
-        }
-
-        .badge-madhuradhwani {
-            background: var(--madhuradhwani-bg);
-            color: var(--madhuradhwani-color);
-        }
-
-        .badge-hamsadhwani {
-            background: var(--hamsadhwani-bg);
-            color: var(--hamsadhwani-color);
-        }
-
-        .badge-nadasudha {
-            background: var(--nadasudha-bg);
-            color: var(--nadasudha-color);
-        }
-
-        .badge-tamilisai {
-            background: var(--tamilisai-bg);
-            color: var(--tamilisai-color);
-        }
-
-        .badge-bgsrrs {
-            background: var(--bgsrrs-bg);
-            color: var(--bgsrrs-color);
-        }
-
-        .badge-sterling-rotary {
-            background: var(--sterling-rotary-bg);
-            color: var(--sterling-rotary-color);
-        }
-
-        .badge-mfac {
-            background: var(--mfac-bg);
-            color: var(--mfac-color);
-        }
-
-        .badge-ifas {
-            background: var(--ifas-bg);
-            color: var(--ifas-color);
-        }
-
-        .badge-spss-samskriti {
-            background: var(--spss-samskriti-bg);
-            color: var(--spss-samskriti-color);
-        }
-
-        .badge-gfa-global {
-            background: var(--gfa-global-bg);
-            color: var(--gfa-global-color);
-        }
-
-        .badge-madhu-asfa {
-            background: var(--madhu-asfa-bg);
-            color: var(--madhu-asfa-color);
-        }
-
-        .badge-carnatica-spss {
-            background: var(--carnatica-spss-bg);
-            color: var(--carnatica-spss-color);
-        }
-
-        .badge-cfa {
-            background: var(--cfa-bg);
-            color: var(--cfa-color);
-        }
-
-        .badge-bgsbgst {
-            background: var(--bgsbgst-bg);
-            color: var(--bgsbgst-color);
-        }
-
-        .badge-kfa {
-            background: var(--kfa-bg);
-            color: var(--kfa-color);
-        }
-        .badge-hcl {
-            background: var(--hcl-bg);
-            color: var(--hcl-color);
-        }
-        .badge-sundarammutual {
-            background: var(--sundarammutual-bg);
-            color: var(--sundarammutual-color);
-        }
-        .badge-asthika {
-            background: var(--asthika-bg);
-            color: var(--asthika-color);
-        }
-        .badge-kalavaahini {
-            background: var(--kalavaahini-bg);
-            color: var(--kalavaahini-color);
-        }
-        .badge-mudhra {
-            background: var(--mudhra-bg);
-            color: var(--mudhra-color);
-        }
-
-        .badge-vocal { background: rgba(155, 89, 182, 0.15); color: var(--vocal-color); }
-        .badge-violin { background: rgba(230, 126, 34, 0.15); color: var(--violin-color); }
-        .badge-veena { background: rgba(39, 174, 96, 0.15); color: var(--veena-color); }
-        .badge-flute { background: rgba(22, 160, 133, 0.15); color: var(--flute-color); }
-        .badge-nagaswaram { background: rgba(192, 57, 43, 0.15); color: var(--nagaswaram-color); }
-        .badge-chitraveena { background: rgba(142, 68, 173, 0.15); color: var(--chitraveena-color); }
-        .badge-lecture { background: rgba(127, 140, 141, 0.15); color: var(--lecture-color); }
-        .badge-upanyasam { background: rgba(41, 128, 185, 0.15); color: var(--upanyasam-color); }
-        .badge-harikatha { background: rgba(211, 84, 0, 0.15); color: var(--harikatha-color); }
-        .badge-special { background: rgba(243, 156, 18, 0.15); color: var(--special-color); }
-        .badge-bhakti { background: rgba(26, 188, 156, 0.15); color: var(--bhakti-color); }
-        .badge-dance { background: rgba(173, 20, 87, 0.15); color: var(--dance-color); }
 
         .badge-ticketed {
             background: #FFE5E5;
@@ -1504,13 +1240,16 @@
             <div class="stat-item date-range-item">
                 <span id="date-range" class="date-range-text">Loading...</span>
             </div>
-            <div class="stat-item">
+            <div class="stat-item schedule-buttons">
                 <button class="my-bookmarks-btn" id="my-bookmarks-btn" onclick="toggleBookmarksView()">
                     <span>★ My Schedule</span>
                     <span class="bookmark-count" id="bookmark-count">0</span>
                 </button>
-                <button class="clear-bookmarks-btn" id="clear-bookmarks-btn" onclick="clearAllBookmarks()" title="Clear all saved events" style="display: none;">
-                    ✕
+                <button class="schedule-action-btn save-schedule-btn" id="save-schedule-btn" onclick="openShareModal()" title="Save/Share Schedule" style="display: none;">
+                    Save
+                </button>
+                <button class="schedule-action-btn clear-schedule-btn" id="clear-bookmarks-btn" onclick="clearAllBookmarks()" title="Clear all saved events" style="display: none;">
+                    Clear
                 </button>
             </div>
             <div class="stat-item date-filter-item">
@@ -5269,37 +5008,13 @@
 
         // Get genre badge class
         function getGenreBadgeClass(genre) {
-            return `badge-${genre}`;
+            return 'badge-genre';
         }
 
         // Get venue badge class
-        function getVenueBadgeClass(venue) { if (venue === 'academy') return 'badge-academy'; if (venue === 'spss') return 'badge-spss';
-            if (venue === 'bk') return 'badge-bk';
-            if (venue === 'ni') return 'badge-ni';
-            if (venue === 'kgs') return 'badge-kgs';
-            if (venue === 'bvb') return 'badge-bvb';
-            if (venue === 'charsur') return 'badge-charsur';
-            if (venue === 'ss') return 'badge-ss';
-            if (venue === 'ghaf') return 'badge-ghaf';
-            if (venue === 'bgs') return 'badge-bgs';
-            if (venue === 'kalakshetra') return 'badge-kalakshetra';
-            if (venue === 'stbgs') return 'badge-stbgs';
-            if (venue === 'sciartsrus') return 'badge-sciartsrus';
-            if (venue === 'madhuradhwani') return 'badge-madhuradhwani';
-            if (venue === 'hamsadhwani') return 'badge-hamsadhwani';
-            if (venue === 'nadasudha') return 'badge-nadasudha';
-            if (venue === 'tamilisai') return 'badge-tamilisai';
-            if (venue === 'bgsrrs') return 'badge-bgsrrs';
-            if (venue === 'bgsbgst') return 'badge-bgsbgst';
-            if (venue === 'carnatica-spss') return 'badge-carnatica-spss';
-            if (venue === 'madhu-asfa') return 'badge-madhu-asfa';
-            if (venue === 'gfa-global') return 'badge-gfa-global';
-            if (venue === 'spss-samskriti') return 'badge-spss-samskriti';
-            if (venue === 'ifas') return 'badge-ifas';
-            if (venue === 'mfac') return 'badge-mfac';
-            if (venue === 'cfa') return 'badge-cfa';
-            if (venue === 'sterling-rotary') return 'badge-sterling-rotary';
-            return 'badge-academy'; }
+        function getVenueBadgeClass(venue) {
+            return 'badge-sabha';
+        }
 
         // Get venue display name - Full names in Sentence case (Golden Rules)
         function getVenueName(venue) {
@@ -5851,41 +5566,49 @@
 
         // Sabha chronological order (by founding year seniority)
         const sabhaChronologicalOrder = [
-            'spss',           // Sri Parthasarathy Swami Sabha
-            'academy',        // Music Academy
-            'bgsrrs',         // Brahma Gana Sabha - Rasika Ranjani Sabha
-            'ifas',           // Indian Fine Arts Society
-            'kalakshetra',    // Kalakshetra
-            'bvb',            // Bharatiya Vidya Bhavan
-            'tamilisai',      // Tamil Isai Sangam
-            'stbgs',          // Sri Thyaga Brahma Gana Sabha
-            'mfac',           // Mylapore Fine Arts Club
-            'kgs',            // Krishna Gana Sabha
-            'asthika',        // Asthika Samajam
-            'bgs',            // Brahma Gana Sabha
-            'bgsbgst',        // Brahma Gana Sabha - Brahma Gana Sabha Trust
-            'kfa',            // Kartik Fine Arts
-            'ni',             // Naada Inbam
-            'bk',             // Bharat Kalachar
-            'hamsadhwani',    // Hamsadhwani
-            'ghaf',           // Carnatica & Sri Parthasarathy Swami Sabha
-            'charsur',        // Charsur Arts
-            'carnatica-spss', // Carnatica - Sri Parthasarathy Swami Sabha
-            'nadasudha',      // Nada Sudha
-            'cfa',            // Chennai Fine Arts
-            'madhuradhwani',  // Madhuradhwani
-            'madhu-asfa',     // Madhuradhwani - Adi Sankara Fine Arts
-            'ss',             // Sastra Satsangh
-            'gfa-global',     // Gayatri Fine Arts Global
-            'sciartsrus',     // SciArtsRUs
-            'spss-samskriti', // Sri Parthasarathy Swami Sabha - Samskriti
-            'aalap',          // Aalap
-            'hcl',            // HCL Concerts
-            'sundarammutual', // Sundaram Mutual
-            'sterling-rotary',// Sterling Rotary
-            'kalavaahini',    // Kalavaahini Trust
-            'mudhra',         // Mudhra
-            'iapa'            // Integrated Academy of Performing Arts
+            'spss',           // 1. Sri Parthasarathy Swami Sabha
+            'spss-samskriti', // 1a. Sri Parthasarathy Swami Sabha - Samskriti
+            'academy',        // 2. Music Academy
+            'bgsrrs',         // 3. Rasika Ranjani Sabha (with BGS)
+            'ifas',           // 4. Indian Fine Arts Society
+            'kalakshetra',    // 5. Kalakshetra
+            'bvb',            // 6. Bharatiya Vidya Bhavan
+            'tamilisai',      // 7. Tamil Isai Sangam
+            'stbgs',          // 8. Sri Thyaga Brahma Gana Sabha
+            'mfac',           // 9. Mylapore Fine Arts Club
+            'kgs',            // 10. Sri Krishna Gana Sabha
+            'ngs',            // 11. Narada Gana Sabha
+            'asthika',        // 12. Asthika Samajam
+            'bgs',            // 13. Brahma Gana Sabha
+            'bgsbgst',        // 13a. Brahma Gana Sabha - BGS Trust
+            'kfa',            // 14. Kartik Fine Arts
+            'ni',             // 15. Naada Inbam
+            'sruti-musicforum', // 16. Sruti & Music Forum
+            'bk',             // 17. Bharat Kalachar
+            'hamsadhwani',    // 18. Hamsadhwani
+            'mudhra',         // 19. Mudhra
+            'hcl',            // 20. HCL Concerts
+            'ghaf',           // 21. Carnatica & SPSS
+            'carnatica-spss', // 21a. Carnatica - SPSS
+            'charsur',        // 22. Charsur Arts
+            'csu',            // 23. Star Vijay & GK
+            'nadasudha',      // 24. Nada Sudha
+            'cfa',            // 25. Chennai Fine Arts
+            'sundarammutual', // 26. Sundaram Mutual
+            'aalap',          // 27. Aalap
+            'madhuradhwani',  // 28. Madhuradhwani
+            'madhu-asfa',     // 28a. Madhuradhwani - Adi Sankara Fine Arts
+            'ttvv',           // 29. TTVV Trust
+            'sunaadalahari',  // 30. SunaadaLahari
+            'kalavaahini',    // 31. Kalavaahini Trust
+            'sastrasatsangh', // 32. Sastra Satsangh
+            'ss',             // 32a. Sastra Satsangh (alt)
+            'gfa-global',     // 33. Gayatri Fine Arts Global
+            'sciartsrus',     // 34. SciArtsRUs
+            'kauvery',        // 35. Kauvery Hospital
+            'iapa',           // 36. Integrated Academy of Performing Arts
+            'srothovaham',    // 37. Psiog & UKS E Gurukulam
+            'sterling-rotary' // Sterling Rotary
         ];
 
         function populateColumnFilters() { try {
@@ -6197,8 +5920,9 @@ function filterEvents() {
                     showBookmarkedEventsOnly();
                 }
 
-                // Hide clear button
+                // Hide action buttons
                 document.getElementById('clear-bookmarks-btn').style.display = 'none';
+                document.getElementById('save-schedule-btn').style.display = 'none';
             }
         }
 
@@ -6206,8 +5930,12 @@ function filterEvents() {
         function updateClearButton() {
             const count = getBookmarks().length;
             const clearBtn = document.getElementById('clear-bookmarks-btn');
+            const saveBtn = document.getElementById('save-schedule-btn');
             if (clearBtn) {
                 clearBtn.style.display = count > 0 ? 'inline-block' : 'none';
+            }
+            if (saveBtn) {
+                saveBtn.style.display = count > 0 ? 'inline-block' : 'none';
             }
         }
 
