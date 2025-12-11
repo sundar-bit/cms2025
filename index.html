@@ -4841,6 +4841,12 @@
         {date: '2026-01-13', day: 'Tuesday', time_start: '06:00 AM', time_end: '07:30 AM', time_sort: 360, sabha: 'ess', venue_loc: 'ess-hall', genre: 'mandolin', main_artist: 'Vid. Nagamani & Vid. U.P. Raju (Mandolin Duet)', accompanists: 'Vid. Madipakkam Suresh (Mridangam), Vid. N. Rajaraman (Kanjira)', is_ticketed: false, festival: 'Ekaantha Sangeetha Seva'},
         {date: '2026-01-14', day: 'Wednesday', time_start: '06:00 AM', time_end: '07:30 AM', time_sort: 360, sabha: 'ess', venue_loc: 'ess-hall', genre: 'veena', main_artist: 'Vid. Rajesh Vaidhya (Veena) & Vid. U. Rajesh (Mandolin) and team', accompanists: '', is_ticketed: false, festival: 'Ekaantha Sangeetha Seva'},
 
+        
+        // Sanjay Sabha - Sanjay Subrahmanyan Live (Dec 24-28, 2025)
+        {date: '2025-12-24', day: 'Wednesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'sanjaysabha', venue_loc: 'muthamizh-peravai', genre: 'vocal', main_artist: 'Sanjay Subrahmanyan', accompanists: '', is_ticketed: true, festival: 'Sanjay Sabha Live'},
+        {date: '2025-12-25', day: 'Thursday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'sanjaysabha', venue_loc: 'muthamizh-peravai', genre: 'vocal', main_artist: 'Sanjay Subrahmanyan', accompanists: '', is_ticketed: true, festival: 'Sanjay Sabha Live'},
+        {date: '2025-12-28', day: 'Sunday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'sanjaysabha', venue_loc: 'acj-mss', genre: 'vocal', main_artist: 'Sanjay Subrahmanyan', accompanists: '', is_ticketed: true, festival: 'Sanjay Sabha Live'},
+
         // Sri Parthasarathy Swami Sabha - 125th Year Celebration Events
 {date: '2025-12-08', day: 'Monday', time_start: '02:00 PM', time_end: '', time_sort: 840, sabha: 'spss', venue_loc: 'bvb-mini', genre: 'vocal', main_artist: 'Aadithyadev V. Punnayarkulam', accompanists: 'Vio Sivateja Mallajosyula, Mri Aduthurai Guruprasadh, Sumukh Karanth (Khanjira)', is_ticketed: false, festival: 'Partha Parampara Music Series 2025'},
         {date: '2025-12-08', day: 'Monday', time_start: '03:30 PM', time_end: '', time_sort: 930, sabha: 'spss', venue_loc: 'bvb-mini', genre: 'vocal', main_artist: 'Arjun & Sri Narayanan (Keyboard Duet)', accompanists: 'Vio Srihari Vittal, Mri Sabareesh G. Sreenivas, Sai Bharat (Khanjira)', is_ticketed: false, festival: 'Partha Parampara Music Series 2025'},
@@ -5097,6 +5103,7 @@
             if (venue === 'ttvv') return 'TTVV Trust';
             if (venue === 'iapa') return 'Integrated Academy for Performing Arts';
             if (venue === 'ess') return 'VVS Foundation Samaa Arts & Raghavendra Swami Mutt';
+            if (venue === 'sanjaysabha') return 'Sanjay Sabha';
             return venue;
         }
 
@@ -5151,7 +5158,9 @@
             'cp-ramaswamy-alwarpet': 'Garden Amphitheatre, 52 CP Ramaswamy Road',
             'tattvaloka-hall': 'Tattvaloka Hall',
             'anusham': 'Anusham Fine Arts',
-            'ess-hall': 'Srikara Anjaneya Raghavendra Swami Sannidhanam'
+            'ess-hall': 'Srikara Anjaneya Raghavendra Swami Sannidhanam',
+            'muthamizh-peravai': 'Muthamizh Peravai Hall, Raja Annamalai Puram',
+            'acj-mss': 'ACJ - M.S. Subbulakshmi Auditorium, Tharamani'
             };
             return venueNames[venueLoc] || venueLoc;
         }
@@ -5205,6 +5214,8 @@
             'tattvaloka-hall': 'Teynampet',
             'anusham': 'T. Nagar',
             'ess-hall': 'Mylapore',
+            'muthamizh-peravai': 'Raja Annamalai Puram',
+            'acj-mss': 'Tharamani',
             // Sabha codes (for events using venue: instead of venue_loc:)
             'academy': 'Alwarpet',
             'spss': 'Mylapore',
@@ -5423,7 +5434,8 @@
             'sunaadalahari': 'cp-ramaswamy-alwarpet',
             'ttvv': 'tattvaloka-hall',
             'iapa': 'kgs-nalli',
-            'ess': 'ess-hall'
+            'ess': 'ess-hall',
+            'sanjaysabha': 'muthamizh-peravai'
         };
 
         // Add venue_loc property to all events based on sabha (handles both sabha: and venue: fields)
@@ -5580,7 +5592,8 @@
                 'sunaadalahari': 'SunaadaLahari',
                 'ttvv': 'TTVV Trust',
                 'iapa': 'Integrated Academy of Performing Arts',
-                'ess': 'VVS Foundation Samaa Arts & Raghavendra Swami Mutt'
+                'ess': 'VVS Foundation Samaa Arts & Raghavendra Swami Mutt',
+                'sanjaysabha': 'Sanjay Sabha'
             };
             return names[code] || code;
         }
@@ -5666,7 +5679,8 @@
             'iapa',           // 36. Integrated Academy of Performing Arts
             'srothovaham',    // 37. Psiog & UKS E Gurukulam
             'sterling-rotary', // Sterling Rotary
-            'ess'             // 38. VVS Foundation Samaa Arts & Raghavendra Swami Mutt
+            'ess',            // 38. VVS Foundation Samaa Arts & Raghavendra Swami Mutt
+            'sanjaysabha'     // 39. Sanjay Sabha
         ];
 
         function populateColumnFilters() { try {
