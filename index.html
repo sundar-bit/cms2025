@@ -898,37 +898,106 @@
             background: linear-gradient(135deg, var(--maroon) 0%, var(--deep-maroon) 100%);
             color: var(--cream);
             padding: 30px 20px;
-            text-align: center;
             border-top: 3px solid var(--gold);
         }
 
-        .footer p {
-            margin-bottom: 10px;
-            font-size: 0.9rem;
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr 1fr;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: start;
         }
 
-        .footer strong {
+        .footer-section {
+            text-align: center;
+        }
+
+        .footer-section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--bright-gold);
+            margin-bottom: 12px;
+        }
+
+        .footer-qr-container {
+            background: white;
+            padding: 8px;
+            border-radius: 12px;
+            display: inline-block;
+            margin: 10px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .footer-qr-container img {
+            width: 140px;
+            height: auto;
+            border-radius: 6px;
+        }
+
+        .footer-section p {
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+        }
+
+        .footer-section .highlight {
             color: var(--bright-gold);
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.1rem;
         }
 
-        .footer .disclaimer {
+        .footer-section .sub-text {
             opacity: 0.8;
-            font-size: 0.8rem;
-            color: rgba(255, 248, 231, 0.7);
+            font-size: 0.75rem;
         }
 
-        .footer .contact {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid rgba(212, 175, 55, 0.3);
-            font-size: 0.9rem;
+        .footer-cta-btn {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-top: 8px;
+            transition: transform 0.2s;
         }
 
-        .footer .contact strong {
+        .footer-cta-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+        }
+
+        .upi-btn {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--bright-gold) 100%);
+            color: var(--deep-maroon);
+        }
+
+        .footer-middle {
+            padding: 0 15px;
+        }
+
+        .footer-middle .name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--bright-gold);
+            margin-bottom: 10px;
+        }
+
+        .footer-middle .disclaimer {
+            opacity: 0.7;
+            font-size: 0.75rem;
+            margin: 12px 0;
+        }
+
+        .footer-middle .contact-num {
             font-size: 1rem;
-            letter-spacing: 0.5px;
+            color: var(--bright-gold);
+            margin-top: 10px;
         }
 
         .print-btn {
@@ -1230,7 +1299,24 @@
             .date-nav { display: none; }
             .legend { display: none; }
             .footer { padding: 15px 10px; }
-            .footer p { font-size: 0.75rem; }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .footer-section {
+                border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+                padding-bottom: 15px;
+            }
+            .footer-section:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+            .footer-qr-container img {
+                width: 120px;
+            }
+            .footer-section-title {
+                font-size: 1rem;
+            }
         }
 
         /* Small mobile styles */
@@ -1442,46 +1528,41 @@
         <p>Try adjusting your filters or search terms.</p>
     </div>
 
-    <div class="legend">
-        <h3>Legend</h3>
-        <div class="legend-row">
-            <span class="legend-item"><span class="legend-color" style="background: var(--academy-color)"></span> Music Academy</span>
-            <span class="legend-item"><span class="legend-color" style="background: var(--spss-color)"></span> SPSS</span>
-            <span class="legend-item"><span class="legend-color" style="background: var(--bk-color)"></span> Bharat Kalachar</span>
-            <span class="legend-item"><span class="legend-color" style="background: var(--ni-color)"></span> Naada Inbam</span>
-            <span class="legend-item"><span class="legend-color" style="background: var(--kgs-color)"></span> Krishna Gana Sabha</span>
-            <span class="legend-item"><span class="legend-color" style="background: var(--bvb-color)"></span> Bharatiya Vidya Bhavan</span>
-            <span class="legend-item"><span class="legend-color" style="background: var(--charsur-color)"></span> Charsur Arts</span>
-            <span class="legend-item"><span class="legend-color" style="background: var(--ss-color)"></span> Sastra Satsangh</span>
-            <span class="legend-item"><span class="legend-color" style="background: var(--ghaf-color)"></span> Carnatica & SPSS</span>
-            <span class="legend-item"><span class="legend-color" style="background: var(--bgs-color)"></span> BGS</span>
-            <span class="legend-item"><span class="legend-color" style="background: var(--kalakshetra-color)"></span> Kalakshetra</span>
-            <span class="legend-item"><span class="legend-color" style="background: var(--stbgs-color)"></span> Sri Thyaga Brahma GS</span>
-            <span class="legend-item"><span class="legend-color" style="background: var(--sciartsrus-color)"></span> SciArtsRUs</span>
-            <span class="legend-item"><span class="legend-color" style="background: var(--madhuradhwani-color)"></span> Madhuradhwani</span>
-            <span class="legend-item"><span class="legend-color" style="background: var(--hamsadhwani-color)"></span> Hamsadhwani</span>
-            <span class="legend-item"><span class="legend-color" style="background: var(--nadasudha-color)"></span> Nada Sudha</span>
-            <span class="legend-item"><span class="legend-color" style="background: var(--kfa-color)"></span> Kartik Fine Arts</span>
-        </div>
-        <div class="legend-row">
-            <span class="legend-item"><span class="legend-color" style="background: var(--vocal-color)"></span> Vocal</span>
-            <span class="legend-item"><span class="legend-color" style="background: var(--violin-color)"></span> Violin</span>
-            <span class="legend-item"><span class="legend-color" style="background: var(--veena-color)"></span> Veena</span>
-            <span class="legend-item"><span class="legend-color" style="background: var(--flute-color)"></span> Flute</span>
-            <span class="legend-item"><span class="legend-color" style="background: var(--nagaswaram-color)"></span> Nagaswaram</span>
-            <span class="legend-item"><span class="legend-color" style="background: var(--chitraveena-color)"></span> Chitraveena</span>
-            <span class="legend-item"><span class="legend-color" style="background: var(--lecture-color)"></span> Lecture</span>
-            <span class="legend-item"><span class="legend-color" style="background: var(--harikatha-color)"></span> Harikatha</span>
-            <span class="legend-item"><span class="legend-color" style="background: var(--special-color)"></span> Special</span>
-            <span class="legend-item"><span class="legend-color" style="background: var(--dance-color)"></span> Dance</span>
-        </div>
-    </div>
+
 
     <footer class="footer">
-        <p><strong>Compiled by Dr. Sundararaman Chintamani</strong></p>
-        <p>Last updated: <span id="last-updated"></span></p>
-        <p class="disclaimer">For accurate timings, please verify with respective Sabhas.</p>
-        <p class="contact">For corrections, omissions, or to share your gratitude - reach out at <strong>+91-9840923764</strong></p>
+        <div class="footer-grid">
+            <!-- WhatsApp Group Section -->
+            <div class="footer-section">
+                <h3 class="footer-section-title">Join Rasikas Community</h3>
+                <p class="sub-text">Concert reviews, audio/video bytes & discussions</p>
+                <div class="footer-qr-container">
+                    <img src="WhatsApp_QR.png" alt="WhatsApp Group QR Code">
+                </div>
+                <p class="sub-text">70+ rasikas sharing their love for Carnatic music</p>
+                <a href="https://chat.whatsapp.com/INgxsgAmXr1LQ4jSiBEe4X" target="_blank" class="footer-cta-btn whatsapp-btn">Join WhatsApp Group</a>
+            </div>
+
+            <!-- About / Contact Section -->
+            <div class="footer-section footer-middle">
+                <p class="name">Compiled by Dr. Sundararaman Chintamani</p>
+                <p>Last updated: <span id="last-updated"></span></p>
+                <p class="disclaimer">For accurate timings, please verify with respective Sabhas.</p>
+                <p class="contact-num">+91-9840923764</p>
+                <p class="sub-text">For corrections, omissions, or appreciation</p>
+            </div>
+
+            <!-- Donation Section -->
+            <div class="footer-section">
+                <h3 class="footer-section-title">Support This Project</h3>
+                <p class="sub-text">இந்த app உங்களுக்கு பயனுள்ளதாக இருந்தால்...</p>
+                <div class="footer-qr-container">
+                    <img src="GooglePay_QR.png" alt="GPay QR Code">
+                </div>
+                <p class="sub-text">GPay | PhonePe | Paytm | Any UPI App</p>
+                <a href="upi://pay?pa=simulationsundar@okicici&pn=Sundararaman%20Chintamani&tn=CMS2025%20Support" class="footer-cta-btn upi-btn">Pay via UPI</a>
+            </div>
+        </div>
     </footer>
 
     <div class="share-container">
@@ -1568,7 +1649,7 @@
             // December 21, 2025 - Sunday
             {date: "2025-12-21", day: "Sunday", time_start: "08:30 AM", time_end: "", time_sort: 510, sabha: "spss", genre: "lecture", main_artist: "Decoding Laya aspects of Pallavi", accompanists: "Vid. Kunnakudi M. Balamuralikrishna with Vid. Shree Sundar Kumar", is_ticketed: false},
             {date: "2025-12-21", day: "Sunday", time_start: "09:00 AM", time_end: "11:30 AM", time_sort: 540, sabha: "academy", genre: "flute", main_artist: "K Bhaskaran", accompanists: "B.K. Raghu (Violin), Mannarkoil J. Balaji (Mridangam), Adambakkam K. Sankar (Ghatam)", is_ticketed: true},
-            {date: "2025-12-21", day: "Sunday", time_start: "10:00 AM", time_end: "", time_sort: 600, sabha: "spss", genre: "vocal", main_artist: "R. Suryaprakash", accompanists: "VVS Murari (Violin), Thanjavur Murugabhoopathi (Mridangam), K V Gopalakrishnan (Kanjira)", is_ticketed: false},
+            {date: "2025-12-21", day: "Sunday", time_start: "10:00 AM", time_end: "", time_sort: 600, sabha: "spss", genre: "vocal", main_artist: "Suryaprakash", accompanists: "VVS Murari (Violin), Thanjavur Murugabhoopathi (Mridangam), K V Gopalakrishnan (Kanjira)", is_ticketed: false},
             {date: "2025-12-21", day: "Sunday", time_start: "11:45 AM", time_end: "01:15 PM", time_sort: 705, sabha: "academy", genre: "veena", main_artist: "Charulatha Chandrasekar", accompanists: "Sarvesh Karthick (Mridangam), Murali Varadharajan (Kanjira)", is_ticketed: true},
             {date: "2025-12-21", day: "Sunday", time_start: "12:30 PM", time_end: "", time_sort: 750, sabha: "spss", genre: "vocal", main_artist: "Swarthmika Srikanth", accompanists: "Haritha Narayanan (Violin), Prajwal Bharadwaj (Mridangam), Satish Gowtham (Ghatam)", is_ticketed: false},
             {date: "2025-12-21", day: "Sunday", time_start: "01:30 PM", time_end: "03:30 PM", time_sort: 810, sabha: "academy", genre: "vocal", main_artist: "J.B. Keerthana", accompanists: "Delhi R. Sridhar (Violin), G.S. Nagaraj (Mridangam), Vishnu Kammath (Kanjira)", is_ticketed: true},
@@ -1658,7 +1739,7 @@
 
             // December 28, 2025 - Sunday
             {date: "2025-12-28", day: "Sunday", time_start: "08:30 AM", time_end: "", time_sort: 510, sabha: "spss", genre: "lecture", main_artist: "K. Bharat Sundar & L. Ramakrishnan", accompanists: "", details: "Exploring Raga Music - A journey from Abstract to Form", is_ticketed: false},
-            {date: "2025-12-28", day: "Sunday", time_start: "09:00 AM", time_end: "11:30 AM", time_sort: 540, sabha: "academy", genre: "vocal", main_artist: "R. Suryaprakash", accompanists: "Delhi P. Sunderrajan (Violin), Melakaveri K. Balaji (Mridangam), Manjoor Unnikrishnan (Ghatam)", is_ticketed: true},
+            {date: "2025-12-28", day: "Sunday", time_start: "09:00 AM", time_end: "11:30 AM", time_sort: 540, sabha: "academy", genre: "vocal", main_artist: "Suryaprakash", accompanists: "Delhi P. Sunderrajan (Violin), Melakaveri K. Balaji (Mridangam), Manjoor Unnikrishnan (Ghatam)", is_ticketed: true},
             {date: "2025-12-28", day: "Sunday", time_start: "10:00 AM", time_end: "", time_sort: 600, sabha: "spss", genre: "vocal", main_artist: "Kalyanapuram Aravind", accompanists: "Vittal Rangan (Violin), Patri Satish Kumar (Mridangam), S. Krishna (Ghatam)", is_ticketed: false},
             {date: "2025-12-28", day: "Sunday", time_start: "11:45 AM", time_end: "01:15 PM", time_sort: 705, sabha: "academy", genre: "vocal", main_artist: "Abilash Giriprasad", accompanists: "V. Sri Purna Gayatri Sivani (Violin), Rohith Ashok (Mridangam)", is_ticketed: true},
             {date: "2025-12-28", day: "Sunday", time_start: "12:30 PM", time_end: "", time_sort: 750, sabha: "spss", genre: "vocal", main_artist: "Sai Sisters Kiran Nivi", accompanists: "Gayatri Vibhavari (Violin), B.N. Kasinandh (Mridangam)", is_ticketed: false},
@@ -1696,7 +1777,7 @@
             {date: "2025-12-30", day: "Tuesday", time_start: "06:45 PM", time_end: "09:15 PM", time_sort: 1065, sabha: "academy", genre: "vocal", main_artist: "K.S. Vishnudev", accompanists: "Parur M.S. Ananthkrishnan (Violin), Sangita Kalanidhi Umayalpuram K. Sivaraman (Mridangam), G. Guruprasanna (Kanjira)", is_ticketed: true},
 
             // December 31, 2025 - Wednesday
-            {date: "2025-12-31", day: "Wednesday", time_start: "08:30 AM", time_end: "", time_sort: 510, sabha: "spss", genre: "lecture", main_artist: "Dr. Sangeeta Shankar, R. Suryaprakash, Dr. R. Hemalatha & V.V.S. Murari", accompanists: "", details: "Evolution of teaching methods in Carnatic & Hindustani Music - Gurukul to Cyber Vidyalaya", is_ticketed: false},
+            {date: "2025-12-31", day: "Wednesday", time_start: "08:30 AM", time_end: "", time_sort: 510, sabha: "spss", genre: "lecture", main_artist: "Dr. Sangeeta Shankar, Suryaprakash, Dr. R. Hemalatha & V.V.S. Murari", accompanists: "", details: "Evolution of teaching methods in Carnatic & Hindustani Music - Gurukul to Cyber Vidyalaya", is_ticketed: false},
             {date: "2025-12-31", day: "Wednesday", time_start: "09:00 AM", time_end: "11:30 AM", time_sort: 540, sabha: "academy", genre: "harikatha", main_artist: "Suchitra Balasubramanian", accompanists: "Karaikal Venkatasubramaniam (Violin), A V Manikandan (Mridangam), S Venkatraman (Harmonium)", is_ticketed: true, details: 'Harikatha'},
             {date: "2025-12-31", day: "Wednesday", time_start: "10:00 AM", time_end: "", time_sort: 600, sabha: "spss", genre: "veena", main_artist: "Nirmala Rajasekar", accompanists: "Trivandrum Sampath (Violin), Thanjavur K Murugaboopathi (Mridangam), N. Guruprasad (Ghatam)", is_ticketed: false, details: 'Saraswathi Veena'},
             {date: "2025-12-31", day: "Wednesday", time_start: "11:45 AM", time_end: "01:15 PM", time_sort: 705, sabha: "academy", genre: "vocal", main_artist: "J. Yoga Kirtana", accompanists: "P. Akshaya (Violin), Mysore L. Vadiraj (Mridangam)", is_ticketed: true},
@@ -2638,7 +2719,7 @@
         // Dec 30 - Tuesday
         {date: '2025-12-30', day: 'Tuesday', time_start: '01:00 PM', time_end: '', time_sort: 780, sabha: 'stbgs', venue_loc: 'vani-mahal', genre: 'vocal', main_artist: 'Prakrithi Jayanth', accompanists: 'Karthik Subramaniam (Violin), Abhinav Arvind (Mrudangam)', is_ticketed: false},
         {date: '2025-12-30', day: 'Tuesday', time_start: '02:15 PM', time_end: '', time_sort: 855, sabha: 'stbgs', venue_loc: 'vani-mahal', genre: 'vocal', main_artist: 'Preethi Sethuraman', accompanists: 'Vignesh Thiyagarajan (Violin), Srikar Chittarai (Mrudangam)', is_ticketed: false},
-        {date: '2025-12-30', day: 'Tuesday', time_start: '04:00 PM', time_end: '', time_sort: 960, sabha: 'stbgs', venue_loc: 'vani-mahal', genre: 'vocal', main_artist: 'Dr. R. Suryaprakash', accompanists: 'Trivandrum M. Sampath (Violin), Trivandrum V. Balaji (Mrudangam), N. Sundar (Morsing)', is_ticketed: false},
+        {date: '2025-12-30', day: 'Tuesday', time_start: '04:00 PM', time_end: '', time_sort: 960, sabha: 'stbgs', venue_loc: 'vani-mahal', genre: 'vocal', main_artist: 'Suryaprakash', accompanists: 'Trivandrum M. Sampath (Violin), Trivandrum V. Balaji (Mrudangam), N. Sundar (Morsing)', is_ticketed: false},
         {date: '2025-12-30', day: 'Tuesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'stbgs', venue_loc: 'vani-mahal', genre: 'special', main_artist: 'Arangan Arul - Sangeetha Upanyasam by Vishakha Hari', accompanists: 'C.S. Chinmayi (Violin), Vijay Natesan (Mrudangam), Trichy S. Krishnaswamy (Ghatam)', is_ticketed: true},
         // Dec 31 - Wednesday
         {date: '2025-12-31', day: 'Wednesday', time_start: '01:00 PM', time_end: '', time_sort: 780, sabha: 'stbgs', venue_loc: 'vani-mahal', genre: 'vocal', main_artist: 'Arya Nagarajan', accompanists: 'Sameth Sitaram (Violin), Sanjeev Subramanyam (Mrudangam)', is_ticketed: false},
@@ -2712,7 +2793,7 @@
         {date: '2025-12-24', day: 'Wednesday', time_start: '02:15 PM', time_end: '', time_sort: 855, sabha: 'sciartsrus', venue_loc: 'bvb-mini', genre: 'veena', main_artist: 'Dikshithar Vaibhavam - Yuko Matoba', accompanists: 'Sannath Parameswaran (Mridangam)', is_ticketed: false},
         {date: '2025-12-24', day: 'Wednesday', time_start: '03:45 PM', time_end: '', time_sort: 945, sabha: 'sciartsrus', venue_loc: 'bvb-mini', genre: 'vocal', main_artist: 'Sangeetha Rachanaa - Uma Ranganathan', accompanists: 'Confluence of music, architecture and design - Bharghav Vignesh (Violin), Sanath Parameswaran (Mridangam)', is_ticketed: false},
         {date: '2025-12-24', day: 'Wednesday', time_start: '05:15 PM', time_end: '', time_sort: 1035, sabha: 'sciartsrus', venue_loc: 'bvb-mini', genre: 'vocal', main_artist: 'Saptavarna Sangeetam - S. Swaratmika', accompanists: 'Rainbow of Music - Shree Lakshmi Bhat (Violin), Ramsmaran Krishnakumar (Mridangam), Sai Mukund (Kanjira)', is_ticketed: false},
-        {date: '2025-12-24', day: 'Wednesday', time_start: '07:00 PM', time_end: '', time_sort: 1140, sabha: 'sciartsrus', venue_loc: 'bvb-mini', genre: 'vocal', main_artist: 'Rasamum and Rasayanamum - Dr. Suryaprakash', accompanists: 'Artistry meets Chemistry - Murali Kumar (Violin), Erode Nagarajan (Mridangam), D.V. Venkatasubramaniam (Ghatam)', is_ticketed: false},
+        {date: '2025-12-24', day: 'Wednesday', time_start: '07:00 PM', time_end: '', time_sort: 1140, sabha: 'sciartsrus', venue_loc: 'bvb-mini', genre: 'vocal', main_artist: 'Rasamum and Rasayanamum - Suryaprakash', accompanists: 'Artistry meets Chemistry - Murali Kumar (Violin), Erode Nagarajan (Mridangam), D.V. Venkatasubramaniam (Ghatam)', is_ticketed: false},
         // Dec 25 - BVB Mini Hall
         {date: '2025-12-25', day: 'Thursday', time_start: '08:30 AM', time_end: '', time_sort: 510, sabha: 'sciartsrus', venue_loc: 'bvb-mini', genre: 'special', main_artist: 'Margazhi Shubh Arambh - YADA', accompanists: 'Ixchel (Violin), D. Rajesh (Nadhaswaram), Thiruvanmiyur N. Balaji (Thavil), Ambattur S Manivannan (Mridangam)', is_ticketed: false},
         {date: '2025-12-25', day: 'Thursday', time_start: '09:45 AM', time_end: '', time_sort: 585, sabha: 'sciartsrus', venue_loc: 'bvb-mini', genre: 'vocal', main_artist: 'Arumugam - NS Kamakshi', accompanists: 'Hexagon Power of 6: Dwi Nadai Pallavi - R. Raghul (Violin), B. Guru Ragavendra (Mridangam), Shri Sainath (Ghatam)', is_ticketed: false},
@@ -2922,7 +3003,7 @@
         {date: '2025-12-23', day: 'Tuesday', time_start: '01:00 PM', time_end: '', time_sort: 780, sabha: 'ttvv', venue_loc: 'tattvaloka-hall', genre: 'vocal', main_artist: 'Harish Venkataraman', accompanists: 'Vio Vishesh Upoor, Mri Rahul Musti', is_ticketed: false},
         {date: '2025-12-23', day: 'Tuesday', time_start: '03:30 PM', time_end: '', time_sort: 930, sabha: 'ttvv', venue_loc: 'tattvaloka-hall', genre: 'vocal', main_artist: 'Madhura Shriram', accompanists: 'Vio V. Mridula, Mri Rishabh Kalyanasundaran', is_ticketed: false},
         {date: '2025-12-23', day: 'Tuesday', time_start: '04:15 PM', time_end: '', time_sort: 975, sabha: 'ttvv', venue_loc: 'tattvaloka-hall', genre: 'vocal', main_artist: 'Trivandrum Dr. N.J. Nandhini', accompanists: 'Vio Sahana Vasudevan, Mri J.P. Suriya Nambisan, Kanjira Vishnu V. Kammath', is_ticketed: false},
-        {date: '2025-12-23', day: 'Tuesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'ttvv', venue_loc: 'tattvaloka-hall', genre: 'vocal', main_artist: 'Dr. R. Suryaprakash', accompanists: 'Vio B.V. Raghavedra Rao, Mri Navneeth Gopinath, Ghatam Sathya Ganesan', is_ticketed: false},
+        {date: '2025-12-23', day: 'Tuesday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'ttvv', venue_loc: 'tattvaloka-hall', genre: 'vocal', main_artist: 'Suryaprakash', accompanists: 'Vio B.V. Raghavedra Rao, Mri Navneeth Gopinath, Ghatam Sathya Ganesan', is_ticketed: false},
         // Dec 24
         {date: '2025-12-24', day: 'Wednesday', time_start: '09:00 AM', time_end: '', time_sort: 540, sabha: 'ttvv', venue_loc: 'tattvaloka-hall', genre: 'vocal', main_artist: 'G.K. Sivaraman', accompanists: 'Vio Naveen R., Mri Banujan Vasanthapalan', is_ticketed: false},
         {date: '2025-12-24', day: 'Wednesday', time_start: '10:30 AM', time_end: '', time_sort: 630, sabha: 'ttvv', venue_loc: 'tattvaloka-hall', genre: 'special', main_artist: 'Tiruvarur Rajagopala Iyer Memorial Award', accompanists: 'Presented to Dr. T.V. Gopalakrishnan', is_ticketed: false},
@@ -2968,7 +3049,7 @@
         {date: '2025-12-19', day: 'Friday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'veena', main_artist: 'Suma Sudhindra', accompanists: '', is_ticketed: false},
         {date: '2025-12-19', day: 'Friday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Dr. S. Sundar', accompanists: '', is_ticketed: false},
         // Dec 20
-        {date: '2025-12-20', day: 'Saturday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'R. Suryaprakash', accompanists: '', is_ticketed: false},
+        {date: '2025-12-20', day: 'Saturday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Suryaprakash', accompanists: '', is_ticketed: false},
         {date: '2025-12-20', day: 'Saturday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'O.S. Arun', accompanists: '', is_ticketed: false},
         // Dec 21
         {date: '2025-12-21', day: 'Sunday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'madhuradhwani', genre: 'vocal', main_artist: 'Ananya Ashok', accompanists: '', is_ticketed: false},
@@ -3907,7 +3988,7 @@
             {"date":"2025-12-20","day":"Saturday","time_start":"04:00 PM","time_end":"","time_sort":960,"sabha":"spss","venue_loc":"vidya-bharathi","genre":"vocal","main_artist":"Carnatica Brothers (K.N. Shashikiran & P. Ganesh)","accompanists":"Nagai Muralidharan (Violin), Thanjavur Murugaboopathi (Mridangam), Payyanur Govindaprasad (Morsing)","is_ticketed":true,"festival":"125th Year Celebration - Isai Vizha"},
             {"date":"2025-12-20","day":"Saturday","time_start":"06:30 PM","time_end":"","time_sort":1110,"sabha":"spss","venue_loc":"vidya-bharathi","genre":"vocal","main_artist":"Ramakrishnan Murthy","accompanists":"Vittal Rangan (Violin), Vijay Natesan (Mridangam)","is_ticketed":true,"festival":"125th Year Celebration - Isai Vizha"},
             {"date":"2025-12-21","day":"Sunday","time_start":"08:30 AM","time_end":"","time_sort":510,"sabha":"spss","venue_loc":"vidya-bharathi","genre":"lecture","main_artist":"Kunnakudi M. Balamuralikrishna with Shree Sundar Kumar","details":"Decoding Laya aspects of Pallavi","accompanists":"","is_ticketed":false,"festival":"125th Year Celebration - Isai Vizha"},
-            {"date":"2025-12-21","day":"Sunday","time_start":"10:00 AM","time_end":"","time_sort":600,"sabha":"spss","venue_loc":"vidya-bharathi","genre":"vocal","main_artist":"Dr. R. Suryaprakash","accompanists":"VVS Murari (Violin), Thanjavur Murugabhoopathi (Mridangam), K.V. Gopalakrishnan (Kanjira)","is_ticketed":false,"festival":"125th Year Celebration - Isai Vizha"},
+            {"date":"2025-12-21","day":"Sunday","time_start":"10:00 AM","time_end":"","time_sort":600,"sabha":"spss","venue_loc":"vidya-bharathi","genre":"vocal","main_artist":"Suryaprakash","accompanists":"VVS Murari (Violin), Thanjavur Murugabhoopathi (Mridangam), K.V. Gopalakrishnan (Kanjira)","is_ticketed":false,"festival":"125th Year Celebration - Isai Vizha"},
             {"date":"2025-12-21","day":"Sunday","time_start":"12:30 PM","time_end":"","time_sort":750,"sabha":"spss","venue_loc":"vidya-bharathi","genre":"vocal","main_artist":"Swarathmika Srikanth","accompanists":"Haritha Narayanan (Violin), Prajwal Bharadwaj (Mridangam), Satish Gowtham (Ghatam)","is_ticketed":false,"festival":"125th Year Celebration - Isai Vizha"},
             {"date":"2025-12-21","day":"Sunday","time_start":"02:00 PM","time_end":"","time_sort":840,"sabha":"spss","venue_loc":"vidya-bharathi","genre":"vocal","main_artist":"Shruthi Shankar Kumar","accompanists":"Bhargav Tumkur (Violin), B.N. Kasinadh (Mridangam), S. Sunil Kumar (Kanjira)","is_ticketed":false,"festival":"125th Year Celebration - Isai Vizha"},
             {"date":"2025-12-21","day":"Sunday","time_start":"04:00 PM","time_end":"","time_sort":960,"sabha":"spss","venue_loc":"vidya-bharathi","genre":"vocal","main_artist":"Papanasam Ashok Ramani","accompanists":"B.U. Ganesh Prasad (Violin), Thiruvarur Vaidyanathan (Mridangam), N. Guruprasad (Ghatam)","is_ticketed":true,"festival":"125th Year Celebration - Isai Vizha"},
@@ -3966,7 +4047,7 @@
             {"date":"2025-12-30","day":"Tuesday","time_start":"02:00 PM","time_end":"","time_sort":840,"sabha":"spss","venue_loc":"vidya-bharathi","genre":"harikatha","main_artist":"B. Suchitra","accompanists":"Gyandev Pappu (Violin), M.S. Venkatasubramaniam (Mridangam)","is_ticketed":false,"festival":"125th Year Celebration - Isai Vizha"},
             {"date":"2025-12-30","day":"Tuesday","time_start":"04:00 PM","time_end":"","time_sort":960,"sabha":"spss","venue_loc":"vidya-bharathi","genre":"veena","main_artist":"Ramana Balachandran","accompanists":"Sai Giridhar (Mridangam), K.V. Gopalakrishnan (Kanjira)","is_ticketed":true,"festival":"125th Year Celebration - Isai Vizha"},
             {"date":"2025-12-30","day":"Tuesday","time_start":"06:30 PM","time_end":"","time_sort":1110,"sabha":"spss","venue_loc":"vidya-bharathi","genre":"vocal","main_artist":"Gayathri Venkataraghavan","accompanists":"Embar Kannan (Violin), Neyveli Narayanan (Mridangam), S. Sunil Kumar (Kanjira)","is_ticketed":true,"festival":"125th Year Celebration - Isai Vizha"},
-            {"date":"2025-12-31","day":"Wednesday","time_start":"08:30 AM","time_end":"","time_sort":510,"sabha":"spss","venue_loc":"vidya-bharathi","genre":"lecture","main_artist":"Dr. Sangeeta Shankar, R. Suryaprakash, Dr. R. Hemalatha & V.V.S. Murari","details":"Evolution of teaching methods in Carnatic & Hindustani Music - Gurukul to Cyber Vidyalaya","accompanists":"","is_ticketed":false,"festival":"125th Year Celebration - Isai Vizha"},
+            {"date":"2025-12-31","day":"Wednesday","time_start":"08:30 AM","time_end":"","time_sort":510,"sabha":"spss","venue_loc":"vidya-bharathi","genre":"lecture","main_artist":"Dr. Sangeeta Shankar, Suryaprakash, Dr. R. Hemalatha & V.V.S. Murari","details":"Evolution of teaching methods in Carnatic & Hindustani Music - Gurukul to Cyber Vidyalaya","accompanists":"","is_ticketed":false,"festival":"125th Year Celebration - Isai Vizha"},
             {"date":"2025-12-31","day":"Wednesday","time_start":"10:00 AM","time_end":"","time_sort":600,"sabha":"spss","venue_loc":"vidya-bharathi","genre":"veena","main_artist":"Nirmala Rajasekar","details":"Saraswathi Veena","accompanists":"Trivandrum Sampath (Violin), Thanjavur K. Murugaboopathi (Mridangam), N. Guruprasad (Ghatam)","is_ticketed":false,"festival":"125th Year Celebration - Isai Vizha"},
             {"date":"2025-12-31","day":"Wednesday","time_start":"12:30 PM","time_end":"","time_sort":750,"sabha":"spss","venue_loc":"vidya-bharathi","genre":"vocal","main_artist":"Subhathra Sridharan","accompanists":"Sanchith Narayanan (Violin), Lalit Kovvuri (Mridangam)","is_ticketed":false,"festival":"125th Year Celebration - Isai Vizha"},
             {"date":"2025-12-31","day":"Wednesday","time_start":"02:00 PM","time_end":"","time_sort":840,"sabha":"spss","venue_loc":"vidya-bharathi","genre":"flute","main_artist":"Heramb & Hemanth","details":"Flute Duo","accompanists":"Sanjay Suresh (Violin), Puttur Nikshith (Mridangam), Sriram Natrajan (Kanjira)","is_ticketed":false,"festival":"125th Year Celebration - Isai Vizha"},
@@ -4029,7 +4110,7 @@
             {"date":"2025-12-29","day":"Monday","time_start":"02:00 PM","time_end":"","time_sort":840,"sabha":"carnatica-spss","venue_loc":"desiga","genre":"vocal","main_artist":"Pavan Mani","accompanists":"","is_ticketed":false},
             {"date":"2025-12-29","day":"Monday","time_start":"03:15 PM","time_end":"","time_sort":915,"sabha":"carnatica-spss","venue_loc":"desiga","genre":"vocal","main_artist":"Shanthi Kirthishankar","accompanists":"","is_ticketed":false},
             {"date":"2025-12-29","day":"Monday","time_start":"05:00 PM","time_end":"","time_sort":1020,"sabha":"carnatica-spss","venue_loc":"desiga","genre":"vocal","main_artist":"Shradha Ganesh","accompanists":"","is_ticketed":false},
-            {"date":"2025-12-29","day":"Monday","time_start":"07:00 PM","time_end":"","time_sort":1140,"sabha":"carnatica-spss","venue_loc":"desiga","genre":"vocal","main_artist":"R. Suryaprakash","accompanists":"","is_ticketed":false},
+            {"date":"2025-12-29","day":"Monday","time_start":"07:00 PM","time_end":"","time_sort":1140,"sabha":"carnatica-spss","venue_loc":"desiga","genre":"vocal","main_artist":"Suryaprakash","accompanists":"","is_ticketed":false},
             {"date":"2025-12-30","day":"Tuesday","time_start":"09:00 AM","time_end":"","time_sort":540,"sabha":"carnatica-spss","venue_loc":"desiga","genre":"vocal","main_artist":"Dilip Simha","accompanists":"","is_ticketed":false},
             {"date":"2025-12-30","day":"Tuesday","time_start":"10:15 AM","time_end":"","time_sort":615,"sabha":"carnatica-spss","venue_loc":"desiga","genre":"vocal","main_artist":"Bhargavi Balasubramanian","accompanists":"","is_ticketed":false},
             {"date":"2025-12-30","day":"Tuesday","time_start":"12:15 PM","time_end":"","time_sort":735,"sabha":"carnatica-spss","venue_loc":"desiga","genre":"vocal","main_artist":"Ria Kaushik","accompanists":"","is_ticketed":false},
@@ -4130,7 +4211,7 @@
             {"date":"2025-12-25","day":"Thursday","time_start":"05:00 PM","time_end":"06:50 PM","time_sort":1020,"sabha":"gfa-global","venue_loc":"sri-krishna-saras","genre":"vocal","main_artist":"Dr. K. Gayatri","accompanists":"Sanjay Suresh (Violin), Poongalum Subramaniam (Mridangam), Trivandrum R Rajesh (Ghatam)","is_ticketed":false},
             {"date":"2025-12-25","day":"Thursday","time_start":"07:00 PM","time_end":"09:00 PM","time_sort":1140,"sabha":"gfa-global","venue_loc":"sri-krishna-saras","genre":"vocal","main_artist":"Murali","accompanists":"Kumar (Violin), Srimushnam Rajarao (Mridangam), .. Krishnan (Morsing)","is_ticketed":false},
             {"date":"2025-12-26","day":"Friday","time_start":"05:00 PM","time_end":"06:50 PM","time_sort":1020,"sabha":"gfa-global","venue_loc":"sri-krishna-saras","genre":"vocal","main_artist":"Anahita & Apoorva","accompanists":"Sanjay Suresh (Violin), B N Kasinadh (Mridangam), Udipi Balakrishnan (Ghatam)","is_ticketed":false},
-            {"date":"2025-12-26","day":"Friday","time_start":"07:00 PM","time_end":"09:00 PM","time_sort":1140,"sabha":"gfa-global","venue_loc":"sri-krishna-saras","genre":"vocal","main_artist":"R. Suryaprakash","accompanists":"Bombay R. Madhavan (Violin), Srimushnam Rajarao (Mridangam), .. Ramani (Ghatam)","is_ticketed":false},
+            {"date":"2025-12-26","day":"Friday","time_start":"07:00 PM","time_end":"09:00 PM","time_sort":1140,"sabha":"gfa-global","venue_loc":"sri-krishna-saras","genre":"vocal","main_artist":"Suryaprakash","accompanists":"Bombay R. Madhavan (Violin), Srimushnam Rajarao (Mridangam), .. Ramani (Ghatam)","is_ticketed":false},
             {"date":"2025-12-27","day":"Saturday","time_start":"05:00 PM","time_end":"06:50 PM","time_sort":1020,"sabha":"gfa-global","venue_loc":"sri-krishna-saras","genre":"bhakti","main_artist":"Savita Sreeram & Suchithra Balasubramanian","accompanists":"Namasankeerthanam; N Chandrasekar (Harmonium), Venkata Subramanian (Mridangam)","is_ticketed":false},
             {"date":"2025-12-27","day":"Saturday","time_start":"07:00 PM","time_end":"09:00 PM","time_sort":1140,"sabha":"gfa-global","venue_loc":"sri-krishna-saras","genre":"vocal","main_artist":"Manimaran","accompanists":"Anayampatti G. Venkatasubramanyam (Violin), Poonganur Subramanian (Mridangam), Trivandrum D Rajagopal (Kanjira)","is_ticketed":false},
             {"date":"2025-12-28","day":"Sunday","time_start":"05:00 PM","time_end":"06:50 PM","time_sort":1020,"sabha":"gfa-global","venue_loc":"sri-krishna-saras","genre":"vocal","main_artist":"Amritha Venkatesh","accompanists":"Trivandrum Dr N Sampath (Violin), Nanjil Arul (Mridangam), Thirunakkara Rethish (Morsing)","is_ticketed":false},
@@ -4263,7 +4344,7 @@
             {"date":"2025-12-31","day":"Wednesday","time_start":"06:30 PM","time_end":"","time_sort":1110,"sabha":"mfac","venue_loc":"mfac-auditorium","genre":"veena","main_artist":"Jayanthi Kumaresh","accompanists":"B.U. Jayashridevi (Violin)","is_ticketed":false},
             {"date":"2026-01-01","day":"Thursday","time_start":"04:00 PM","time_end":"","time_sort":960,"sabha":"mfac","venue_loc":"mfac-auditorium","genre":"vocal","main_artist":"Papanasam Ashok Ramani","accompanists":"R. Raghu (Violin)","is_ticketed":false},
             {"date":"2026-01-01","day":"Thursday","time_start":"06:30 PM","time_end":"","time_sort":1110,"sabha":"mfac","venue_loc":"mfac-auditorium","genre":"vocal","main_artist":"Udgata G.J.R. Krishnan & Lalgudi Vijayalakshmi","accompanists":"Trichy S. Sankaran (Violin), Dr. Suresh Vaidyanathan (Ghatam)","is_ticketed":false},
-            {"date":"2026-01-02","day":"Friday","time_start":"04:00 PM","time_end":"","time_sort":960,"sabha":"mfac","venue_loc":"mfac-auditorium","genre":"vocal","main_artist":"R. Suryaprakash","accompanists":"R. Mahadevan Sharma (Violin)","is_ticketed":false},
+            {"date":"2026-01-02","day":"Friday","time_start":"04:00 PM","time_end":"","time_sort":960,"sabha":"mfac","venue_loc":"mfac-auditorium","genre":"vocal","main_artist":"Suryaprakash","accompanists":"R. Mahadevan Sharma (Violin)","is_ticketed":false},
             {"date":"2026-01-03","day":"Saturday","time_start":"04:00 PM","time_end":"","time_sort":960,"sabha":"mfac","venue_loc":"mfac-auditorium","genre":"vocal","main_artist":"Kum. Aarthi Naran","accompanists":"","is_ticketed":false},
             {"date":"2026-01-03","day":"Saturday","time_start":"05:45 PM","time_end":"","time_sort":1065,"sabha":"mfac","venue_loc":"mfac-auditorium","genre":"vocal","main_artist":"Dharanidharan","accompanists":"Kum. Ananya Mahadevan, Aashwary Balasubramaniam","is_ticketed":false},
             {"date":"2026-01-04","day":"Sunday","time_start":"04:00 PM","time_end":"","time_sort":960,"sabha":"mfac","venue_loc":"mfac-auditorium","genre":"vocal","main_artist":"Kum. Shweta T.R. Srinivasan","accompanists":"","is_ticketed":false},
@@ -4685,7 +4766,7 @@
             {date: '2025-12-25', day: 'Thursday', time_start: '02:00 PM', time_end: '', time_sort: 840, sabha: 'bk', venue_loc: 'ygp', genre: 'vocal', main_artist: 'Arvind', accompanists: 'Trivandrum Vaishnav (Violin), Sriram Srinivasan (Mridangam)', is_ticketed: false},
             {date: '2025-12-25', day: 'Thursday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'bk', venue_loc: 'ygp', genre: 'bhakti', main_artist: 'Sivasri Skandaprasad & Party', accompanists: '', is_ticketed: true},
             {date: '2025-12-25', day: 'Thursday', time_start: '07:15 PM', time_end: '', time_sort: 1155, sabha: 'bk', venue_loc: 'ygp', genre: 'dance', main_artist: 'Dr Padma Subrahmanyam', accompanists: 'Nrithyodaya Chennai', is_ticketed: true},
-            {date: '2025-12-26', day: 'Friday', time_start: '10:30 AM', time_end: '', time_sort: 630, sabha: 'bk', venue_loc: 'ygp', genre: 'vocal', main_artist: 'Suryaprakash R', accompanists: 'Delhi Sridhar (Violin), Shertalai Ananthakrishnan (Mridangam)', is_ticketed: false},
+            {date: '2025-12-26', day: 'Friday', time_start: '10:30 AM', time_end: '', time_sort: 630, sabha: 'bk', venue_loc: 'ygp', genre: 'vocal', main_artist: 'Suryaprakash', accompanists: 'Delhi Sridhar (Violin), Shertalai Ananthakrishnan (Mridangam)', is_ticketed: false},
             {date: '2025-12-26', day: 'Friday', time_start: '02:00 PM', time_end: '', time_sort: 840, sabha: 'bk', venue_loc: 'ygp', genre: 'vocal', main_artist: 'Malladi Yashasvi Sivanand & Malladi Sindhu Rageshwari', accompanists: '', is_ticketed: false},
             {date: '2025-12-26', day: 'Friday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'bk', venue_loc: 'ygp', genre: 'vocal', main_artist: 'Malladi Brothers', accompanists: 'Dr Nishanth Chandran (Violin), Tumkur B Ravishankar (Mridangam)', is_ticketed: true},
             {date: '2025-12-26', day: 'Friday', time_start: '07:15 PM', time_end: '', time_sort: 1155, sabha: 'bk', venue_loc: 'ygp', genre: 'dance', main_artist: 'Narthaki Nataraj', accompanists: '', is_ticketed: true},
@@ -5051,7 +5132,7 @@
         {date: '2025-12-20', day: 'Saturday', time_start: '04:00 PM', time_end: '', time_sort: 960, sabha: 'spss', venue_loc: 'vidya-bharathi', genre: 'vocal', main_artist: 'Carnatica Brothers K.N. Shashikiran & P. Ganesh', accompanists: 'Vio Nagai Muralidharan, Mri Thanjavur Murugaboopathi, Payyanur Govindaprasad (Morsing)', is_ticketed: false, festival: '125th Year Isai Vizha'},
         {date: '2025-12-20', day: 'Saturday', time_start: '06:30 PM', time_end: '', time_sort: 1110, sabha: 'spss', venue_loc: 'vidya-bharathi', genre: 'vocal', main_artist: 'Ramakrishnan Murthy', accompanists: 'Vio Vittal Rangan, Mri Vijay Natesan', is_ticketed: false, festival: '125th Year Isai Vizha'},
         {date: '2025-12-21', day: 'Sunday', time_start: '08:30 AM', time_end: '', time_sort: 510, sabha: 'spss', venue_loc: 'vidya-bharathi', genre: 'lecdem', main_artist: 'Lec-Dem: Decoding Laya aspects of Pallavi - Kunnakudi M. Balamuralikrishna', accompanists: 'with Shree Sundar Kumar', is_ticketed: false, festival: '125th Year Isai Vizha'},
-        {date: '2025-12-21', day: 'Sunday', time_start: '10:00 AM', time_end: '', time_sort: 600, sabha: 'spss', venue_loc: 'vidya-bharathi', genre: 'vocal', main_artist: 'Dr R. Suryaprakash', accompanists: 'Vio VVS Murari, Mri Thanjavur Murugabhoopathi, K V Gopalakrishnan (Kanjira)', is_ticketed: false, festival: '125th Year Isai Vizha'},
+        {date: '2025-12-21', day: 'Sunday', time_start: '10:00 AM', time_end: '', time_sort: 600, sabha: 'spss', venue_loc: 'vidya-bharathi', genre: 'vocal', main_artist: 'Suryaprakash', accompanists: 'Vio VVS Murari, Mri Thanjavur Murugabhoopathi, K V Gopalakrishnan (Kanjira)', is_ticketed: false, festival: '125th Year Isai Vizha'},
         {date: '2025-12-21', day: 'Sunday', time_start: '12:30 PM', time_end: '', time_sort: 750, sabha: 'spss', venue_loc: 'vidya-bharathi', genre: 'vocal', main_artist: 'Swarathmika Srikanth', accompanists: 'Vio Haritha Narayanan, Mri Prajwal Bharadwaj, Satish Gowtham (Ghatam)', is_ticketed: false, festival: '125th Year Isai Vizha'},
         {date: '2025-12-21', day: 'Sunday', time_start: '02:00 PM', time_end: '', time_sort: 840, sabha: 'spss', venue_loc: 'vidya-bharathi', genre: 'vocal', main_artist: 'Shruthi Shankar Kumar', accompanists: 'Vio Bhargav Tumkur, Mri B.N. Kasinadh, S. Sunil Kumar (Kanjira)', is_ticketed: false, festival: '125th Year Isai Vizha'},
         {date: '2025-12-21', day: 'Sunday', time_start: '04:00 PM', time_end: '', time_sort: 960, sabha: 'spss', venue_loc: 'vidya-bharathi', genre: 'vocal', main_artist: 'Papanasam Ashok Ramani', accompanists: 'Vio B U Ganesh Prasad, Mri Thiruvarur Vaidyanathan, N. Guruprasad (Ghatam)', is_ticketed: false, festival: '125th Year Isai Vizha'},
@@ -6756,87 +6837,7 @@ function filterEvents() {
         </div>
     </div>
 
-<!-- DONATION SECTION -->
-<style>
-.donation-section {
-    background: linear-gradient(135deg, var(--maroon) 0%, var(--deep-maroon) 100%);
-    color: var(--cream);
-    padding: 30px 20px;
-    text-align: center;
-    margin-top: 40px;
-    border-top: 4px solid var(--gold);
-}
-.donation-content {
-    max-width: 500px;
-    margin: 0 auto;
-}
-.donation-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem;
-    color: var(--bright-gold);
-    margin-bottom: 15px;
-}
-.donation-tamil {
-    font-size: 0.95rem;
-    color: var(--gold);
-    margin-bottom: 15px;
-    font-style: italic;
-}
-.donation-qr-container {
-    background: white;
-    padding: 10px;
-    border-radius: 16px;
-    display: inline-block;
-    margin: 15px 0;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-}
-.donation-qr-container img {
-    width: 200px;
-    height: auto;
-    border-radius: 8px;
-}
-.donation-upi-btn {
-    display: inline-block;
-    background: linear-gradient(135deg, var(--gold) 0%, var(--bright-gold) 100%);
-    color: var(--deep-maroon);
-    padding: 12px 30px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 600;
-    margin: 15px 0;
-}
-.donation-upi-btn:hover {
-    transform: translateY(-2px);
-}
-.donation-note {
-    font-size: 0.8rem;
-    opacity: 0.8;
-    margin-top: 15px;
-}
-</style>
 
-<div class="donation-section">
-    <div class="donation-content">
-        <h2 class="donation-title">Support This Project</h2>
-        <p class="donation-tamil">"இந்த app உங்களுக்கு பயனுள்ளதாக இருந்தால்..."</p>
-
-        <div class="donation-qr-container">
-            <img src="GooglePay_QR.png" alt="GPay QR Code">
-        </div>
-
-        <div>
-            <a href="upi://pay?pa=simulationsundar@okicici&pn=Sundararaman%20Chintamani&tn=CMS2025%20Support" class="donation-upi-btn">
-                Pay via UPI
-            </a>
-        </div>
-
-        <p class="donation-note">
-            GPay | PhonePe | Paytm | Any UPI App<br>
-            No minimum | Every contribution matters
-        </p>
-    </div>
-</div>
-<!-- END DONATION SECTION -->
 
 </body>
 </html>
