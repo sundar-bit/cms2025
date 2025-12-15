@@ -5290,6 +5290,15 @@
         {date: '2026-01-04', day: 'Sunday', time_start: '04:30 PM', time_end: '', time_sort: 990, sabha: 'spss', venue_loc: 'ngs-main', genre: 'veena', main_artist: 'Sri Subba Shastri (Veena)', accompanists: 'V.S. Gopalakrishnan (Ghatam)', is_ticketed: false, festival: '125th Year Commemorative Festival'},
         {date: '2026-01-04', day: 'Sunday', time_start: '06:45 PM', time_end: '', time_sort: 1125, sabha: 'spss', venue_loc: 'ngs-main', genre: 'vocal', main_artist: 'Sudha Raghunathan', accompanists: 'Vio Embar Kannan, Mri K. Arun Prakash, S. Sunil Kumar (Kanjira)', is_ticketed: false, festival: '125th Year Commemorative Festival'},
         {date: '2026-01-05', day: 'Monday', time_start: '03:00 PM', time_end: '', time_sort: 900, sabha: 'spss', venue_loc: 'ngs-main', genre: 'aradhana', main_artist: 'Tyagaraja Aradhana', accompanists: '', is_ticketed: false, festival: '125th Year Commemorative Festival'},
+// PoornaShakti - Digital Margazhi Music Festival
+        {date: '2025-12-16', day: 'Monday', time_start: '04:00 PM', time_end: '', time_sort: 960, sabha: 'poornashakthi', venue_loc: 'poornashakthi-youtube', genre: 'vocal', main_artist: 'Kalaimamani Dr Nithyasree Mahadevan', accompanists: '', is_ticketed: false},
+        {date: '2025-12-18', day: 'Wednesday', time_start: '04:00 PM', time_end: '', time_sort: 960, sabha: 'poornashakthi', venue_loc: 'poornashakthi-youtube', genre: 'vocal', main_artist: 'Kalaimamani Dr Sunder', accompanists: '', is_ticketed: false},
+        {date: '2025-12-20', day: 'Friday', time_start: '04:00 PM', time_end: '', time_sort: 960, sabha: 'poornashakthi', venue_loc: 'poornashakthi-youtube', genre: 'special', main_artist: 'Kalaimamani Bharathi Thirumagan and group', accompanists: 'Villupaattu', is_ticketed: false},
+        {date: '2025-12-22', day: 'Sunday', time_start: '04:00 PM', time_end: '', time_sort: 960, sabha: 'poornashakthi', venue_loc: 'poornashakthi-youtube', genre: 'vocal', main_artist: 'Smt Subhashini Parthasarathy', accompanists: '', is_ticketed: false},
+        {date: '2025-12-24', day: 'Tuesday', time_start: '04:00 PM', time_end: '', time_sort: 960, sabha: 'poornashakthi', venue_loc: 'poornashakthi-youtube', genre: 'vocal', main_artist: 'Kalaimamani Ambika Kameshwar', accompanists: '', is_ticketed: false},
+        {date: '2025-12-26', day: 'Thursday', time_start: '04:00 PM', time_end: '', time_sort: 960, sabha: 'poornashakthi', venue_loc: 'poornashakthi-youtube', genre: 'vocal', main_artist: 'Smt Srilatha Sundararajan', accompanists: '', is_ticketed: false},
+        {date: '2025-12-28', day: 'Saturday', time_start: '04:00 PM', time_end: '', time_sort: 960, sabha: 'poornashakthi', venue_loc: 'poornashakthi-youtube', genre: 'dance', main_artist: 'Athamalaya group', accompanists: '', is_ticketed: false},
+        {date: '2025-12-30', day: 'Tuesday', time_start: '04:00 PM', time_end: '', time_sort: 960, sabha: 'poornashakthi', venue_loc: 'poornashakthi-youtube', genre: 'veena', main_artist: 'Bhanumathi Ravindran', accompanists: '', is_ticketed: false},
         ];
 
         
@@ -5386,6 +5395,7 @@
             if (venue === 'ess') return 'VVS Foundation Samaa Arts & Raghavendra Swami Mutt';
             if (venue === 'sanjaysabha') return 'Sanjay Sabha';
             if (venue === 'saptami') return 'Saptami Sabha';
+            if (venue === 'poornashakthi') return 'PoornaShakti';
             return venue;
         }
 
@@ -5443,6 +5453,7 @@
             'ess-hall': 'Srikara Anjaneya Raghavendra Swami Sannidhanam',
             'muthamizh-peravai': 'Muthamizh Peravai Hall',
             'acj-mss': 'ACJ - M.S. Subbulakshmi Auditorium, Tharamani',
+            'poornashakthi-youtube': 'PoornaShakti YouTube Channel',
             };
             return venueNames[venueLoc] || venueLoc;
         }
@@ -5498,6 +5509,7 @@
             'ess-hall': 'Mylapore',
             'muthamizh-peravai': 'Raja Annamalai Puram',
             'acj-mss': 'Tharamani',
+            'poornashakthi-youtube': 'Online',
             // Sabha codes (for events using venue: instead of venue_loc:)
             'academy': 'Alwarpet',
             'spss': 'Mylapore',
@@ -5573,6 +5585,7 @@
                 'sruti-musicforum': 'Lec-Dem Mela 2025',
                 'sunaadalahari': 'SunaadaLahari December Music Season',
                 'ttvv': '12th Annual Margazhi Music and Dance Mela'
+                'poornashakthi': 'Digital Margazhi Music Festival'
             };
             return festivals[sabha] || '';
         }
@@ -5907,6 +5920,7 @@
                 'ess': 'VVS Foundation Samaa Arts & Raghavendra Swami Mutt',
                 'sanjaysabha': 'Sanjay Sabha',
                 'saptami': 'Saptami Sabha',
+                'poornashakthi': 'PoornaShakti',
             };
             return names[code] || code;
         }
