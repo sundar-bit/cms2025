@@ -5644,7 +5644,7 @@
                                     <td class="col-place">${getPlaceName(event.venue_loc)}</td>
                                     <td class="col-genre"><span class="badge badge-small ${getGenreBadgeClass(event.genre)}">${getGenreName(event.genre)}</span></td>
                                     <td class="col-artist">${event.main_artist}</td>
-                                    <td class="col-accompanists">${event.accompanists || ''}</td>
+                                    <td class="col-accompanists">${event.details || event.accompanists || ""}</td>
                                     <td class="col-ticket">${ticketDisplay}</td>
                                     <td class="col-bookmark"><button class="bookmark-btn ${isBookmarked(eventId) ? 'bookmarked' : ''}" onclick="toggleBookmark('${eventId}', this)" title="Save to My Schedule">${isBookmarked(eventId) ? '★' : '☆'}</button></td>
                                 </tr>
