@@ -6734,7 +6734,7 @@ function filterEvents() {
 
                 // Fade in master volume
                 this.masterGain.gain.setValueAtTime(0, this.audioCtx.currentTime);
-                this.masterGain.gain.linearRampToValueAtTime(0.1, this.audioCtx.currentTime + 2);
+                this.masterGain.gain.linearRampToValueAtTime(0.05, this.audioCtx.currentTime + 2);
 
                 // Create 4 tanpura strings with staggered timing
                 // Pa (5th) - Sa - Sa - Sa (low)
