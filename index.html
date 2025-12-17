@@ -5320,6 +5320,8 @@
         {date: '2025-12-19', day: 'Friday', time_start: '04:30 PM', time_end: '06:10 PM', time_sort: 990, sabha: 'thumbai', venue_loc: 'sss-hall', genre: 'vocal', main_artist: 'Gayathri Mani', accompanists: 'Sivaraman Suresh (Violin), K. Vasudevan (Mridangam)', is_ticketed: false},
 // Nandalala Trust - Dr Ranga Road, Mylapore
         {date: '2026-01-03', day: 'Saturday', time_start: '06:00 PM', time_end: '', time_sort: 1080, sabha: 'nandalala', venue_loc: 'nandalala', genre: 'vocal', main_artist: 'Suryaprakash', accompanists: 'M.A. Sundareswaran (Violin), Trichur K.M.S. Mani (Mridangam), Tripunithura Radhakrishnan (Ghatam)', is_ticketed: false},
+// Sadhguru Krupa @ Arkay
+        {date: '2026-01-04', day: 'Sunday', time_start: '06:45 PM', time_end: '', time_sort: 1125, sabha: 'sadhgurukrupa', venue_loc: 'arkay', genre: 'vocal', main_artist: 'Suryaprakash', accompanists: 'Veena Krishnan (Violin), Deepika Srinivasan (Mridangam)', is_ticketed: false},
         ];
 
         
@@ -5419,6 +5421,7 @@
             if (venue === 'poornashakthi') return 'PoornaShakti';
             if (venue === 'thumbai') return 'Thumbai Centre for Arts';
             if (venue === 'nandalala') return 'Nandalala Trust';
+            if (venue === 'sadhgurukrupa') return 'Sadhguru Krupa';
             return venue;
         }
 
@@ -5554,7 +5557,8 @@
             'srothovaham': 'Mylapore',
             'sastrasatsangh': 'Vadapalani',
             'thumbai': 'Mylapore',
-            'nandalala': 'Mylapore'
+            'nandalala': 'Mylapore',
+            'sadhgurukrupa': 'Mylapore'
             };
             return places[venueLoc] || '';
         }
@@ -5950,6 +5954,7 @@
                 'poornashakthi': 'PoornaShakti',
                 'thumbai': 'Thumbai Centre for Arts',
                 'nandalala': 'Nandalala Trust',
+                'sadhgurukrupa': 'Sadhguru Krupa',
             };
             return names[code] || code;
         }
@@ -6040,6 +6045,7 @@
             'saptami',        // 40. Saptami Sabha
             'thumbai',        // 41. Thumbai Centre for Arts
             'nandalala',      // 42. Nandalala Trust
+            'sadhgurukrupa',  // 43. Sadhguru Krupa
         ];
 
         function populateColumnFilters() { try {
