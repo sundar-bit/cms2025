@@ -5318,6 +5318,8 @@
         {date: '2025-12-16', day: 'Tuesday', time_start: '04:30 PM', time_end: '06:10 PM', time_sort: 990, sabha: 'thumbai', venue_loc: 'sss-hall', genre: 'violin', main_artist: 'Usha Rajagopalan & MeeraSivaramakrishnan', accompanists: 'K.M.S. Mani (Mridangam), A.S. Krishnan (Morsing)', is_ticketed: false, details: 'Violin duet'},
         {date: '2025-12-18', day: 'Thursday', time_start: '04:30 PM', time_end: '06:10 PM', time_sort: 990, sabha: 'thumbai', venue_loc: 'sss-hall', genre: 'vocal', main_artist: 'Calcutta Shankar', accompanists: 'Kovai Chandran (Violin), Manikudi Chandrasekar (Mridangam), Hariharasubramanian (Ghatam)', is_ticketed: false},
         {date: '2025-12-19', day: 'Friday', time_start: '04:30 PM', time_end: '06:10 PM', time_sort: 990, sabha: 'thumbai', venue_loc: 'sss-hall', genre: 'vocal', main_artist: 'Gayathri Mani', accompanists: 'Sivaraman Suresh (Violin), K. Vasudevan (Mridangam)', is_ticketed: false},
+// Nandalala Trust - Dr Ranga Road, Mylapore
+        {date: '2026-01-03', day: 'Saturday', time_start: '06:00 PM', time_end: '', time_sort: 1080, sabha: 'nandalala', venue_loc: 'nandalala', genre: 'vocal', main_artist: 'Suryaprakash', accompanists: 'M.A. Sundareswaran (Violin), Trichur K.M.S. Mani (Mridangam), Tripunithura Radhakrishnan (Ghatam)', is_ticketed: false},
         ];
 
         
@@ -5416,6 +5418,7 @@
             if (venue === 'saptami') return 'Saptami Sabha';
             if (venue === 'poornashakthi') return 'PoornaShakti';
             if (venue === 'thumbai') return 'Thumbai Centre for Arts';
+            if (venue === 'nandalala') return 'Nandalala Trust';
             return venue;
         }
 
@@ -5550,7 +5553,8 @@
             'ngs': 'Mylapore',
             'srothovaham': 'Mylapore',
             'sastrasatsangh': 'Vadapalani',
-            'thumbai': 'Mylapore'
+            'thumbai': 'Mylapore',
+            'nandalala': 'Mylapore'
             };
             return places[venueLoc] || '';
         }
@@ -5945,6 +5949,7 @@
                 'saptami': 'Saptami Sabha',
                 'poornashakthi': 'PoornaShakti',
                 'thumbai': 'Thumbai Centre for Arts',
+                'nandalala': 'Nandalala Trust',
             };
             return names[code] || code;
         }
@@ -6034,6 +6039,7 @@
             'sanjaysabha',    // 39. Sanjay Sabha
             'saptami',        // 40. Saptami Sabha
             'thumbai',        // 41. Thumbai Centre for Arts
+            'nandalala',      // 42. Nandalala Trust
         ];
 
         function populateColumnFilters() { try {
