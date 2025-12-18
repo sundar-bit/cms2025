@@ -6507,7 +6507,13 @@ function filterEvents() {
                 const dateObj = new Date(date + 'T00:00:00');
                 const dayName = dateObj.toLocaleDateString('en-US', { weekday: 'short' });
                 const monthDay = dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-                const eventsCount = events.filter(e => e.date === date).length;
+
+                // Count unique events (by event ID to avoid duplicates)
+                const dateEvents = events.filter(e => e.date === date);
+                const uniqueEventIds = new Set(dateEvents.map(e =>
+                    `${e.date}_${e.time_start}_${(e.main_artist || '').replace(/[^a-zA-Z0-9]/g, '')}_${e.sabha || e.venue}`
+                ));
+                const eventsCount = uniqueEventIds.size;
 
                 const option = document.createElement('option');
                 option.value = date;
