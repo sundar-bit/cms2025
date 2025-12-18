@@ -1565,42 +1565,6 @@
             }
         }
     
-        /* Tanpura player button */
-        .tanpura-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--maroon) 0%, var(--deep-maroon) 100%);
-            border: 2px solid var(--gold);
-            color: var(--gold);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-        .tanpura-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
-        }
-        .tanpura-btn.playing {
-            animation: pulse-glow 2s ease-in-out infinite;
-        }
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); }
-            50% { box-shadow: 0 4px 25px rgba(212, 175, 55, 0.6); }
-        }
-        .tanpura-btn svg {
-            width: 24px;
-            height: 24px;
-            fill: currentColor;
-        }
 
     
         
@@ -6363,11 +6327,6 @@
         }
 
 function filterEvents() {
-            // Update tanpura pitch based on filters
-            if (typeof updateTanpuraPitch === 'function') {
-                updateTanpuraPitch();
-            }
-
             const sabhaFilter = 'all'; // Old filter removed, using column filter
             const venueFilter = 'all'; // Old filter removed, using column filter
             const genreFilter = 'all'; // Old filter removed, using column filter
@@ -7138,199 +7097,6 @@ function filterEvents() {
             });
         });
 
-        // Tanpura Drone Generator using Web Audio API
-        class TanpuraDrone {
-            constructor() {
-                this.audioCtx = null;
-                this.isPlaying = false;
-                this.masterGain = null;
-                this.oscillators = [];
-                this.baseFreq = 130.81; // C3 - Sa
-            }
-
-            
-            changePitch(semitones) {
-                // Each semitone multiplies frequency by 2^(1/12) ≈ 1.0595
-                const multiplier = Math.pow(2, semitones / 12);
-                const newBaseFreq = 130.81 * multiplier; // C3 as reference
-
-                if (!this.audioCtx || !this.isPlaying) {
-                    this.baseFreq = newBaseFreq;
-                    return;
-                }
-
-                // Smoothly transition all oscillators to new frequency
-                const now = this.audioCtx.currentTime;
-                this.oscillators.forEach((o, i) => {
-                    if (o.osc && o.osc.frequency) {
-                        let targetFreq;
-                        if (i === 0) targetFreq = newBaseFreq * 1.5; // Pa
-                        else if (i === 1 || i === 2) targetFreq = newBaseFreq; // Sa
-                        else if (i === 3) targetFreq = newBaseFreq * 0.5; // Low Sa
-                        else targetFreq = newBaseFreq; // drone
-
-                        o.osc.frequency.linearRampToValueAtTime(targetFreq, now + 0.5);
-                    }
-                });
-                this.baseFreq = newBaseFreq;
-            }
-
-            init() {
-                if (this.audioCtx) return;
-                this.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                this.masterGain = this.audioCtx.createGain();
-                this.masterGain.gain.value = 0;
-                this.masterGain.connect(this.audioCtx.destination);
-            }
-
-            createString(freq, delay) {
-                const osc = this.audioCtx.createOscillator();
-                const gainNode = this.audioCtx.createGain();
-                const filter = this.audioCtx.createBiquadFilter();
-
-                // Rich harmonics for tanpura-like sound
-                osc.type = 'sawtooth';
-                osc.frequency.value = freq;
-
-                // Warm filter
-                filter.type = 'lowpass';
-                filter.frequency.value = 800;
-                filter.Q.value = 1;
-
-                // Gentle volume envelope
-                gainNode.gain.value = 0;
-
-                osc.connect(filter);
-                filter.connect(gainNode);
-                gainNode.connect(this.masterGain);
-
-                osc.start(this.audioCtx.currentTime + delay);
-
-                // Create cycling volume envelope (like plucking)
-                const cycleDuration = 4; // 4 seconds per cycle
-                const scheduleEnvelope = () => {
-                    if (!this.isPlaying) return;
-                    const now = this.audioCtx.currentTime;
-                    gainNode.gain.setValueAtTime(0.2, now);
-                    gainNode.gain.exponentialRampToValueAtTime(0.05, now + cycleDuration * 0.9);
-                    gainNode.gain.setValueAtTime(0.05, now + cycleDuration);
-                    setTimeout(scheduleEnvelope, cycleDuration * 1000);
-                };
-                setTimeout(scheduleEnvelope, delay * 1000);
-
-                return { osc, gainNode };
-            }
-
-            start() {
-                this.init();
-                if (this.isPlaying) return;
-
-                this.isPlaying = true;
-
-                // Fade in master volume
-                this.masterGain.gain.setValueAtTime(0, this.audioCtx.currentTime);
-                this.masterGain.gain.linearRampToValueAtTime(0.05, this.audioCtx.currentTime + 2);
-
-                // Create 4 tanpura strings with staggered timing
-                // Pa (5th) - Sa - Sa - Sa (low)
-                const strings = [
-                    { freq: this.baseFreq * 1.5, delay: 0 },      // Pa
-                    { freq: this.baseFreq, delay: 1 },            // Sa
-                    { freq: this.baseFreq, delay: 2 },            // Sa
-                    { freq: this.baseFreq * 0.5, delay: 3 }       // Low Sa
-        
-                    ];
-
-                strings.forEach(s => {
-                    this.oscillators.push(this.createString(s.freq, s.delay));
-                });
-
-                // Add subtle drone layer
-                const droneOsc = this.audioCtx.createOscillator();
-                const droneGain = this.audioCtx.createGain();
-                const droneFilter = this.audioCtx.createBiquadFilter();
-                droneOsc.type = 'sine';
-                droneOsc.frequency.value = this.baseFreq;
-                droneFilter.type = 'lowpass';
-                droneFilter.frequency.value = 400;
-                droneGain.gain.value = 0.1;
-                droneOsc.connect(droneFilter);
-                droneFilter.connect(droneGain);
-                droneGain.connect(this.masterGain);
-                droneOsc.start();
-                this.oscillators.push({ osc: droneOsc, gainNode: droneGain });
-            }
-
-            stop() {
-                if (!this.isPlaying) return;
-                this.isPlaying = false;
-
-                // Fade out
-                this.masterGain.gain.linearRampToValueAtTime(0, this.audioCtx.currentTime + 1);
-
-                // Stop oscillators after fade
-                setTimeout(() => {
-                    this.oscillators.forEach(o => {
-                        try { o.osc.stop(); } catch(e) {}
-                    });
-                    this.oscillators = [];
-                }, 1500);
-            }
-
-            toggle() {
-                if (this.isPlaying) {
-                    this.stop();
-                } else {
-                    this.start();
-                }
-                return this.isPlaying;
-            }
-        }
-
-        const tanpura = new TanpuraDrone();
-
-        function toggleTanpura() {
-            const btn = document.getElementById('tanpura-btn');
-            const isPlaying = tanpura.toggle();
-            btn.classList.toggle('playing', isPlaying);
-            btn.innerHTML = isPlaying ?
-                '<svg viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>' :
-                '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
-            btn.title = isPlaying ? 'Pause Tanpura' : 'Play Tanpura';
-        }
-
-        
-        // Update tanpura pitch based on number of active filters
-        function updateTanpuraPitch() {
-            const filters = ['sabha-filter', 'genre-filter', 'date-filter', 'artist-filter'];
-            let activeCount = 0;
-
-            filters.forEach(id => {
-                const el = document.getElementById(id);
-                if (el && el.value && el.value !== '') {
-                    activeCount++;
-                }
-            });
-
-            // Each filter adds 2 semitones (a whole tone)
-            // 0 filters = C (1 Kattai)
-            // 1 filter = D (2 Kattai)
-            // 2 filters = E (3 Kattai)
-            // 3 filters = F# (4.5 Kattai)
-            // 4 filters = G# (5.5 Kattai)
-            const semitones = activeCount * 2;
-            tanpura.changePitch(semitones);
-        }
-
-        // Auto-start tanpura on page load (user interaction required for audio)
-        document.addEventListener('click', function autoStartTanpura() {
-            if (!tanpura.isPlaying) {
-                tanpura.start();
-            }
-            document.removeEventListener('click', autoStartTanpura);
-        }, { once: true });
-
-    
     // Toggle mobile filters
     function toggleMobileFilters() {
         const controls = document.querySelector('.controls');
@@ -7350,12 +7116,6 @@ function filterEvents() {
     }
 
     </script>
-
-    <!-- Tanpura Player Button -->
-    <button id="tanpura-btn" class="tanpura-btn playing" onclick="toggleTanpura()" title="Pause Tanpura">
-        <svg viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-    </button>
-
 
     <!-- Share Bookmarks Modal -->
     <div class="share-modal" id="share-modal">
