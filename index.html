@@ -6300,6 +6300,14 @@ function filterEvents() {
             updateDateRange(filtered);
             setLastUpdated();
 
+            // Auto-bookmark if any column filter is active
+            const hasActiveFilter = colTimeFilter || colSabhaFilter || colFestivalFilter ||
+                                    colVenueFilter || colPlaceFilter || colGenreFilter ||
+                                    colArtistFilter || colEntryFilter || colDetailsFilter;
+            if (hasActiveFilter && filtered.length > 0 && filtered.length < events.length) {
+                bookmarkAllFiltered(filtered);
+            }
+
             // Save preferences
             localStorage.setItem('cms2025_sabha', sabhaFilter);
             localStorage.setItem('cms2025_venue', venueFilter);
@@ -6406,6 +6414,9 @@ function filterEvents() {
                 // Update dashboard with filtered events for this date
                 const filteredEvents = events.filter(event => event.date === selectedDate);
                 updateStats(filteredEvents);
+
+                // Auto-bookmark all filtered events
+                bookmarkAllFiltered(filteredEvents);
             } else {
                 // Show all dates - reset filter
                 const allDateSections = document.querySelectorAll('.date-section');
@@ -6569,6 +6580,34 @@ function filterEvents() {
             const countEl = document.getElementById('bookmark-count');
             if (countEl) countEl.textContent = count;
             updateClearButton();
+        }
+
+        // Bookmark all filtered events automatically
+        function bookmarkAllFiltered(filteredEvents) {
+            if (!filteredEvents || filteredEvents.length === 0) return;
+
+            let bookmarks = getBookmarks();
+            let addedCount = 0;
+
+            filteredEvents.forEach(event => {
+                const eventId = `${event.date}_${event.time_start}_${(event.main_artist || '').replace(/[^a-zA-Z0-9]/g, '')}_${event.sabha || event.venue}`;
+                if (!bookmarks.includes(eventId)) {
+                    bookmarks.push(eventId);
+                    addedCount++;
+                }
+            });
+
+            if (addedCount > 0) {
+                saveBookmarks(bookmarks);
+                // Update UI to show bookmarked state
+                document.querySelectorAll('.bookmark-btn').forEach(btn => {
+                    const match = btn.getAttribute('onclick')?.match(/'([^']+)'/);
+                    if (match && bookmarks.includes(match[1])) {
+                        btn.classList.add('bookmarked');
+                        btn.innerHTML = '★';
+                    }
+                });
+            }
         }
 
         function toggleBookmarksView() {
