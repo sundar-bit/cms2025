@@ -6578,7 +6578,10 @@ function filterEvents() {
 
             html2canvas(preview, {
                 backgroundColor: '#faf3e3',
-                scale: 2
+                scale: 3,
+                useCORS: true,
+                allowTaint: true,
+                logging: false
             }).then(canvas => {
                 const link = document.createElement('a');
                 link.download = 'my-music-season-schedule.png';
