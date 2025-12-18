@@ -6656,6 +6656,25 @@ function filterEvents() {
                 html += '<div class="share-preview-name">~ ' + userName + ' ~</div>';
             }
 
+            // Show active filter as subtitle
+            const dateFilter = document.getElementById('date-filter')?.value;
+            const artistFilter = document.getElementById('filter-artist')?.value;
+            const sabhaFilter = document.getElementById('filter-sabha-col')?.value;
+
+            let filterSubtitle = '';
+            if (dateFilter) {
+                const dateObj = new Date(dateFilter + 'T00:00:00');
+                filterSubtitle = dateObj.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+            } else if (artistFilter) {
+                filterSubtitle = artistFilter;
+            } else if (sabhaFilter) {
+                filterSubtitle = getSabhaDisplayName(sabhaFilter) || sabhaFilter;
+            }
+
+            if (filterSubtitle) {
+                html += `<div style="text-align: center; font-size: 1rem; color: var(--maroon); font-weight: 600; margin-bottom: 8px;">${filterSubtitle}</div>`;
+            }
+
             // Show event count
             html += `<div style="text-align: center; font-size: 0.75rem; color: #888; margin-bottom: 10px;">${totalEvents} events</div>`;
 
