@@ -6940,25 +6940,32 @@ function filterEvents() {
             const sabhaFilter = document.getElementById('filter-sabha-col')?.value;
             const venueFilter = document.getElementById('filter-venue')?.value;
 
+            // Helper for ordinal suffix
+            function getOrdinal(n) {
+                const s = ['th', 'st', 'nd', 'rd'];
+                const v = n % 100;
+                return n + (s[(v - 20) % 10] || s[v] || s[0]);
+            }
+
             let fileName = '';
 
             if (dateFilter) {
-                // Format: dec-18-schedule
+                // Format: Dec 18th 2025
                 const date = new Date(dateFilter + 'T00:00:00');
-                const monthNames = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
-                fileName = `${monthNames[date.getMonth()]}-${date.getDate()}-schedule`;
+                const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                fileName = `${monthNames[date.getMonth()]} ${getOrdinal(date.getDate())} ${date.getFullYear()}`;
             } else if (artistFilter) {
-                // Format: suryaprakash-complete-schedule
-                fileName = `${artistFilter.toLowerCase().replace(/[^a-z0-9]/g, '-')}-complete-schedule`;
+                // Format: Suryaprakash Complete Schedule
+                fileName = `${artistFilter} Complete Schedule`;
             } else if (sabhaFilter) {
-                // Format: music-academy-schedule
+                // Format: Music Academy Schedule
                 const sabhaName = getSabhaDisplayName(sabhaFilter) || sabhaFilter;
-                fileName = `${sabhaName.toLowerCase().replace(/[^a-z0-9]/g, '-')}-schedule`;
+                fileName = `${sabhaName} Schedule`;
             } else if (venueFilter) {
-                // Format: venue-name-schedule
-                fileName = `${venueFilter.toLowerCase().replace(/[^a-z0-9]/g, '-')}-schedule`;
+                // Format: Venue Name Schedule
+                fileName = `${venueFilter} Schedule`;
             } else {
-                fileName = 'my-music-season-schedule';
+                fileName = 'My Music Season Schedule';
             }
 
             return fileName;
