@@ -431,6 +431,79 @@
             color: #666;
         }
 
+        /* Two-column layout for 11-20 events */
+        .share-event-list.two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 20px;
+        }
+
+        .share-event-list.two-columns .share-event-item {
+            grid-template-columns: 100px 1fr;
+            padding: 8px;
+            font-size: 0.9rem;
+        }
+
+        .share-event-list.two-columns .share-event-date {
+            font-size: 0.85rem;
+        }
+
+        .share-event-list.two-columns .share-event-venue {
+            font-size: 0.75rem;
+        }
+
+        .share-column-divider {
+            grid-column: 1 / -1;
+            display: none;
+        }
+
+        .share-page-indicator {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--maroon);
+            font-weight: 600;
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .share-page-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .share-page-nav.hidden {
+            display: none;
+        }
+
+        .page-nav-btn {
+            padding: 8px 16px;
+            border: 1px solid var(--maroon);
+            background: white;
+            color: var(--maroon);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .page-nav-btn:hover:not(:disabled) {
+            background: var(--maroon);
+            color: white;
+        }
+
+        .page-nav-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .page-nav-info {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
         .share-actions {
             display: flex;
             gap: 10px;
@@ -6392,17 +6465,28 @@ function filterEvents() {
         }
 
         // Update share preview with name
-        function updateSharePreview() {
+        function updateSharePreview(pageNum = 1) {
             const preview = document.getElementById('share-preview');
             if (!preview) return;
 
             const bookmarkedEvents = getBookmarkedEventsData();
             const userName = getScheduleName();
+            const totalEvents = bookmarkedEvents.length;
 
-            if (bookmarkedEvents.length === 0) {
+            if (totalEvents === 0) {
                 preview.innerHTML = '<div class="no-bookmarks-msg"><h3>No events saved</h3><p>Save some events first!</p></div>';
                 return;
             }
+
+            // Determine layout: single column (≤10), two columns (11-20), paginated (>20)
+            const useTwoColumns = totalEvents > 10;
+            const eventsPerPage = useTwoColumns ? 20 : 10;
+            const totalPages = Math.ceil(totalEvents / eventsPerPage);
+
+            // Get events for current page
+            const startIdx = (pageNum - 1) * eventsPerPage;
+            const endIdx = Math.min(startIdx + eventsPerPage, totalEvents);
+            const pageEvents = bookmarkedEvents.slice(startIdx, endIdx);
 
             let html = '<div class="share-preview-title">My Chennai Music Season 2025 Schedule</div>';
 
@@ -6410,9 +6494,10 @@ function filterEvents() {
                 html += '<div class="share-preview-name">~ ' + userName + ' ~</div>';
             }
 
-            html += '<ul class="share-event-list">';
+            const columnClass = useTwoColumns ? 'share-event-list two-columns' : 'share-event-list';
+            html += `<ul class="${columnClass}">`;
 
-            bookmarkedEvents.forEach(event => {
+            pageEvents.forEach(event => {
                 html += `
                     <li class="share-event-item">
                         <div class="share-event-date">${formatDateShort(event.date)}<br>${event.time_start}</div>
@@ -6425,8 +6510,21 @@ function filterEvents() {
             });
 
             html += '</ul>';
-            html += '<div style="text-align: center; margin-top: 20px; padding-top: 15px; border-top: 1px solid #ddd; font-size: 0.75rem; color: #666;">Developed by Dr. Sundararaman Chintamani of Suraja Technologies</div>';
+
+            if (totalPages > 1) {
+                html += `<div class="share-page-indicator">Page ${pageNum} of ${totalPages}</div>`;
+            }
+
+            html += '<div style="text-align: center; margin-top: 15px; padding-top: 10px; border-top: 1px solid #ddd; font-size: 0.7rem; color: #666;">Developed by Dr. Sundararaman Chintamani of Suraja Technologies</div>';
             preview.innerHTML = html;
+
+            // Store pagination info for download
+            preview.dataset.currentPage = pageNum;
+            preview.dataset.totalPages = totalPages;
+            preview.dataset.totalEvents = totalEvents;
+
+            // Update navigation buttons
+            updatePageNavigation();
         }
 
 
@@ -6573,21 +6671,93 @@ function filterEvents() {
             return date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
         }
 
-        function downloadScheduleImage() {
+        async function downloadScheduleImage() {
             const preview = document.getElementById('share-preview');
+            const totalPages = parseInt(preview.dataset.totalPages) || 1;
 
-            html2canvas(preview, {
-                backgroundColor: '#faf3e3',
-                scale: 3,
-                useCORS: true,
-                allowTaint: true,
-                logging: false
-            }).then(canvas => {
-                const link = document.createElement('a');
-                link.download = 'my-music-season-schedule.png';
-                link.href = canvas.toDataURL('image/png');
-                link.click();
-            });
+            if (totalPages === 1) {
+                // Single page - download directly
+                html2canvas(preview, {
+                    backgroundColor: '#faf3e3',
+                    scale: 3,
+                    useCORS: true,
+                    allowTaint: true,
+                    logging: false
+                }).then(canvas => {
+                    const link = document.createElement('a');
+                    link.download = 'my-music-season-schedule.png';
+                    link.href = canvas.toDataURL('image/png');
+                    link.click();
+                });
+            } else {
+                // Multiple pages - download each page
+                for (let page = 1; page <= totalPages; page++) {
+                    updateSharePreview(page);
+                    // Wait for DOM to update
+                    await new Promise(resolve => setTimeout(resolve, 100));
+
+                    const canvas = await html2canvas(preview, {
+                        backgroundColor: '#faf3e3',
+                        scale: 3,
+                        useCORS: true,
+                        allowTaint: true,
+                        logging: false
+                    });
+
+                    const link = document.createElement('a');
+                    link.download = `my-music-season-schedule-page${page}.png`;
+                    link.href = canvas.toDataURL('image/png');
+                    link.click();
+
+                    // Small delay between downloads
+                    await new Promise(resolve => setTimeout(resolve, 300));
+                }
+                // Reset to page 1 after download
+                updateSharePreview(1);
+                alert(`Downloaded ${totalPages} images for your schedule!`);
+            }
+        }
+
+        function navigatePage(direction) {
+            const preview = document.getElementById('share-preview');
+            const currentPage = parseInt(preview.dataset.currentPage) || 1;
+            const totalPages = parseInt(preview.dataset.totalPages) || 1;
+            const newPage = currentPage + direction;
+
+            if (newPage >= 1 && newPage <= totalPages) {
+                updateSharePreview(newPage);
+            }
+        }
+
+        function updatePageNavigation() {
+            const preview = document.getElementById('share-preview');
+            const pageNav = document.getElementById('page-nav');
+            const prevBtn = document.getElementById('prev-page-btn');
+            const nextBtn = document.getElementById('next-page-btn');
+            const pageInfo = document.getElementById('page-nav-info');
+            const downloadBtn = document.querySelector('.share-action-btn.download span');
+
+            if (!pageNav) return;
+
+            const currentPage = parseInt(preview.dataset.currentPage) || 1;
+            const totalPages = parseInt(preview.dataset.totalPages) || 1;
+
+            if (totalPages > 1) {
+                pageNav.classList.remove('hidden');
+                pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+                prevBtn.disabled = currentPage === 1;
+                nextBtn.disabled = currentPage === totalPages;
+                // Update download button text
+                if (downloadBtn) {
+                    downloadBtn.parentElement.innerHTML = '<span>📥</span> Download All Images';
+                }
+            } else {
+                pageNav.classList.add('hidden');
+                // Single image download text
+                if (downloadBtn) {
+                    downloadBtn.parentElement.innerHTML = '<span>📥</span> Download Image';
+                }
+            }
         }
 
         function copyScheduleText() {
@@ -6931,9 +7101,14 @@ function filterEvents() {
                 <div class="share-preview" id="share-preview">
                     <!-- Preview will be populated by JS -->
                 </div>
+                <div class="share-page-nav hidden" id="page-nav">
+                    <button class="page-nav-btn" id="prev-page-btn" onclick="navigatePage(-1)">← Previous</button>
+                    <span class="page-nav-info" id="page-nav-info">Page 1 of 1</span>
+                    <button class="page-nav-btn" id="next-page-btn" onclick="navigatePage(1)">Next →</button>
+                </div>
                 <div class="share-actions">
                     <button class="share-action-btn download" onclick="downloadScheduleImage()">
-                        <span>📥</span> Download Image
+                        <span>📥</span> Download All Images
                     </button>
                     <button class="share-action-btn copy" onclick="copyScheduleText()">
                         <span>📋</span> Copy Text
