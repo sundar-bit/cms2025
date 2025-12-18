@@ -6402,6 +6402,10 @@ function filterEvents() {
 
                 const visibleSections = document.querySelectorAll('.date-section:not([style*="display: none"])');
                 document.getElementById('no-results').classList.toggle('hidden', visibleSections.length > 0);
+
+                // Update dashboard with filtered events for this date
+                const filteredEvents = events.filter(event => event.date === selectedDate);
+                updateStats(filteredEvents);
             } else {
                 // Show all dates - reset filter
                 const allDateSections = document.querySelectorAll('.date-section');
@@ -6410,7 +6414,7 @@ function filterEvents() {
                 });
                 document.getElementById('no-results').classList.add('hidden');
 
-                // Also re-apply other filters
+                // Also re-apply other filters and update stats with all events
                 filterEvents();
             }
         }
