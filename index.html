@@ -458,7 +458,80 @@
         .share-column-divider {
             width: 1px;
             background: linear-gradient(to bottom, transparent, #ccc 10%, #ccc 90%, transparent);
-            margin: 0 10px;
+            margin: 0 8px;
+        }
+
+        /* Compact mode for 51-100 events (3 columns) */
+        .share-columns-container.compact .share-event-item-compact {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 3px 4px;
+            border-bottom: 1px solid #eee;
+            font-size: 0.7rem;
+        }
+
+        .share-columns-container.compact .compact-time {
+            color: var(--maroon);
+            font-weight: 600;
+            min-width: 55px;
+            font-size: 0.65rem;
+        }
+
+        .share-columns-container.compact .compact-artist {
+            flex: 1;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .share-columns-container.compact .compact-venue {
+            color: #666;
+            font-size: 0.6rem;
+            min-width: 45px;
+            text-align: right;
+        }
+
+        /* Ultra-compact mode for 100+ events (4 columns) */
+        .share-columns-container.ultra-compact .share-column {
+            padding: 0 2px;
+        }
+
+        .share-columns-container.ultra-compact .share-event-item-compact {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 2px 3px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.6rem;
+        }
+
+        .share-columns-container.ultra-compact .compact-time {
+            color: var(--maroon);
+            font-weight: 600;
+            min-width: 48px;
+            font-size: 0.55rem;
+        }
+
+        .share-columns-container.ultra-compact .compact-artist {
+            flex: 1;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 0.55rem;
+        }
+
+        .share-columns-container.ultra-compact .compact-venue {
+            color: #888;
+            font-size: 0.5rem;
+            min-width: 35px;
+            text-align: right;
+        }
+
+        .share-columns-container.ultra-compact .share-column-divider {
+            margin: 0 4px;
         }
 
         .share-page-indicator {
@@ -5502,6 +5575,54 @@
             return venue;
         }
 
+        // Get abbreviated venue name for compact display
+        function getVenueAbbr(venueName) {
+            const abbrs = {
+                'Music Academy': 'MA',
+                'Sri Parthasarathy Swami Sabha': 'SPSS',
+                'Bharat Kalachar': 'BK',
+                'Naada Inbam': 'NI',
+                'Krishna Gana Sabha': 'KGS',
+                'Sri Krishna Gana Sabha': 'KGS',
+                'Bharatiya Vidya Bhavan': 'BVB',
+                'Charsur Arts': 'Charsur',
+                'Carnatica': 'Carnatica',
+                'Brahma Gana Sabha': 'BGS',
+                'Brahma Gana Sabha - Rasika Ranjani Sabha': 'BGS-RRS',
+                'Brahma Gana Sabha - Brahma Gana Sabha Trust': 'BGS Trust',
+                'Carnatica - Sri Parthasarathy Swami Sabha': 'Carn-SPSS',
+                'Madhuradhwani - Adi Sankara Fine Arts': 'Madh-ASFA',
+                'Gayatri Fine Arts Global': 'GFA',
+                'Sri Parthasarathy Swami Sabha - Samskriti': 'SPSS-Sam',
+                'Indian Fine Arts Society': 'IFAS',
+                'Mylapore Fine Arts Club': 'MFAC',
+                'Kalakshetra': 'Kalak',
+                'Sri Thyaga Brahma Gana Sabha': 'STBGS',
+                'SciArtsRUs': 'SciArts',
+                'Madhuradhwani': 'Madh',
+                'Hamsadhwani': 'Hamsa',
+                'Nada Sudha': 'NadaS',
+                'Tamil Isai': 'TI',
+                'Chennai Fine Arts': 'CFA',
+                'Kartik Fine Arts': 'KFA',
+                'Asthika Samajam': 'Asthika',
+                'HCL Concerts': 'HCL',
+                'Mudhra': 'Mudhra',
+                'NGS': 'NGS',
+                'Narada Gana Sabha': 'NGS',
+                'TTVV Trust': 'TTVV',
+                'Integrated Academy for Performing Arts': 'IAPA',
+                'VVS Foundation Samaa Arts & Raghavendra Swami Mutt': 'VVS-RSM',
+                'Sanjay Sabha': 'Sanjay',
+                'Saptami Sabha': 'Saptami',
+                'PoornaShakti': 'PS',
+                'Thumbai Centre for Arts': 'Thumbai',
+                'Nandalala Trust': 'Nandalala',
+                'Sadhguru Krupa': 'SadGuru'
+            };
+            return abbrs[venueName] || venueName.substring(0, 8);
+        }
+
         function getVenueLocName(venueLoc) {
             const venueNames = {
                 'ttk': 'Music Academy - TTK Auditorium',
@@ -6497,15 +6618,23 @@ function filterEvents() {
                 return;
             }
 
-            // Determine layout: single column (≤10), two columns (11-20), paginated (>20)
-            const useTwoColumns = totalEvents > 10;
-            const eventsPerPage = useTwoColumns ? 20 : 10;
-            const totalPages = Math.ceil(totalEvents / eventsPerPage);
+            // Determine number of columns based on event count (all events on single page)
+            let numColumns = 1;
+            let compactMode = '';
+            if (totalEvents > 100) {
+                numColumns = 4;
+                compactMode = 'ultra-compact';
+            } else if (totalEvents > 50) {
+                numColumns = 3;
+                compactMode = 'compact';
+            } else if (totalEvents > 15) {
+                numColumns = 2;
+                compactMode = '';
+            }
 
-            // Get events for current page
-            const startIdx = (pageNum - 1) * eventsPerPage;
-            const endIdx = Math.min(startIdx + eventsPerPage, totalEvents);
-            const pageEvents = bookmarkedEvents.slice(startIdx, endIdx);
+            // All events on single page
+            const pageEvents = bookmarkedEvents;
+            const totalPages = 1;
 
             let html = '<div class="share-preview-title">My Chennai Music Season 2025 Schedule</div>';
 
@@ -6513,46 +6642,61 @@ function filterEvents() {
                 html += '<div class="share-preview-name">~ ' + userName + ' ~</div>';
             }
 
-            if (useTwoColumns) {
-                // Split events into two columns chronologically
-                const midPoint = Math.ceil(pageEvents.length / 2);
-                const col1Events = pageEvents.slice(0, midPoint);
-                const col2Events = pageEvents.slice(midPoint);
+            // Show event count
+            html += `<div style="text-align: center; font-size: 0.75rem; color: #888; margin-bottom: 10px;">${totalEvents} events</div>`;
 
-                html += '<div class="share-columns-container">';
+            if (numColumns > 1) {
+                // Multi-column layout
+                const eventsPerCol = Math.ceil(pageEvents.length / numColumns);
+                const containerClass = compactMode ? `share-columns-container ${compactMode}` : 'share-columns-container';
+                html += `<div class="${containerClass}">`;
 
-                // First column
-                html += '<ul class="share-event-list share-column">';
-                col1Events.forEach(event => {
-                    html += `
-                        <li class="share-event-item">
-                            <div class="share-event-date">${formatDateShort(event.date)}<br>${event.time_start}</div>
-                            <div class="share-event-details">
-                                <div class="share-event-artist">${event.main_artist}</div>
-                                <div class="share-event-venue">${getVenueName(event.sabha || event.venue)} - ${getVenueLocName(event.venue_loc)}</div>
-                            </div>
-                        </li>
-                    `;
-                });
-                html += '</ul>';
+                for (let col = 0; col < numColumns; col++) {
+                    const startIdx = col * eventsPerCol;
+                    const endIdx = Math.min(startIdx + eventsPerCol, pageEvents.length);
+                    const colEvents = pageEvents.slice(startIdx, endIdx);
 
-                // Divider
-                html += '<div class="share-column-divider"></div>';
+                    if (col > 0) {
+                        html += '<div class="share-column-divider"></div>';
+                    }
 
-                // Second column
-                html += '<ul class="share-event-list share-column">';
-                col2Events.forEach(event => {
-                    html += `
-                        <li class="share-event-item">
-                            <div class="share-event-date">${formatDateShort(event.date)}<br>${event.time_start}</div>
-                            <div class="share-event-details">
-                                <div class="share-event-artist">${event.main_artist}</div>
-                                <div class="share-event-venue">${getVenueName(event.sabha || event.venue)} - ${getVenueLocName(event.venue_loc)}</div>
-                            </div>
-                        </li>
-                    `;
-                });
-                html += '</ul>';
+                    html += '<ul class="share-event-list share-column">';
+                    colEvents.forEach(event => {
+                        const venueName = getVenueName(event.sabha || event.venue);
+                        const venueAbbr = getVenueAbbr(venueName);
+
+                        if (compactMode === 'ultra-compact') {
+                            // Ultra compact: Time | Artist | Venue abbr
+                            html += `
+                                <li class="share-event-item-compact">
+                                    <span class="compact-time">${event.time_start}</span>
+                                    <span class="compact-artist">${event.main_artist}</span>
+                                    <span class="compact-venue">${venueAbbr}</span>
+                                </li>
+                            `;
+                        } else if (compactMode === 'compact') {
+                            // Compact: Time + Artist on one line, venue below
+                            html += `
+                                <li class="share-event-item-compact">
+                                    <span class="compact-time">${event.time_start}</span>
+                                    <span class="compact-artist">${event.main_artist}</span>
+                                    <span class="compact-venue">${venueAbbr}</span>
+                                </li>
+                            `;
+                        } else {
+                            html += `
+                                <li class="share-event-item">
+                                    <div class="share-event-date">${formatDateShort(event.date)}<br>${event.time_start}</div>
+                                    <div class="share-event-details">
+                                        <div class="share-event-artist">${event.main_artist}</div>
+                                        <div class="share-event-venue">${venueName}</div>
+                                    </div>
+                                </li>
+                            `;
+                        }
+                    });
+                    html += '</ul>';
+                }
                 html += '</div>';
             } else {
                 // Single column
@@ -6571,16 +6715,12 @@ function filterEvents() {
                 html += '</ul>';
             }
 
-            if (totalPages > 1) {
-                html += `<div class="share-page-indicator">Page ${pageNum} of ${totalPages}</div>`;
-            }
-
-            html += '<div style="text-align: center; margin-top: 15px; padding-top: 10px; border-top: 1px solid #ddd; font-size: 0.7rem; color: #666;">karnatikbuzz.com | Developed by Dr. Sundararaman Chintamani, Suraja Technologies</div>';
+            html += '<div style="text-align: center; margin-top: 10px; padding-top: 8px; border-top: 1px solid #ddd; font-size: 0.65rem; color: #666;">karnatikbuzz.com | Developed by Dr. Sundararaman Chintamani, Suraja Technologies</div>';
             preview.innerHTML = html;
 
             // Store pagination info for download
-            preview.dataset.currentPage = pageNum;
-            preview.dataset.totalPages = totalPages;
+            preview.dataset.currentPage = 1;
+            preview.dataset.totalPages = 1;
             preview.dataset.totalEvents = totalEvents;
 
             // Update navigation buttons
@@ -6790,52 +6930,23 @@ function filterEvents() {
             return fileName;
         }
 
-        async function downloadScheduleImage() {
+        function downloadScheduleImage() {
             const preview = document.getElementById('share-preview');
-            const totalPages = parseInt(preview.dataset.totalPages) || 1;
             const baseFileName = getScheduleFileName();
 
-            if (totalPages === 1) {
-                // Single page - download directly
-                html2canvas(preview, {
-                    backgroundColor: '#faf3e3',
-                    scale: 3,
-                    useCORS: true,
-                    allowTaint: true,
-                    logging: false
-                }).then(canvas => {
-                    const link = document.createElement('a');
-                    link.download = `${baseFileName}.png`;
-                    link.href = canvas.toDataURL('image/png');
-                    link.click();
-                });
-            } else {
-                // Multiple pages - download each page
-                for (let page = 1; page <= totalPages; page++) {
-                    updateSharePreview(page);
-                    // Wait for DOM to update
-                    await new Promise(resolve => setTimeout(resolve, 100));
-
-                    const canvas = await html2canvas(preview, {
-                        backgroundColor: '#faf3e3',
-                        scale: 3,
-                        useCORS: true,
-                        allowTaint: true,
-                        logging: false
-                    });
-
-                    const link = document.createElement('a');
-                    link.download = `${baseFileName}-page${page}.png`;
-                    link.href = canvas.toDataURL('image/png');
-                    link.click();
-
-                    // Small delay between downloads
-                    await new Promise(resolve => setTimeout(resolve, 300));
-                }
-                // Reset to page 1 after download
-                updateSharePreview(1);
-                alert(`Downloaded ${totalPages} images for your schedule!`);
-            }
+            // Single page download with all events
+            html2canvas(preview, {
+                backgroundColor: '#faf3e3',
+                scale: 3,
+                useCORS: true,
+                allowTaint: true,
+                logging: false
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = `${baseFileName}.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            });
         }
 
         function navigatePage(direction) {
@@ -7228,7 +7339,7 @@ function filterEvents() {
                 </div>
                 <div class="share-actions">
                     <button class="share-action-btn download" onclick="downloadScheduleImage()">
-                        <span>📥</span> Download All Images
+                        <span>📥</span> Download Image
                     </button>
                     <button class="share-action-btn copy" onclick="copyScheduleText()">
                         <span>📋</span> Copy Text
