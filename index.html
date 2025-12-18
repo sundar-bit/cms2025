@@ -431,30 +431,34 @@
             color: #666;
         }
 
-        /* Two-column layout for 11-20 events */
-        .share-event-list.two-columns {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0 20px;
+        /* Two-column layout container */
+        .share-columns-container {
+            display: flex;
+            gap: 0;
         }
 
-        .share-event-list.two-columns .share-event-item {
-            grid-template-columns: 100px 1fr;
-            padding: 8px;
-            font-size: 0.9rem;
+        .share-columns-container .share-column {
+            flex: 1;
         }
 
-        .share-event-list.two-columns .share-event-date {
+        .share-columns-container .share-event-item {
+            grid-template-columns: 95px 1fr;
+            padding: 6px 8px;
             font-size: 0.85rem;
         }
 
-        .share-event-list.two-columns .share-event-venue {
-            font-size: 0.75rem;
+        .share-columns-container .share-event-date {
+            font-size: 0.8rem;
+        }
+
+        .share-columns-container .share-event-venue {
+            font-size: 0.7rem;
         }
 
         .share-column-divider {
-            grid-column: 1 / -1;
-            display: none;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, #ccc 10%, #ccc 90%, transparent);
+            margin: 0 10px;
         }
 
         .share-page-indicator {
@@ -6509,22 +6513,63 @@ function filterEvents() {
                 html += '<div class="share-preview-name">~ ' + userName + ' ~</div>';
             }
 
-            const columnClass = useTwoColumns ? 'share-event-list two-columns' : 'share-event-list';
-            html += `<ul class="${columnClass}">`;
+            if (useTwoColumns) {
+                // Split events into two columns chronologically
+                const midPoint = Math.ceil(pageEvents.length / 2);
+                const col1Events = pageEvents.slice(0, midPoint);
+                const col2Events = pageEvents.slice(midPoint);
 
-            pageEvents.forEach(event => {
-                html += `
-                    <li class="share-event-item">
-                        <div class="share-event-date">${formatDateShort(event.date)}<br>${event.time_start}</div>
-                        <div class="share-event-details">
-                            <div class="share-event-artist">${event.main_artist}</div>
-                            <div class="share-event-venue">${getVenueName(event.sabha || event.venue)} - ${getVenueLocName(event.venue_loc)}</div>
-                        </div>
-                    </li>
-                `;
-            });
+                html += '<div class="share-columns-container">';
 
-            html += '</ul>';
+                // First column
+                html += '<ul class="share-event-list share-column">';
+                col1Events.forEach(event => {
+                    html += `
+                        <li class="share-event-item">
+                            <div class="share-event-date">${formatDateShort(event.date)}<br>${event.time_start}</div>
+                            <div class="share-event-details">
+                                <div class="share-event-artist">${event.main_artist}</div>
+                                <div class="share-event-venue">${getVenueName(event.sabha || event.venue)} - ${getVenueLocName(event.venue_loc)}</div>
+                            </div>
+                        </li>
+                    `;
+                });
+                html += '</ul>';
+
+                // Divider
+                html += '<div class="share-column-divider"></div>';
+
+                // Second column
+                html += '<ul class="share-event-list share-column">';
+                col2Events.forEach(event => {
+                    html += `
+                        <li class="share-event-item">
+                            <div class="share-event-date">${formatDateShort(event.date)}<br>${event.time_start}</div>
+                            <div class="share-event-details">
+                                <div class="share-event-artist">${event.main_artist}</div>
+                                <div class="share-event-venue">${getVenueName(event.sabha || event.venue)} - ${getVenueLocName(event.venue_loc)}</div>
+                            </div>
+                        </li>
+                    `;
+                });
+                html += '</ul>';
+                html += '</div>';
+            } else {
+                // Single column
+                html += '<ul class="share-event-list">';
+                pageEvents.forEach(event => {
+                    html += `
+                        <li class="share-event-item">
+                            <div class="share-event-date">${formatDateShort(event.date)}<br>${event.time_start}</div>
+                            <div class="share-event-details">
+                                <div class="share-event-artist">${event.main_artist}</div>
+                                <div class="share-event-venue">${getVenueName(event.sabha || event.venue)} - ${getVenueLocName(event.venue_loc)}</div>
+                            </div>
+                        </li>
+                    `;
+                });
+                html += '</ul>';
+            }
 
             if (totalPages > 1) {
                 html += `<div class="share-page-indicator">Page ${pageNum} of ${totalPages}</div>`;
@@ -6714,9 +6759,41 @@ function filterEvents() {
             return date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
         }
 
+        function getScheduleFileName() {
+            // Check active filters to generate meaningful filename
+            const dateFilter = document.getElementById('date-filter')?.value;
+            const artistFilter = document.getElementById('filter-artist')?.value;
+            const sabhaFilter = document.getElementById('filter-sabha-col')?.value;
+            const venueFilter = document.getElementById('filter-venue')?.value;
+
+            let fileName = '';
+
+            if (dateFilter) {
+                // Format: dec-18-schedule
+                const date = new Date(dateFilter + 'T00:00:00');
+                const monthNames = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+                fileName = `${monthNames[date.getMonth()]}-${date.getDate()}-schedule`;
+            } else if (artistFilter) {
+                // Format: suryaprakash-complete-schedule
+                fileName = `${artistFilter.toLowerCase().replace(/[^a-z0-9]/g, '-')}-complete-schedule`;
+            } else if (sabhaFilter) {
+                // Format: music-academy-schedule
+                const sabhaName = getSabhaDisplayName(sabhaFilter) || sabhaFilter;
+                fileName = `${sabhaName.toLowerCase().replace(/[^a-z0-9]/g, '-')}-schedule`;
+            } else if (venueFilter) {
+                // Format: venue-name-schedule
+                fileName = `${venueFilter.toLowerCase().replace(/[^a-z0-9]/g, '-')}-schedule`;
+            } else {
+                fileName = 'my-music-season-schedule';
+            }
+
+            return fileName;
+        }
+
         async function downloadScheduleImage() {
             const preview = document.getElementById('share-preview');
             const totalPages = parseInt(preview.dataset.totalPages) || 1;
+            const baseFileName = getScheduleFileName();
 
             if (totalPages === 1) {
                 // Single page - download directly
@@ -6728,7 +6805,7 @@ function filterEvents() {
                     logging: false
                 }).then(canvas => {
                     const link = document.createElement('a');
-                    link.download = 'my-music-season-schedule.png';
+                    link.download = `${baseFileName}.png`;
                     link.href = canvas.toDataURL('image/png');
                     link.click();
                 });
@@ -6748,7 +6825,7 @@ function filterEvents() {
                     });
 
                     const link = document.createElement('a');
-                    link.download = `my-music-season-schedule-page${page}.png`;
+                    link.download = `${baseFileName}-page${page}.png`;
                     link.href = canvas.toDataURL('image/png');
                     link.click();
 
