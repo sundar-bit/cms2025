@@ -377,6 +377,33 @@
             padding: 20px;
         }
 
+        .share-mode-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .share-mode-btn {
+            padding: 8px 16px;
+            border: 2px solid var(--maroon);
+            background: white;
+            color: var(--maroon);
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .share-mode-btn.active {
+            background: var(--maroon);
+            color: white;
+        }
+
+        .share-mode-btn:hover:not(.active) {
+            background: #f5f5f5;
+        }
+
         .share-preview {
             background: linear-gradient(135deg, #faf3e3 0%, #f5ebe0 100%);
             border: 2px solid var(--bright-gold);
@@ -6600,12 +6627,16 @@ function filterEvents() {
             const preview = document.getElementById('share-preview');
             if (!preview) return;
 
-            const bookmarkedEvents = getBookmarkedEventsData();
+            // Get events based on current mode
+            const eventsToShow = currentShareMode === 'filter' ? getFilteredEventsData() : getBookmarkedEventsData();
             const userName = getScheduleName();
-            const totalEvents = bookmarkedEvents.length;
+            const totalEvents = eventsToShow.length;
 
             if (totalEvents === 0) {
-                preview.innerHTML = '<div class="no-bookmarks-msg"><h3>No events saved</h3><p>Save some events first!</p></div>';
+                const noEventsMsg = currentShareMode === 'filter'
+                    ? '<div class="no-bookmarks-msg"><h3>No filtered events</h3><p>Apply filters to the schedule first!</p></div>'
+                    : '<div class="no-bookmarks-msg"><h3>No events saved</h3><p>Save some events first!</p></div>';
+                preview.innerHTML = noEventsMsg;
                 return;
             }
 
@@ -6624,10 +6655,13 @@ function filterEvents() {
             }
 
             // All events on single page
-            const pageEvents = bookmarkedEvents;
+            const pageEvents = eventsToShow;
             const totalPages = 1;
 
-            let html = '<div class="share-preview-title">My Chennai Music Season 2025 Schedule</div>';
+            const previewTitle = currentShareMode === 'filter'
+                ? 'Chennai Music Season 2025 - Filtered View'
+                : 'My Chennai Music Season 2025 Schedule';
+            let html = '<div class="share-preview-title">' + previewTitle + '</div>';
 
             if (userName) {
                 html += '<div class="share-preview-name">~ ' + userName + ' ~</div>';
@@ -6905,6 +6939,48 @@ function filterEvents() {
             });
         }
 
+        // Track current share mode: 'bookmarks' or 'filter'
+        let currentShareMode = 'bookmarks';
+
+        // Get currently filtered events from the table
+        function getFilteredEventsData() {
+            const colTimeFilter = document.getElementById('filter-time')?.value || '';
+            const colSabhaFilter = document.getElementById('filter-sabha-col')?.value || '';
+            const colFestivalFilter = document.getElementById('filter-festival')?.value || '';
+            const colVenueFilter = document.getElementById('filter-venue')?.value || '';
+            const colPlaceFilter = document.getElementById('filter-place')?.value || '';
+            const colGenreFilter = document.getElementById('filter-genre-col')?.value || '';
+            const colArtistFilter = document.getElementById('filter-artist')?.value || '';
+            const colEntryFilter = document.getElementById('filter-entry')?.value || '';
+
+            return events.filter(event => {
+                const eventSabha = event.sabha || event.venue;
+                if (colTimeFilter && event.time_start !== colTimeFilter) return false;
+                if (colSabhaFilter && eventSabha !== colSabhaFilter) return false;
+                if (colFestivalFilter && (event.festival || getFestivalName(event.sabha)) !== colFestivalFilter) return false;
+                if (colVenueFilter && getVenueName(event.venue_loc) !== colVenueFilter) return false;
+                if (colPlaceFilter && getPlaceName(event.venue_loc || event.venue) !== colPlaceFilter) return false;
+                if (colGenreFilter && getGenreDisplayName(event.genre) !== getGenreDisplayName(colGenreFilter)) return false;
+                if (colArtistFilter && event.main_artist !== colArtistFilter) return false;
+                if (colEntryFilter) {
+                    if (colEntryFilter === 'Ticketed' && !event.is_ticketed) return false;
+                    if (colEntryFilter === 'Free' && event.is_ticketed) return false;
+                }
+                return true;
+            }).sort((a, b) => {
+                if (a.date !== b.date) return a.date.localeCompare(b.date);
+                return a.time_sort - b.time_sort;
+            });
+        }
+
+        // Set share mode and update preview
+        function setShareMode(mode) {
+            currentShareMode = mode;
+            document.getElementById('mode-bookmarks')?.classList.toggle('active', mode === 'bookmarks');
+            document.getElementById('mode-filter')?.classList.toggle('active', mode === 'filter');
+            updateSharePreview();
+        }
+
         function formatDateShort(dateStr) {
             const date = new Date(dateStr + 'T00:00:00');
             return date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
@@ -7010,13 +7086,16 @@ function filterEvents() {
         }
 
         function copyScheduleText() {
-            const bookmarkedEvents = getBookmarkedEventsData();
+            const eventsToShare = currentShareMode === 'filter' ? getFilteredEventsData() : getBookmarkedEventsData();
             const userName = getScheduleName();
-            let text = '🎵 My Chennai Music Season 2025 Schedule 🎵\n';
+            const title = currentShareMode === 'filter'
+                ? '🎵 Chennai Music Season 2025 - Filtered View 🎵'
+                : '🎵 My Chennai Music Season 2025 Schedule 🎵';
+            let text = title + '\n';
             if (userName) text += '~ ' + userName + ' ~\n';
             text += '\n';
 
-            bookmarkedEvents.forEach(event => {
+            eventsToShare.forEach(event => {
                 text += `📅 ${formatDateShort(event.date)} | ${event.time_start}\n`;
                 text += `🎤 ${event.main_artist}\n`;
                 text += `📍 ${getVenueName(event.sabha || event.venue)}\n\n`;
@@ -7144,6 +7223,10 @@ function filterEvents() {
                 <button class="share-modal-close" onclick="closeShareModal()">&times;</button>
             </div>
             <div class="share-modal-body">
+                <div class="share-mode-toggle">
+                    <button class="share-mode-btn active" id="mode-bookmarks" onclick="setShareMode('bookmarks')">My Saved Events</button>
+                    <button class="share-mode-btn" id="mode-filter" onclick="setShareMode('filter')">Current Filter</button>
+                </div>
                 <div class="name-input-container">
                     <label for="schedule-name">Your Name (for the schedule)</label>
                     <input type="text" id="schedule-name" class="name-input" placeholder="Enter your name" onchange="saveScheduleName(this.value)">
